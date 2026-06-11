@@ -1,0 +1,1924 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BrandSwitcher from '../components/BrandSwitcher.astro';
+import NeuralBackground from '../components/NeuralBackground.astro';
+import MetricCard from '../components/MetricCard.astro';
+---
+
+<Layout>
+	<main class="page-container">
+		<NeuralBackground />
+		
+		<!-- Top Navigation Bar -->
+		<header class="header">
+			<div class="header-inner container">
+				<a href="#" class="logo">
+					EXPONENTI<span class="logo-accent">Λ</span>L
+				</a>
+				
+				<BrandSwitcher />
+				
+				<nav class="nav-desktop">
+					<a href="#architecture" class="nav-link"><span class="nav-num">01.</span> Specs</a>
+					<a href="#observability" class="nav-link"><span class="nav-num">02.</span> Observability</a>
+					<a href="#connect" class="nav-link contact-btn">Briefing</a>
+				</nav>
+
+				<button class="mobile-menu-trigger" id="menu-trigger" aria-label="Toggle Menu">
+					<span class="hamburger-line"></span>
+					<span class="hamburger-line"></span>
+				</button>
+			</div>
+		</header>
+
+		<!-- Mobile Full-screen Navigation Menu Overlay -->
+		<div id="mobile-menu" class="mobile-menu-overlay">
+			<nav class="mobile-nav">
+				<a href="#architecture" class="mobile-nav-link"><span class="nav-num">01.</span> Specs</a>
+				<a href="#observability" class="mobile-nav-link"><span class="nav-num">02.</span> Observability</a>
+				<a href="#connect" class="mobile-nav-link mobile-contact-btn">Briefing</a>
+			</nav>
+		</div>
+
+		<!-- Hero Section -->
+		<section class="hero-section container">
+			<div class="hero-content">
+				<!-- Core Mode Hero Content -->
+				<div class="brand-show-core">
+					<div class="hero-meta font-mono">COGNITIVE ARCHITECTURE & NEURAL PLATFORMS</div>
+					<h1 class="hero-title">
+						Building autonomous systems for the <span class="italic-serif">intelligent enterprise</span>.
+					</h1>
+					<p class="hero-subtitle">
+						We design and deploy neural infrastructure, custom agentic workflows, and private intelligence stacks. Exponential Fucntions bridges elite systems engineering with cognitive cloud operations.
+					</p>
+				</div>
+
+				<!-- Labs Mode Hero Content -->
+				<div class="brand-show-labs">
+					<div class="hero-meta font-mono" style="color: var(--accent);">EXPONENTIAL LABS // ADVANCED RESEARCH</div>
+					<h1 class="hero-title">
+						Pushing the boundaries of <span class="italic-serif">local inference</span> and models.
+					</h1>
+					<p class="hero-subtitle">
+						Conducting applied LLM research. We specialize in custom open-weights alignment, ultra-low latency local inference clusters, and sovereign private AI architectures.
+					</p>
+				</div>
+
+				<!-- Agency Mode Hero Content -->
+				<div class="brand-show-agency">
+					<div class="hero-meta font-mono" style="color: var(--accent);">EXPONENTIAL MARKETING // SYNTHETIC GROWTH</div>
+					<h1 class="hero-title">
+						Creative automation for <span class="italic-serif">hyper-scale expansion</span>.
+					</h1>
+					<p class="hero-subtitle">
+						Architecting synthetic growth engines, signal-driven analytics pipelines, and cognitive marketing systems designed to automate creative performance at global scale.
+					</p>
+				</div>
+
+				<div class="hero-actions">
+					<a href="#connect" class="btn btn-primary">
+						<span>Initiate Technical Brief</span>
+						<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</a>
+					<a href="#architecture" class="btn btn-secondary">
+						<span>Review Specifications</span>
+					</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Architecture Grid Section -->
+		<section id="architecture" class="specs-section container">
+			<div class="section-header">
+				<div class="font-mono section-label">TECHNICAL DATA</div>
+				<h2 class="section-title">System Characteristics</h2>
+			</div>
+
+			<!-- Core Cards Grid -->
+			<div class="brand-show-core">
+				<div class="specs-grid">
+					<MetricCard 
+						label="CORE_METRIC_01"
+						value="99.98%"
+						title="Private Stack Observability"
+						description="Continuous signal analytics tracking model drift and latency anomalies across custom container environments."
+						status="OPTIMAL"
+					/>
+					<MetricCard 
+						label="CORE_METRIC_02"
+						value="14.2ms"
+						title="Agentic Workflow Dispatch"
+						description="Low-latency routing framework syncing cognitive cloud systems with client datastores."
+						status="STABLE"
+					/>
+					<MetricCard 
+						label="CORE_METRIC_03"
+						value="4.2 PetaFLOPs"
+						title="Neural Infrastructure Capacity"
+						description="Dedicated compute nodes supporting secure client local model hosting and inference pipelines."
+						status="MAXIMUM"
+					/>
+				</div>
+			</div>
+
+			<!-- Labs Cards Grid -->
+			<div class="brand-show-labs">
+				<div class="specs-grid">
+					<MetricCard 
+						label="LABS_METRIC_01"
+						value="1.8ms"
+						title="Local Inference Token Latency"
+						description="Highly optimized custom quantization kernels running on modern local metal architecture."
+						status="ACTIVE"
+					/>
+					<MetricCard 
+						label="LABS_METRIC_02"
+						value="405B"
+						title="Sovereign Parameter Tuning"
+						description="Full-parameter alignment and instruction tuning on custom enterprise cognitive models."
+						status="TRAINING"
+					/>
+					<MetricCard 
+						label="LABS_METRIC_03"
+						value="100% Private"
+						title="Air-gapped Intranets"
+						description="Zero data egress private intelligence networks running offline inference nodes."
+						status="SECURE"
+					/>
+				</div>
+			</div>
+
+			<!-- Agency Cards Grid -->
+			<div class="brand-show-agency">
+				<div class="specs-grid">
+					<MetricCard 
+						label="AGENCY_METRIC_01"
+						value="8.4x"
+						title="Synthetic Conversion Velocity"
+						description="Dynamic agent-driven asset generation testing variations across cohort channels in real time."
+						status="LIVE"
+					/>
+					<MetricCard 
+						label="AGENCY_METRIC_02"
+						value="2.4M/sec"
+						title="Signal Analytics Flow"
+						description="Real-time ingestion of social, news, and market data feeding autonomous operations."
+						status="SYNCHRONIZED"
+					/>
+					<MetricCard 
+						label="AGENCY_METRIC_03"
+						value="0ms Lag"
+						title="Intelligent Automation"
+						description="Instantaneous content translation and personalization scaling campaign vectors globally."
+						status="AUTONOMOUS"
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- System Topologies & Blueprint Section -->
+		<section id="topologies" class="topology-section container">
+			<div class="section-header">
+				<div class="font-mono section-label">SYSTEMS BLUEPRINT</div>
+				<h2 class="section-title">Cognitive Topologies</h2>
+			</div>
+
+			<div class="topology-layout">
+				<!-- Left Sidebar: Domain Selector -->
+				<div class="topology-selector">
+					<button class="topology-tab active" data-topology="cloud">
+						<span class="font-mono tab-num">01</span>
+						<span class="tab-title">Decentralized Synaptic Cloud</span>
+						<span class="font-mono tab-sub">COGNITIVE_CLOUD_TOPOLOGIES</span>
+					</button>
+					<button class="topology-tab" data-topology="agents">
+						<span class="font-mono tab-num">02</span>
+						<span class="tab-title">Agentic Orchestration Graphs</span>
+						<span class="font-mono tab-sub">AGENTIC_STATE_MACHINES</span>
+					</button>
+					<button class="topology-tab" data-topology="llms">
+						<span class="font-mono tab-num">03</span>
+						<span class="tab-title">Sovereign Tensor Arrays</span>
+						<span class="font-mono tab-sub">LOCAL_INFERENCE_CORES</span>
+					</button>
+					<button class="topology-tab" data-topology="infra">
+						<span class="font-mono tab-num">04</span>
+						<span class="tab-title">Neural Metal Provisioning</span>
+						<span class="font-mono tab-sub">HYPERVISOR_PROVISIONING_METALS</span>
+					</button>
+					<button class="topology-tab" data-topology="observability">
+						<span class="font-mono tab-num">05</span>
+						<span class="tab-title">Entropy & Drift Observability</span>
+						<span class="font-mono tab-sub">LATTICE_PULSE_AUDITING</span>
+					</button>
+					<button class="topology-tab" data-topology="analytics">
+						<span class="font-mono tab-num">06</span>
+						<span class="tab-title">Signal Synthesis Engines</span>
+						<span class="font-mono tab-sub">LATENT_VECTOR_EXTRACTION</span>
+					</button>
+				</div>
+
+				<!-- Right Panel: Inspector Console -->
+				<div class="topology-inspector">
+					<div class="inspector-inner">
+						<div class="inspector-header">
+							<span class="font-mono inspector-label">// TOPOLOGY_INSPECTOR</span>
+							<span class="font-mono inspector-status" id="inspector-sync-status">SYNCED</span>
+						</div>
+						
+						<div class="inspector-content">
+							<div class="inspector-details">
+								<h3 class="inspector-title" id="ins-title">Decentralized Synaptic Cloud</h3>
+								<p class="inspector-desc" id="ins-desc">
+									Sovereign compute fabrics bridging local node arrays with distributed edge nodes, eliminating egress overhead.
+								</p>
+								
+								<div class="inspector-metrics">
+									<div class="metric-item">
+										<span class="font-mono metric-label">LATENCY_LIMIT</span>
+										<span class="metric-val" id="ins-m1">&lt; 4.8ms</span>
+									</div>
+									<div class="metric-item">
+										<span class="font-mono metric-label">THROUGHPUT</span>
+										<span class="metric-val" id="ins-m2">140 GB/s</span>
+									</div>
+									<div class="metric-item">
+										<span class="font-mono metric-label">COMPLIANCE</span>
+										<span class="metric-val" id="ins-m3">ZERO_EGRESS</span>
+									</div>
+								</div>
+							</div>
+							
+							<div class="inspector-visualization">
+								<!-- Interactive Schema SVG -->
+								<svg class="blueprint-canvas" width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<g class="blueprint-group">
+										<!-- Orbit grids -->
+										<circle cx="100" cy="100" r="80" stroke="var(--border-color)" stroke-width="0.75" stroke-dasharray="2 4" />
+										<circle cx="100" cy="100" r="50" stroke="var(--border-color)" stroke-width="0.75" />
+										
+										<!-- Connection lines -->
+										<line x1="100" y1="20" x2="100" y2="180" stroke="var(--border-color)" stroke-width="0.75" />
+										<line x1="20" y1="100" x2="180" y2="100" stroke="var(--border-color)" stroke-width="0.75" />
+										
+										<!-- Dynamic active lines -->
+										<path id="ins-path-1" d="M100,50 L150,100 L100,150 L50,100 Z" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="100" stroke-dashoffset="0" />
+										
+										<!-- Dots representing nodes -->
+										<circle id="node-dot-1" cx="100" cy="50" r="4" fill="var(--accent)" />
+										<circle id="node-dot-2" cx="150" cy="100" r="4" fill="var(--accent)" />
+										<circle id="node-dot-3" cx="100" cy="150" r="4" fill="var(--accent)" />
+										<circle id="node-dot-4" cx="50" cy="100" r="4" fill="var(--accent)" />
+										<circle cx="100" cy="100" r="6" fill="var(--text-primary)" />
+									</g>
+								</svg>
+								
+								<!-- Monospace JSON Config block -->
+								<div class="config-block">
+									<pre class="font-mono"><code id="ins-code">&#123;
+  "topology": "synaptic-cloud",
+  "hubs": ["sf-node-01", "tokyo-edge-04"],
+  "protocols": ["quic-cognitive"],
+  "egress_routing": "zero-overhead"
+&#125;</code></pre>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Interactive Console Section -->
+		<section id="observability" class="console-section container">
+			<div class="console-wrapper">
+				<div class="console-header">
+					<div class="console-dots">
+						<span class="dot-red"></span>
+						<span class="dot-yellow"></span>
+						<span class="dot-green"></span>
+					</div>
+					<div class="console-title font-mono">system_observability_console.log</div>
+					<div class="console-status font-mono">LIVESTREAM</div>
+				</div>
+				<div class="console-body">
+					<div class="console-lines font-mono" id="console-output">
+						<!-- JavaScript will inject log streams here -->
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Sub-Brands Showcase Section -->
+		<section class="split-brands-section container">
+			<div class="split-grid">
+				<div class="split-col labs-col">
+					<div class="split-bg-effect"></div>
+					<div class="col-content">
+						<span class="font-mono col-num">01 / RESEARCH</span>
+						<h3 class="col-title">Exponential Labs</h3>
+						<p class="col-desc">
+							Dedicated to deep-tech artificial intelligence research. We design next-generation agent workflows and local model alignment techniques for sovereign infrastructures.
+						</p>
+						<button class="col-action-btn font-mono" data-trigger-brand="labs">Initialize Labs View</button>
+					</div>
+				</div>
+				<div class="split-col agency-col">
+					<div class="split-bg-effect"></div>
+					<div class="col-content">
+						<span class="font-mono col-num">02 / APPLICATIONS</span>
+						<h3 class="col-title">Exponential Marketing Agency</h3>
+						<p class="col-desc">
+							Focusing on AI-powered brand growth, signal analytics, and creative automation systems that scale conversions while keeping brand aesthetics premium.
+						</p>
+						<button class="col-action-btn font-mono" data-trigger-brand="agency">Initialize Agency View</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="connect" class="contact-section container">
+			<div class="contact-card">
+				<div class="contact-grid">
+					<div class="contact-info">
+						<div class="font-mono contact-meta">SYSTEM CONNECTION</div>
+						<h2 class="contact-title">Initiate a Technical Briefing</h2>
+						<p class="contact-desc">
+							Let's build secure neural infrastructure tailored to your parameters. Connect with our engineering or creative intelligence systems.
+						</p>
+						<div class="contact-coords font-mono">
+							<p>SF // 37.7749° N, 122.4194° W</p>
+							<p>TOKYO // 35.6762° N, 139.6503° E</p>
+							<p>PARIS // 48.8566° N, 2.3522° E</p>
+							<p>BLR // 12.9716° N, 77.5946° E</p>
+						</div>
+					</div>
+					<div class="contact-form-wrapper">
+						<form class="contact-form" onsubmit="event.preventDefault(); alert('Cognitive handshake established. Our system will contact you shortly.');">
+							<div class="form-group">
+								<label class="font-mono" for="email">IDENTITY / EMAIL</label>
+								<input type="email" id="email" required placeholder="name@organization.com" />
+							</div>
+							<div class="form-group">
+								<label class="font-mono" for="stack">OBJECTIVE / INTERFACE TYPE</label>
+								<select id="stack">
+									<option value="infra">Core Neural Infrastructure & Cognitive Cloud</option>
+									<option value="labs">Labs: Custom Models & Local Inference</option>
+									<option value="agency">Agency: Synthetic Engines & Growth Analytics</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label class="font-mono" for="note">BRIEFING PARAMETERS</label>
+								<textarea id="note" rows="3" placeholder="Outline model requirements, compliance limits, or creative goals..."></textarea>
+							</div>
+							<button type="submit" class="btn btn-primary form-submit">
+								<span>Request Handshake</span>
+								<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+								</svg>
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="footer-inner container">
+				<div class="footer-brand">
+					<h3 class="footer-cta-title">Stay close to <span class="italic-serif">Exponential Fucntions</span></h3>
+					<p class="footer-brand-tagline">Updates on neural infrastructure, agentic workflows, and what's provisioning.</p>
+					
+					<form class="footer-subscribe-form" onsubmit="event.preventDefault(); alert('Handshake initiated.');">
+						<input type="email" placeholder="Enter your email" required class="subscribe-input" />
+						<button type="submit" class="subscribe-btn">Subscribe</button>
+					</form>
+				</div>
+				
+				<div class="footer-links-grid">
+					<div class="footer-links-col">
+						<span class="font-mono footer-col-title">SYSTEM</span>
+						<a href="#architecture">Specifications</a>
+						<a href="#observability">Console Log</a>
+						<a href="#connect">Handshake</a>
+					</div>
+					<div class="footer-links-col">
+						<span class="font-mono footer-col-title">LOCATIONS</span>
+						<a href="#">San Francisco</a>
+						<a href="#">Tokyo</a>
+						<a href="#">Paris</a>
+					</div>
+					<div class="footer-links-col">
+						<span class="font-mono footer-col-title">LEGAL</span>
+						<a href="#">Terms of Protocol</a>
+						<a href="#">Privacy Schema</a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="footer-bottom container">
+				<p class="copyright">Exponential Fucntions &copy; {new Date().getFullYear()}</p>
+				
+				<div class="footer-socials">
+					<a href="#" aria-label="GitHub">GH</a>
+					<a href="#" aria-label="Hugging Face">HF</a>
+					<a href="#" aria-label="Twitter / X">X</a>
+					<a href="#" aria-label="Discord">DC</a>
+				</div>
+			</div>
+
+			<div class="footer-huge-bg-text">
+				EXPONENTIΛL
+			</div>
+		</footer>
+	</main>
+</Layout>
+
+<style>
+	/* Dynamic brand views display logic */
+	.brand-show-core, .brand-show-labs, .brand-show-agency {
+		display: none;
+	}
+
+	html.brand-core .brand-show-core {
+		display: block;
+		animation: fadeInBrand 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	}
+	html.brand-labs .brand-show-labs {
+		display: block;
+		animation: fadeInBrand 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	}
+	html.brand-agency .brand-show-agency {
+		display: block;
+		animation: fadeInBrand 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	}
+
+	@keyframes fadeInBrand {
+		from {
+			opacity: 0;
+			transform: translateY(8px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.page-container {
+		position: relative;
+		min-height: 100vh;
+		width: 100%;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+	}
+
+	/* Header Styling */
+	.header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 50;
+		border-bottom: 1px solid var(--border-color);
+		background: color-mix(in srgb, var(--bg-primary) 70%, transparent);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		transition: border-color 0.8s ease, background-color 0.8s ease;
+	}
+
+	.header-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 72px;
+	}
+
+	.logo {
+		font-family: 'Plus Jakarta Sans', sans-serif;
+		font-weight: 600;
+		font-size: 0.95rem;
+		letter-spacing: 0.25em;
+		text-decoration: none;
+		color: var(--text-primary);
+		display: flex;
+		align-items: center;
+		transition: color 0.8s ease;
+	}
+
+	.logo-accent {
+		color: var(--accent);
+		transition: color 0.8s ease;
+	}
+
+	.nav-desktop {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+	}
+
+	.nav-link {
+		text-decoration: none;
+		font-size: 0.8rem;
+		font-weight: 500;
+		color: var(--text-secondary);
+		transition: color 0.3s ease;
+		display: flex;
+		align-items: center;
+		gap: 4px;
+	}
+
+	.nav-num {
+		color: var(--accent);
+		font-size: 0.75rem;
+		font-family: 'JetBrains Mono', monospace;
+	}
+
+	.nav-link:hover {
+		color: var(--text-primary);
+	}
+
+	.contact-btn {
+		background: var(--text-primary);
+		color: var(--bg-primary);
+		padding: 6px 14px;
+		border-radius: 99px;
+		font-weight: 600;
+		transition: transform 0.3s ease, background-color 0.8s ease, color 0.8s ease;
+	}
+
+	.contact-btn:hover {
+		transform: translateY(-1px);
+		color: var(--bg-primary);
+	}
+
+	.mobile-menu-trigger {
+		display: none;
+		flex-direction: column;
+		justify-content: center;
+		gap: 6px;
+		width: 30px;
+		height: 30px;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		z-index: 110;
+	}
+
+	.hamburger-line {
+		width: 22px;
+		height: 1.5px;
+		background: var(--text-primary);
+		transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.8s ease;
+	}
+
+	.mobile-menu-trigger.active .hamburger-line:nth-child(1) {
+		transform: translateY(3.75px) rotate(45deg);
+	}
+
+	.mobile-menu-trigger.active .hamburger-line:nth-child(2) {
+		transform: translateY(-3.75px) rotate(-45deg);
+	}
+
+	.mobile-menu-overlay {
+		position: fixed;
+		inset: 0;
+		background: var(--bg-primary);
+		z-index: 105;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.mobile-menu-overlay.active {
+		opacity: 1;
+		pointer-events: auto;
+	}
+
+	.mobile-nav {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 2.5rem;
+		text-align: center;
+		width: 100%;
+		padding: 2rem;
+	}
+
+	.mobile-nav-link {
+		text-decoration: none;
+		font-size: 1.5rem;
+		font-family: 'Plus Jakarta Sans', sans-serif;
+		font-weight: 500;
+		color: var(--text-primary);
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		transition: transform 0.3s ease, color 0.8s ease;
+	}
+
+	.mobile-nav-link:hover {
+		transform: translateY(-2px);
+	}
+
+	.mobile-contact-btn {
+		background: var(--text-primary);
+		color: var(--bg-primary);
+		padding: 10px 24px;
+		border-radius: 99px;
+		font-size: 1.1rem;
+		font-weight: 600;
+		transition: background-color 0.8s ease, color 0.8s ease;
+	}
+
+	/* Hero Section */
+	.hero-section {
+		padding-top: 180px;
+		padding-bottom: 100px;
+		position: relative;
+		z-index: 5;
+		display: flex;
+		align-items: center;
+		min-height: 85vh;
+	}
+
+	.hero-content {
+		max-width: 850px;
+	}
+
+	.hero-meta {
+		font-size: 0.8rem;
+		color: var(--text-secondary);
+		margin-bottom: 1.5rem;
+		letter-spacing: 0.15em;
+		display: inline-block;
+		transition: color 0.8s ease;
+	}
+
+	.hero-title {
+		font-size: 4.8rem;
+		margin-bottom: 2rem;
+		color: var(--text-primary);
+		transition: color 0.8s ease;
+	}
+
+	.italic-serif {
+		font-family: 'Instrument Serif', Georgia, serif;
+		font-style: italic;
+	}
+
+	.hero-subtitle {
+		font-size: 1.2rem;
+		line-height: 1.7;
+		color: var(--text-secondary);
+		margin-bottom: 3rem;
+		max-width: 680px;
+		font-weight: 300;
+		transition: color 0.8s ease;
+	}
+
+	.hero-actions {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	/* Buttons styling */
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 14px 28px;
+		border-radius: 99px;
+		font-family: 'Plus Jakarta Sans', sans-serif;
+		font-size: 0.85rem;
+		font-weight: 600;
+		text-decoration: none;
+		cursor: pointer;
+		transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+	}
+
+	.btn-primary {
+		background: var(--text-primary);
+		color: var(--bg-primary);
+		border: 1px solid var(--text-primary);
+	}
+
+	.btn-primary:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 25px rgba(var(--accent-rgb), 0.15);
+	}
+
+	.btn-secondary {
+		background: transparent;
+		color: var(--text-primary);
+		border: 1px solid var(--border-color);
+	}
+
+	.btn-secondary:hover {
+		border-color: var(--text-primary);
+		background: rgba(var(--accent-rgb), 0.03);
+	}
+
+	/* Specs Section */
+	.specs-section {
+		padding: 100px 0;
+		position: relative;
+		z-index: 5;
+		border-top: 1px solid var(--border-color);
+		transition: border-color 0.8s ease;
+	}
+
+	.section-header {
+		margin-bottom: 4rem;
+	}
+
+	.section-label {
+		color: var(--text-muted);
+		font-size: 0.75rem;
+		letter-spacing: 0.1em;
+		margin-bottom: 1rem;
+	}
+
+	.section-title {
+		font-size: 2.75rem;
+		color: var(--text-primary);
+		transition: color 0.8s ease;
+	}
+
+	.specs-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+	}
+
+	/* Topology Section Styles */
+	.topology-section {
+		padding: 100px 0;
+		border-top: 1px solid var(--border-color);
+		position: relative;
+		z-index: 5;
+		transition: border-color 0.8s ease;
+	}
+
+	.topology-layout {
+		display: grid;
+		grid-template-columns: 1.1fr 1.9fr;
+		gap: 2.5rem;
+		margin-top: 2rem;
+	}
+
+	.topology-selector {
+		display: flex;
+		flex-direction: column;
+		border: 1px solid var(--border-color);
+		background: var(--bg-secondary);
+		transition: border-color 0.8s ease, background-color 0.8s ease;
+	}
+
+	.topology-tab {
+		background: transparent;
+		border: none;
+		border-bottom: 1px solid var(--border-color);
+		padding: 1.5rem;
+		text-align: left;
+		cursor: pointer;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		position: relative;
+		transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+		outline: none;
+	}
+
+	.topology-tab:last-child {
+		border-bottom: none;
+	}
+
+	.topology-tab::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		width: 3px;
+		background: transparent;
+		transition: background-color 0.4s ease;
+	}
+
+	.topology-tab:hover {
+		background: var(--bg-tertiary);
+	}
+
+	.topology-tab.active {
+		background: var(--bg-tertiary);
+	}
+
+	.topology-tab.active::before {
+		background: var(--accent);
+	}
+
+	.tab-num {
+		font-size: 0.7rem;
+		color: var(--accent);
+	}
+
+	.tab-title {
+		font-family: 'Plus Jakarta Sans', sans-serif;
+		font-size: 1.05rem;
+		font-weight: 500;
+		color: var(--text-primary);
+		transition: color 0.8s ease;
+	}
+
+	.tab-sub {
+		font-size: 0.65rem;
+		color: var(--text-muted);
+	}
+
+	.topology-inspector {
+		border: 1px solid var(--border-color);
+		background: var(--bg-secondary);
+		padding: 2.5rem;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		transition: border-color 0.8s ease, background-color 0.8s ease;
+	}
+
+	.inspector-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 1px solid var(--border-color);
+		padding-bottom: 1rem;
+		margin-bottom: 2rem;
+		transition: border-color 0.8s ease;
+	}
+
+	.inspector-label {
+		font-size: 0.75rem;
+		color: var(--text-muted);
+	}
+
+	.inspector-status {
+		font-size: 0.7rem;
+		color: var(--accent);
+		display: flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+	.inspector-status::before {
+		content: '';
+		width: 5px;
+		height: 5px;
+		background: var(--accent);
+		border-radius: 50%;
+		box-shadow: 0 0 8px var(--accent);
+	}
+
+	.inspector-content {
+		display: grid;
+		grid-template-columns: 1.2fr 1fr;
+		gap: 2rem;
+		align-items: start;
+	}
+
+	.inspector-title {
+		font-size: 2.2rem;
+		color: var(--text-primary);
+		margin-bottom: 1rem;
+		transition: color 0.8s ease;
+	}
+
+	.inspector-desc {
+		font-size: 0.9rem;
+		color: var(--text-secondary);
+		line-height: 1.6;
+		margin-bottom: 2rem;
+		font-weight: 300;
+		transition: color 0.8s ease;
+	}
+
+	.inspector-metrics {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.metric-item {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	.metric-label {
+		font-size: 0.65rem;
+		color: var(--text-muted);
+	}
+
+	.metric-val {
+		font-size: 1.15rem;
+		color: var(--text-primary);
+		font-family: 'Instrument Serif', serif;
+		transition: color 0.8s ease;
+	}
+
+	.inspector-visualization {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.blueprint-canvas {
+		transition: transform 0.5s ease;
+	}
+
+	.blueprint-group {
+		transform-origin: 100px 100px;
+		animation: blueprintSpin 90s linear infinite;
+	}
+
+	#ins-path-1 {
+		stroke-dasharray: 600;
+		stroke-dashoffset: 600;
+		animation: drawTopologyPath 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+	}
+
+	@keyframes drawTopologyPath {
+		to {
+			stroke-dashoffset: 0;
+		}
+	}
+
+	.config-block {
+		background: #020203;
+		border: 1px solid #1f1f23;
+		padding: 1rem;
+		width: 100%;
+		border-radius: 4px;
+		overflow-x: auto;
+	}
+
+	.config-block code {
+		color: #4ade80;
+		font-size: 0.7rem;
+		display: block;
+		white-space: pre-wrap;
+	}
+
+	@keyframes blueprintSpin {
+		from { transform: rotate(0deg); }
+		to { transform: rotate(360deg); }
+	}
+
+	@media (max-width: 1024px) {
+		.topology-layout {
+			grid-template-columns: 1fr;
+		}
+		.inspector-content {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+	}
+
+	/* Console Section */
+	.console-section {
+		padding: 60px 0;
+		position: relative;
+		z-index: 5;
+	}
+
+	.console-wrapper {
+		background: #020203;
+		border: 1px solid #1f1f23;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+	}
+
+	.console-header {
+		background: #09090b;
+		border-bottom: 1px solid #1f1f23;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 1rem;
+	}
+
+	.console-dots {
+		display: flex;
+		gap: 6px;
+	}
+
+	.console-dots span {
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+	}
+
+	.dot-red { background: #ff5f56; }
+	.dot-yellow { background: #ffbd2e; }
+	.dot-green { background: #27c93f; }
+
+	.console-title {
+		color: #71717a;
+		font-size: 0.75rem;
+	}
+
+	.console-status {
+		color: #27c93f;
+		font-size: 0.7rem;
+		display: flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+	.console-status::before {
+		content: '';
+		width: 6px;
+		height: 6px;
+		background: #27c93f;
+		border-radius: 50%;
+		animation: pulse 1s infinite alternate;
+	}
+
+	.console-body {
+		padding: 1.5rem;
+		height: 240px;
+		overflow-y: auto;
+		background: #040406;
+	}
+
+	.console-lines {
+		color: #a1a1aa;
+		font-size: 0.75rem;
+		line-height: 1.6;
+	}
+
+	.log-line {
+		margin-bottom: 0.5rem;
+		display: flex;
+		gap: 12px;
+	}
+
+	.log-time {
+		color: #52525b;
+		user-select: none;
+	}
+
+	.log-tag {
+		font-weight: 500;
+	}
+	
+	.tag-core { color: #d4d4d8; }
+	.tag-labs { color: #58a6ff; }
+	.tag-agency { color: #876534; }
+
+	/* Split Brands Section */
+	.split-brands-section {
+		padding: 100px 0;
+		border-top: 1px solid var(--border-color);
+		position: relative;
+		z-index: 5;
+		transition: border-color 0.8s ease;
+	}
+
+	.split-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 2.5rem;
+	}
+
+	.split-col {
+		border: 1px solid var(--border-color);
+		background: var(--bg-secondary);
+		padding: 4.5rem 3.5rem;
+		position: relative;
+		overflow: hidden;
+		transition: border-color 0.8s ease, background-color 0.8s ease;
+	}
+
+	.split-bg-effect {
+		position: absolute;
+		inset: 0;
+		opacity: 0.03;
+		background-size: 20px 20px;
+		background-image: radial-gradient(circle, var(--text-primary) 1px, transparent 1px);
+		pointer-events: none;
+	}
+
+	.col-content {
+		position: relative;
+		z-index: 2;
+	}
+
+	.col-num {
+		color: var(--accent);
+		font-size: 0.75rem;
+		margin-bottom: 1.5rem;
+		display: block;
+	}
+
+	.col-title {
+		font-size: 2.25rem;
+		color: var(--text-primary);
+		margin-bottom: 1rem;
+		transition: color 0.8s ease;
+	}
+
+	.col-desc {
+		font-size: 0.95rem;
+		color: var(--text-secondary);
+		line-height: 1.6;
+		margin-bottom: 2.5rem;
+		font-weight: 300;
+		transition: color 0.8s ease;
+	}
+
+	.col-action-btn {
+		background: transparent;
+		border: 1px solid var(--border-color);
+		color: var(--text-primary);
+		padding: 10px 20px;
+		font-size: 0.75rem;
+		font-weight: 600;
+		cursor: pointer;
+		border-radius: 4px;
+		transition: all 0.3s ease;
+	}
+
+	.col-action-btn:hover {
+		border-color: var(--text-primary);
+		background: var(--bg-tertiary);
+	}
+
+	/* Contact Section */
+	.contact-section {
+		padding: 100px 0;
+		position: relative;
+		z-index: 5;
+	}
+
+	.contact-card {
+		background: var(--bg-secondary);
+		border: 1px solid var(--border-color);
+		padding: 4.5rem;
+		position: relative;
+		transition: border-color 0.8s ease, background-color 0.8s ease;
+	}
+
+	.contact-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+	}
+
+	.contact-meta {
+		color: var(--text-muted);
+		font-size: 0.75rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.contact-title {
+		font-size: 3rem;
+		color: var(--text-primary);
+		margin-bottom: 1.5rem;
+		transition: color 0.8s ease;
+	}
+
+	.contact-desc {
+		color: var(--text-secondary);
+		line-height: 1.6;
+		margin-bottom: 3rem;
+		font-weight: 300;
+		transition: color 0.8s ease;
+	}
+
+	.contact-coords {
+		color: var(--text-muted);
+		font-size: 0.75rem;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.contact-form {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.form-group label {
+		font-size: 0.7rem;
+		color: var(--text-muted);
+	}
+
+	.form-group input, 
+	.form-group select, 
+	.form-group textarea {
+		background: var(--bg-tertiary);
+		border: 1px solid var(--border-color);
+		padding: 14px;
+		color: var(--text-primary);
+		font-family: inherit;
+		font-size: 0.9rem;
+		border-radius: 4px;
+		outline: none;
+		transition: border-color 0.4s ease, background-color 0.8s ease, color 0.8s ease;
+	}
+
+	.form-group input:focus, 
+	.form-group select:focus, 
+	.form-group textarea:focus {
+		border-color: var(--border-focus);
+	}
+
+	.form-submit {
+		margin-top: 1rem;
+		width: max-content;
+	}
+
+	.footer {
+		border-top: 1px solid var(--border-color);
+		background: var(--bg-secondary);
+		padding: 6rem 0 0 0;
+		position: relative;
+		z-index: 5;
+		transition: border-color 0.8s ease, background-color 0.8s ease;
+		overflow: hidden;
+	}
+
+	.footer-inner {
+		display: grid;
+		grid-template-columns: 1.2fr 1fr;
+		gap: 5rem;
+		margin-bottom: 5rem;
+	}
+
+	.footer-brand {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.footer-cta-title {
+		font-size: 2.2rem;
+		color: var(--text-primary);
+		line-height: 1.2;
+		transition: color 0.8s ease;
+	}
+
+	.footer-brand-tagline {
+		font-size: 0.95rem;
+		color: var(--text-secondary);
+		max-width: 400px;
+		line-height: 1.6;
+		font-weight: 300;
+	}
+
+	.footer-subscribe-form {
+		display: flex;
+		align-items: center;
+		background: var(--bg-tertiary);
+		border: 1px solid var(--border-color);
+		border-radius: 99px;
+		padding: 4px;
+		max-width: 380px;
+		width: 100%;
+		transition: border-color 0.4s ease;
+	}
+
+	.footer-subscribe-form:focus-within {
+		border-color: var(--border-focus);
+	}
+
+	.subscribe-input {
+		background: transparent;
+		border: none;
+		outline: none;
+		padding: 10px 16px;
+		color: var(--text-primary);
+		font-size: 0.85rem;
+		flex-grow: 1;
+		width: 100%;
+	}
+
+	.subscribe-input::placeholder {
+		color: var(--text-muted);
+	}
+
+	.subscribe-btn {
+		background: var(--text-primary);
+		color: var(--bg-primary);
+		border: none;
+		outline: none;
+		padding: 10px 22px;
+		border-radius: 99px;
+		font-weight: 600;
+		font-size: 0.75rem;
+		cursor: pointer;
+		transition: transform 0.2s ease, background-color 0.8s ease, color 0.8s ease;
+	}
+
+	.subscribe-btn:hover {
+		transform: scale(1.02);
+	}
+
+	.footer-links-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 3rem;
+	}
+
+	.footer-col-title {
+		color: var(--text-muted);
+		font-size: 0.7rem;
+		margin-bottom: 1.5rem;
+		display: block;
+	}
+
+	.footer-links-col {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.footer-links-col a {
+		color: var(--text-secondary);
+		text-decoration: none;
+		font-size: 0.85rem;
+		transition: color 0.3s ease;
+	}
+
+	.footer-links-col a:hover {
+		color: var(--text-primary);
+	}
+
+	.footer-bottom {
+		border-top: 1px solid var(--border-color);
+		padding: 2.5rem 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		color: var(--text-muted);
+		font-size: 0.8rem;
+		transition: border-color 0.8s ease;
+	}
+
+	.footer-socials {
+		display: flex;
+		align-items: center;
+		gap: 1.5rem;
+	}
+
+	.footer-socials a {
+		color: var(--text-secondary);
+		text-decoration: none;
+		font-family: 'JetBrains Mono', monospace;
+		font-size: 0.75rem;
+		font-weight: 500;
+		transition: color 0.3s ease;
+	}
+
+	.footer-socials a:hover {
+		color: var(--text-primary);
+	}
+
+	.footer-huge-bg-text {
+		font-size: 15.5vw;
+		font-family: 'Plus Jakarta Sans', sans-serif;
+		font-weight: 800;
+		color: var(--text-primary);
+		opacity: 0.025;
+		letter-spacing: -0.02em;
+		line-height: 0.75;
+		text-transform: uppercase;
+		pointer-events: none;
+		user-select: none;
+		width: 100%;
+		text-align: center;
+		white-space: nowrap;
+		margin-top: 2rem;
+		margin-bottom: -2rem;
+		transition: color 0.8s ease;
+	}
+
+	.system-time {
+		font-size: 0.7rem;
+	}
+
+	/* Responsive layouts */
+	@media (max-width: 1024px) {
+		.hero-title {
+			font-size: 3.6rem;
+		}
+		.specs-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		.contact-grid {
+			grid-template-columns: 1fr;
+			gap: 3rem;
+		}
+		.contact-card {
+			padding: 2.5rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.container {
+			padding: 0 1.25rem;
+		}
+		.header-inner {
+			padding: 0 1rem;
+		}
+		.logo {
+			font-size: 0.82rem;
+			letter-spacing: 0.18em;
+		}
+		.nav-desktop {
+			display: none;
+		}
+		.mobile-menu-trigger {
+			display: flex;
+		}
+		.hero-section {
+			padding-top: 130px;
+			padding-bottom: 60px;
+		}
+		.hero-title {
+			font-size: 2.3rem;
+		}
+		.hero-subtitle {
+			font-size: 0.95rem;
+		}
+		.hero-actions {
+			flex-direction: column;
+			gap: 0.75rem;
+			width: 100%;
+			margin-top: 2rem;
+		}
+		.hero-actions .btn {
+			width: 100%;
+			justify-content: center;
+			padding: 14px 20px;
+		}
+		.section-title {
+			font-size: 2rem;
+		}
+		.specs-grid {
+			grid-template-columns: 1fr;
+		}
+		.topology-selector {
+			flex-direction: row;
+			overflow-x: auto;
+			border-bottom: 1px solid var(--border-color);
+			scrollbar-width: none;
+		}
+		.topology-selector::-webkit-scrollbar {
+			display: none;
+		}
+		.topology-tab {
+			flex-shrink: 0;
+			border-bottom: none;
+			border-right: 1px solid var(--border-color);
+			width: 155px;
+			padding: 1.1rem;
+		}
+		.topology-tab:last-child {
+			border-right: none;
+		}
+		.topology-tab::before {
+			left: 0;
+			bottom: 0;
+			right: 0;
+			top: auto;
+			width: 0;
+			height: 2px;
+		}
+		.topology-tab.active::before {
+			width: 100%;
+			height: 2px;
+		}
+		.topology-inspector {
+			padding: 1.5rem;
+		}
+		.inspector-title {
+			font-size: 1.8rem;
+		}
+		.blueprint-canvas {
+			max-width: 100%;
+			height: auto;
+		}
+		.console-body {
+			font-size: 0.72rem;
+			padding: 1rem;
+		}
+		.log-line {
+			gap: 8px;
+		}
+		.split-grid {
+			grid-template-columns: 1fr;
+		}
+		.split-col {
+			padding: 3rem 2rem;
+		}
+		.form-submit {
+			width: 100%;
+			justify-content: center;
+		}
+		.footer-inner {
+			grid-template-columns: 1fr;
+			gap: 3.5rem;
+		}
+		.footer-links-grid {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 2.5rem;
+		}
+		.footer-cta-title {
+			font-size: 1.8rem;
+		}
+		.footer-bottom {
+			flex-direction: column-reverse;
+			gap: 1.5rem;
+			text-align: center;
+			padding: 2rem 0;
+		}
+		.footer-huge-bg-text {
+			font-size: 14.5vw;
+			margin-top: 2.5rem;
+			margin-bottom: -1rem;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.hero-section {
+			padding-top: 110px;
+			padding-bottom: 40px;
+			min-height: auto;
+		}
+		.hero-title {
+			font-size: 1.95rem;
+		}
+		.hero-subtitle {
+			font-size: 0.88rem;
+			margin-bottom: 2rem;
+		}
+		.section-header {
+			margin-bottom: 2.5rem;
+		}
+		.section-title {
+			font-size: 1.65rem;
+		}
+		.topology-inspector {
+			padding: 1.25rem;
+		}
+		.inspector-header {
+			margin-bottom: 1.25rem;
+		}
+		.inspector-title {
+			font-size: 1.5rem;
+		}
+		.inspector-desc {
+			font-size: 0.82rem;
+			margin-bottom: 1.5rem;
+		}
+		.split-col {
+			padding: 2.5rem 1.25rem;
+		}
+		.col-title {
+			font-size: 1.75rem;
+		}
+		.col-desc {
+			font-size: 0.85rem;
+			margin-bottom: 1.75rem;
+		}
+		.contact-card {
+			padding: 1.5rem 1.25rem;
+		}
+		.contact-title {
+			font-size: 1.85rem;
+		}
+		.contact-desc {
+			font-size: 0.85rem;
+			margin-bottom: 2rem;
+		}
+		.contact-form {
+			gap: 1.25rem;
+		}
+		.footer {
+			padding: 4rem 0 2rem;
+		}
+		.footer-inner {
+			gap: 2.5rem;
+		}
+		.footer-links-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
+	}
+</style>
+
+<script>
+	// Cognitive Status stream script inside terminal simulator
+	const logs = {
+		core: [
+			{ tag: "CORE", text: "Initializing cognitive cloud stack... [OK]" },
+			{ tag: "CORE", text: "Syncing private intelligence network interfaces..." },
+			{ tag: "CORE", text: "Observability agents established in Kubernetes cluster node_04." },
+			{ tag: "CORE", text: "Telemetry handshake validated: model drift detected at 0.02% (nominal)." },
+			{ tag: "CORE", text: "Running autonomous operations supervisor..." },
+			{ tag: "CORE", text: "Computing decision vectors for signal-observability indices..." }
+		],
+		labs: [
+			{ tag: "LABS", text: "Aligning local inference pipeline weights... [OK]" },
+			{ tag: "LABS", text: "Executing tensor parallel dispatch across local cluster..." },
+			{ tag: "LABS", text: "Optimizing 8-bit quantization scaling kernels... [OK]" },
+			{ tag: "LABS", text: "Private model inference verified offline: 0 egress detected." },
+			{ tag: "LABS", text: "Agentic workflow routing path optimized in 4ms." }
+		],
+		agency: [
+			{ tag: "AGENCY", text: "Deploying synthetic growth engine agents..." },
+			{ tag: "AGENCY", text: "Ingesting signal analytics stream: velocity @ 2.4M items/sec." },
+			{ tag: "AGENCY", text: "Generating automated creative cohorts variant #841..." },
+			{ tag: "AGENCY", text: "Real-time personalization matrix updated." },
+			{ tag: "AGENCY", text: "Autonomous ad asset optimization complete: click vector alignment stable." }
+		]
+	};
+
+	let consoleInterval: number;
+	
+	function startConsoleLogs(brand: 'core' | 'labs' | 'agency') {
+		const output = document.getElementById('console-output');
+		if (!output) return;
+		
+		clearInterval(consoleInterval);
+		output.innerHTML = '';
+		
+		const currentLogs = logs[brand];
+		let index = 0;
+		
+		function addLogLine() {
+			if (!output) return;
+			const log = currentLogs[index % currentLogs.length];
+			const date = new Date();
+			const timeStr = date.toISOString().slice(11, 19);
+			
+			const line = document.createElement('div');
+			line.className = 'log-line';
+			line.innerHTML = `
+				<span class="log-time">[${timeStr}]</span>
+				<span class="log-tag tag-${brand}">[${log.tag}]</span>
+				<span class="log-text">${log.text}</span>
+			`;
+			
+			output.appendChild(line);
+			output.scrollTop = output.scrollHeight;
+			
+			index++;
+		}
+		
+		// Run initial few lines immediately
+		for (let i = 0; i < 3; i++) {
+			addLogLine();
+		}
+		
+		consoleInterval = setInterval(addLogLine, 3000);
+	}
+
+	// Listen to brand switches
+	window.addEventListener('brand-change', (e: any) => {
+		const brand = e.detail.brand;
+		startConsoleLogs(brand);
+	});
+
+	// Support split section triggers to update the brand switcher
+	const splitColTriggers = document.querySelectorAll('[data-trigger-brand]');
+	splitColTriggers.forEach(trigger => {
+		trigger.addEventListener('click', (e) => {
+			const target = e.currentTarget as HTMLElement;
+			const brand = target.dataset.triggerBrand;
+			
+			const switcherBtn = document.querySelector(`.switcher-btn[data-brand="${brand}"]`) as HTMLElement;
+			if (switcherBtn) {
+				switcherBtn.click();
+				// Smooth scroll to top of section or page to show changes
+				window.scrollTo({ top: 0, behavior: 'smooth' });
+			}
+		});
+	});
+
+	// Mobile menu overlay toggle logic
+	const menuTrigger = document.getElementById('menu-trigger');
+	const mobileMenu = document.getElementById('mobile-menu');
+	const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+	if (menuTrigger && mobileMenu) {
+		menuTrigger.addEventListener('click', () => {
+			menuTrigger.classList.toggle('active');
+			mobileMenu.classList.toggle('active');
+			if (mobileMenu.classList.contains('active')) {
+				document.body.style.overflow = 'hidden';
+			} else {
+				document.body.style.overflow = '';
+			}
+		});
+
+		mobileLinks.forEach(link => {
+			link.addEventListener('click', () => {
+				menuTrigger.classList.remove('active');
+				mobileMenu.classList.remove('active');
+				document.body.style.overflow = '';
+			});
+		});
+	}
+
+	// Initialize with current brand mode
+	const initialBrand = (document.documentElement.className.replace('brand-', '') || 'core') as 'core' | 'labs' | 'agency';
+	startConsoleLogs(initialBrand);
+
+	// UTC Clock script
+	function updateLiveTime() {
+		const clock = document.getElementById('live-time');
+		if (!clock) return;
+		const now = new Date();
+		clock.textContent = `UTC: ${now.toUTCString().slice(17, 25)}`;
+	}
+	setInterval(updateLiveTime, 1000);
+	updateLiveTime();
+
+	// Topology data dictionary
+	const topologies = {
+		cloud: {
+			title: "Decentralized Synaptic Cloud",
+			desc: "Sovereign compute fabrics bridging local node arrays with distributed edge nodes, eliminating egress overhead.",
+			m1: "< 4.8ms",
+			m2: "140 GB/s",
+			m3: "ZERO_EGRESS",
+			path: "M100,50 L150,100 L100,150 L50,100 Z",
+			dots: [
+				{ cx: 100, cy: 50 },
+				{ cx: 150, cy: 100 },
+				{ cx: 100, cy: 150 },
+				{ cx: 50, cy: 100 }
+			],
+			code: `{\n  "topology": "synaptic-cloud",\n  "hubs": ["sf-node-01", "tokyo-edge-04"],\n  "protocols": ["quic-cognitive"],\n  "egress_routing": "zero-overhead"\n}`
+		},
+		agents: {
+			title: "Agentic Orchestration Graphs",
+			desc: "Multi-agent resilient pipelines executed via graph-based directed acyclic routing, managing state across networks.",
+			m1: "2048 Nodes",
+			m2: "12,000 ops/s",
+			m3: "MUTABLE_STATE",
+			path: "M50,50 L100,100 L150,50 L100,150 Z",
+			dots: [
+				{ cx: 50, cy: 50 },
+				{ cx: 100, cy: 100 },
+				{ cx: 150, cy: 50 },
+				{ cx: 100, cy: 150 }
+			],
+			code: `{\n  "graph_type": "directed-acyclic-state-machine",\n  "max_concurrent_agents": 2048,\n  "routing_nodes": ["memory-buffer", "evaluator-loop", "action-dispatch"],\n  "fallback_strategy": "isolated-cognitive-restart"\n}`
+		},
+		llms: {
+			title: "Sovereign Tensor Arrays",
+			desc: "Deploying high-performance open-weights models within air-gapped secure infrastructures with zero third-party dependencies.",
+			m1: "405B Parameters",
+			m2: "FP8-E4M3",
+			m3: "AIR_GAPPED",
+			path: "M100,30 A70,70 0 1,0 100,170 A70,70 0 1,0 100,30 Z",
+			dots: [
+				{ cx: 100, cy: 30 },
+				{ cx: 170, cy: 100 },
+				{ cx: 100, cy: 170 },
+				{ cx: 30, cy: 100 }
+			],
+			code: `{\n  "model_architecture": "custom-open-weights-405B",\n  "quantization_precision": "FP8-E4M3",\n  "inference_engine": "vllm-optimized-local-metal",\n  "air_gapped": true\n}`
+		},
+		infra: {
+			title: "Neural Metal Provisioning",
+			desc: "Autonomous virtualization layers managing cluster node provisioning, temperature throttling, and scheduling.",
+			m1: "64 Clusters",
+			m2: "Bare-Metal",
+			m3: "AUTO_THROTTLE",
+			path: "M50,100 L100,50 L150,100 L100,150 L50,100 L150,100 M100,50 L100,150",
+			dots: [
+				{ cx: 50, cy: 100 },
+				{ cx: 100, cy: 50 },
+				{ cx: 150, cy: 100 },
+				{ cx: 100, cy: 150 }
+			],
+			code: `{\n  "metal_hypervisor": "bare-metal-sched-v2",\n  "cluster_nodes": 64,\n  "load_balancing": "synaptic-weight-distribution",\n  "thermal_mitigation": "active-core-throttling"\n}`
+		},
+		observability: {
+			title: "Entropy & Drift Observability",
+			desc: "Real-time signal diagnostics tracking latent representation anomalies, layer activations, and data drift vectors.",
+			m1: "1ms Pulse",
+			m2: "Cosine-Dist",
+			m3: "DRIFT_ALERT",
+			path: "M30,100 C50,20 150,20 170,100 C150,180 50,180 30,100 Z",
+			dots: [
+				{ cx: 30, cy: 100 },
+				{ cx: 100, cy: 60 },
+				{ cx: 170, cy: 100 },
+				{ cx: 100, cy: 140 }
+			],
+			code: `{\n  "telemetry_stream": "lattice-pulse-audit-v4",\n  "anomaly_metrics": ["cosine-distance", "entropy-drift-vector"],\n  "audit_resolution": "1ms-continuous",\n  "drift_alert_threshold": 0.05\n}`
+		},
+		analytics: {
+			title: "Signal Synthesis Engines",
+			desc: "Extracting actionable insights from high-velocity data streams by mapping complex events to structured neural vectors.",
+			m1: "2.4M items/s",
+			m2: "Multi-Modal",
+			m3: "SYNAPTIC_KV",
+			path: "M40,40 L160,160 M160,40 L40,160",
+			dots: [
+				{ cx: 40, cy: 40 },
+				{ cx: 160, cy: 40 },
+				{ cx: 160, cy: 160 },
+				{ cx: 40, cy: 160 }
+			],
+			code: `{\n  "ingestion_velocity": "2.4M-items-sec",\n  "latent_extraction": "multi-modal-vector-mapper",\n  "synthesized_output": "structured-semantic-signals",\n  "context_retrieval": "synaptic-kv-store"\n}`
+		}
+	};
+
+	const tabs = document.querySelectorAll('.topology-tab');
+	const insTitle = document.getElementById('ins-title');
+	const insDesc = document.getElementById('ins-desc');
+	const insM1 = document.getElementById('ins-m1');
+	const insM2 = document.getElementById('ins-m2');
+	const insM3 = document.getElementById('ins-m3');
+	const insPath = document.getElementById('ins-path-1');
+	const insCode = document.getElementById('ins-code');
+	const dots = [
+		document.getElementById('node-dot-1'),
+		document.getElementById('node-dot-2'),
+		document.getElementById('node-dot-3'),
+		document.getElementById('node-dot-4')
+	];
+
+	tabs.forEach(tab => {
+		tab.addEventListener('click', (e) => {
+			const target = e.currentTarget as HTMLElement;
+			const key = target.dataset.topology as keyof typeof topologies;
+			const data = topologies[key];
+			if (!data) return;
+
+			// Active classes
+			tabs.forEach(t => t.classList.remove('active'));
+			target.classList.add('active');
+
+			// Update Text & Codes
+			if (insTitle) insTitle.textContent = data.title;
+			if (insDesc) insDesc.textContent = data.desc;
+			if (insM1) insM1.textContent = data.m1;
+			if (insM2) insM2.textContent = data.m2;
+			if (insM3) insM3.textContent = data.m3;
+			if (insCode) insCode.textContent = data.code;
+
+			// Update SVG Path & Animate
+			if (insPath) {
+				insPath.setAttribute('d', data.path);
+				// Reset animation
+				insPath.style.animation = 'none';
+				insPath.offsetHeight;
+				insPath.style.animation = '';
+			}
+
+			// Update node dots
+			data.dots.forEach((dot, index) => {
+				const htmlDot = dots[index];
+				if (htmlDot) {
+					htmlDot.setAttribute('cx', dot.cx.toString());
+					htmlDot.setAttribute('cy', dot.cy.toString());
+				}
+			});
+
+			// Status bleeping animation
+			const syncStatus = document.getElementById('inspector-sync-status');
+			if (syncStatus) {
+				syncStatus.textContent = 'SYNCING';
+				setTimeout(() => {
+					syncStatus.textContent = 'SYNCED';
+				}, 600);
+			}
+		});
+	});
+</script>

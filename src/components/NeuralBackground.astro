@@ -1,0 +1,132 @@
+---
+---
+<div class="background-canvas-container">
+  <div class="grid-background"></div>
+  <div class="ambient-glow"></div>
+  
+  <!-- Modern clean SVG for abstract architectural grids -->
+  <svg class="neural-lattice" width="100%" height="100%" viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="gradient-core" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.15" />
+        <stop offset="50%" stop-color="var(--text-muted)" stop-opacity="0.02" />
+        <stop offset="100%" stop-color="var(--bg-secondary)" stop-opacity="0" />
+      </linearGradient>
+      
+      <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="8" result="blur" />
+        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+      </filter>
+    </defs>
+    
+    <!-- Large orbital rings simulating cognitive bounds -->
+    <circle class="orbital-ring ring-1" cx="720" cy="450" r="300" stroke="var(--border-color)" stroke-width="1" stroke-dasharray="2 8" />
+    <circle class="orbital-ring ring-2" cx="720" cy="450" r="450" stroke="var(--border-color)" stroke-width="1" />
+    <circle class="orbital-ring ring-3" cx="720" cy="450" r="600" stroke="var(--border-color)" stroke-width="0.5" stroke-dasharray="10 10" />
+
+    <!-- Connecting neural system paths -->
+    <path class="connection-line line-a" d="M100 200 L400 350 L720 450 L1040 350 L1340 200" stroke="url(#gradient-core)" stroke-width="1" />
+    <path class="connection-line line-b" d="M200 750 L500 550 L720 450 L940 550 L1240 750" stroke="url(#gradient-core)" stroke-width="1" />
+
+    <!-- Pulsing Node elements -->
+    <g class="neural-node node-center">
+      <circle cx="720" cy="450" r="4" fill="var(--accent)" filter="url(#glow)" />
+      <circle class="ping-circle" cx="720" cy="450" r="12" stroke="var(--accent)" stroke-width="1" opacity="0.3" />
+    </g>
+
+    <g class="neural-node node-left">
+      <circle cx="400" cy="350" r="3" fill="var(--text-secondary)" />
+      <circle cx="500" cy="550" r="3" fill="var(--text-secondary)" />
+    </g>
+    
+    <g class="neural-node node-right">
+      <circle cx="1040" cy="350" r="3" fill="var(--text-secondary)" />
+      <circle cx="940" cy="550" r="3" fill="var(--text-secondary)" />
+    </g>
+  </svg>
+</div>
+
+<style>
+  .background-canvas-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .ambient-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--radial-gradient);
+    z-index: 2;
+    transition: background 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .neural-lattice {
+    position: absolute;
+    inset: 0;
+    opacity: 0.65;
+    z-index: 2;
+    transition: opacity 0.8s ease;
+  }
+
+  /* Specific theme customizations for background */
+  html.brand-labs .neural-lattice {
+    opacity: 0.85;
+  }
+  
+  html.brand-agency .neural-lattice {
+    opacity: 0.35;
+  }
+
+  .orbital-ring {
+    transform-origin: 720px 450px;
+    animation: rotateRings 120s linear infinite;
+  }
+
+  .ring-1 { animation-duration: 80s; }
+  .ring-2 { animation-duration: 160s; animation-direction: reverse; }
+  .ring-3 { animation-duration: 240s; }
+
+  .ping-circle {
+    transform-origin: 720px 450px;
+    animation: ping 4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+
+  .connection-line {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawLine 8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  }
+
+  .line-a { animation-delay: 0.5s; }
+  .line-b { animation-delay: 1s; }
+
+  @keyframes rotateRings {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes ping {
+    0% {
+      r: 6px;
+      opacity: 0.8;
+    }
+    100% {
+      r: 28px;
+      opacity: 0;
+    }
+  }
+
+  @keyframes drawLine {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>

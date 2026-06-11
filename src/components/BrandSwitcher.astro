@@ -1,0 +1,229 @@
+---
+---
+<div class="brand-switcher-wrapper">
+  <div class="brand-switcher">
+    <!-- Active slide background -->
+    <div class="active-indicator"></div>
+    
+    <button class="switcher-btn active" data-brand="core">
+      <span class="btn-dot"></span>
+      <span class="btn-text">Exponential Fucntions</span>
+    </button>
+    <button class="switcher-btn" data-brand="labs">
+      <span class="btn-dot"></span>
+      <span class="btn-text">Labs</span>
+    </button>
+    <button class="switcher-btn" data-brand="agency">
+      <span class="btn-dot"></span>
+      <span class="btn-text">Agency</span>
+    </button>
+  </div>
+</div>
+
+<style>
+  .brand-switcher-wrapper {
+    position: relative;
+    z-index: 100;
+  }
+  
+  .brand-switcher {
+    display: inline-flex;
+    align-items: center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    padding: 4px;
+    border-radius: 99px;
+    position: relative;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.8s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .active-indicator {
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 99px;
+    z-index: 1;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), width 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .switcher-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 8px 18px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 99px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    outline: none;
+    transition: color 0.4s ease;
+  }
+  
+  .switcher-btn:hover {
+    color: var(--text-primary);
+  }
+  
+  .switcher-btn.active {
+    color: var(--text-primary);
+  }
+  
+  .btn-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--text-muted);
+    transition: background-color 0.6s ease, transform 0.6s ease;
+  }
+  
+  .switcher-btn.active .btn-dot {
+    background: var(--accent);
+    transform: scale(1.2);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .brand-switcher-wrapper {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: auto;
+      max-width: 90vw;
+      animation: floatIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes floatIn {
+      from {
+        transform: translate(-50%, 20px);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+      }
+    }
+
+    .brand-switcher {
+      background: color-mix(in srgb, var(--bg-secondary) 85%, transparent);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-text {
+      display: none;
+    }
+    .switcher-btn {
+      padding: 10px 16px;
+    }
+    .switcher-btn::after {
+      content: attr(data-brand);
+      text-transform: capitalize;
+      font-size: 0.85rem;
+    }
+    .switcher-btn[data-brand="core"]::after {
+      content: "Core";
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .brand-switcher-wrapper {
+      bottom: 16px;
+    }
+    .switcher-btn {
+      padding: 8px 12px;
+      gap: 6px;
+    }
+    .btn-dot {
+      width: 5px;
+      height: 5px;
+    }
+    .switcher-btn::after {
+      font-size: 0.75rem;
+    }
+    .brand-switcher {
+      padding: 4px;
+    }
+    .active-indicator {
+      top: 4px;
+      bottom: 4px;
+      left: 4px;
+    }
+  }
+</style>
+
+<script>
+  function initSwitcher() {
+    const switcher = document.querySelector('.brand-switcher');
+    const buttons = document.querySelectorAll('.switcher-btn');
+    const indicator = document.querySelector('.active-indicator') as HTMLElement;
+    
+    if (!switcher || !indicator) return;
+    
+    function updateIndicator(activeBtn: HTMLElement) {
+      const switcherRect = switcher.getBoundingClientRect();
+      const btnRect = activeBtn.getBoundingClientRect();
+      
+      indicator.style.width = `${btnRect.width}px`;
+      indicator.style.transform = `translateX(${btnRect.left - switcherRect.left - 4}px)`;
+    }
+    
+    // Set initial active button based on html class
+    const currentClass = document.documentElement.className;
+    let initialBrand = 'core';
+    if (currentClass.includes('brand-labs')) initialBrand = 'labs';
+    if (currentClass.includes('brand-agency')) initialBrand = 'agency';
+    
+    buttons.forEach(btn => {
+      const htmlBtn = btn as HTMLElement;
+      if (htmlBtn.dataset.brand === initialBrand) {
+        buttons.forEach(b => b.classList.remove('active'));
+        htmlBtn.classList.add('active');
+        updateIndicator(htmlBtn);
+      }
+      
+      btn.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLElement;
+        const brand = target.dataset.brand;
+        
+        buttons.forEach(b => b.classList.remove('active'));
+        target.classList.add('active');
+        updateIndicator(target);
+        
+        // Update document class
+        document.documentElement.className = `brand-${brand}`;
+        localStorage.setItem('exponential-brand', brand);
+        
+        // Dispatch custom event for dynamic page items
+        window.dispatchEvent(new CustomEvent('brand-change', { detail: { brand } }));
+      });
+    });
+    
+    // Recalculate on resize
+    window.addEventListener('resize', () => {
+      const activeBtn = document.querySelector('.switcher-btn.active') as HTMLElement;
+      if (activeBtn) updateIndicator(activeBtn);
+    });
+    
+    // Run layout animation on initial load
+    setTimeout(() => {
+      const activeBtn = document.querySelector('.switcher-btn.active') as HTMLElement;
+      if (activeBtn) updateIndicator(activeBtn);
+    }, 100);
+  }
+  
+  // Initialize on page load
+  initSwitcher();
+</script>
