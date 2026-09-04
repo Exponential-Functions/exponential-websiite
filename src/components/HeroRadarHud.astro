@@ -1,0 +1,224 @@
+---
+// HeroRadarHud.astro - Minimalist Open Hero Telemetry HUD Matrix (Theme-adaptive, No heavy card box)
+---
+
+<div class="hero-radar-hud">
+  <div class="hud-top font-mono">
+    <span class="hud-title">// LIVE ECOSYSTEM RADAR MATRIX</span>
+    <span class="hud-status"><span class="status-dot"></span> ALL NODES SYNCHRONIZED</span>
+  </div>
+
+  <div class="radar-nodes-grid">
+    <!-- Node 1: CORE -->
+    <a href="#solutions" class="radar-node-item" data-domain="core">
+      <div class="node-header font-mono">
+        <span class="node-badge">01 / CORE</span>
+        <span class="node-indicator"></span>
+      </div>
+      <div class="node-name">Enterprise Verticals</div>
+      <p class="node-desc font-mono">Voice AI, ML Optimization, EHR & Messaging Automation</p>
+      <div class="node-metric font-mono">4 PRODUCTION VERTICALS</div>
+    </a>
+
+    <!-- Node 2: LABS -->
+    <a href="#research" class="radar-node-item" data-domain="labs">
+      <div class="node-header font-mono">
+        <span class="node-badge">02 / LABS</span>
+        <span class="node-indicator"></span>
+      </div>
+      <div class="node-name">NVIDIA Blackwell GB10</div>
+      <p class="node-desc font-mono">FP4 MX-Scale Quant, LoRA ΔW, Hermes MCP Harness</p>
+      <div class="node-metric font-mono">1 TFLOP FP4 COMPUTE</div>
+    </a>
+
+    <!-- Node 3: AGENCY -->
+    <a href="#ecosystem" class="radar-node-item" data-domain="agency">
+      <div class="node-header font-mono">
+        <span class="node-badge">03 / AGENCY</span>
+        <span class="node-indicator"></span>
+      </div>
+      <div class="node-name">Growth & Integrations</div>
+      <p class="node-desc font-mono">Behavioral Retention Models & Email/WhatsApp Gateways</p>
+      <div class="node-metric font-mono">SYNTHETIC CAMPAIGNS</div>
+    </a>
+  </div>
+
+  <div class="hud-scroll-bar font-mono">
+    <a href="#ecosystem" class="scroll-cta-link">
+      <span>EXPLORE INTERLINKED ECOSYSTEM MATRIX</span>
+      <svg class="scroll-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 3V13M8 13L3 8M8 13L13 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+<style>
+  .hero-radar-hud {
+    margin-top: 3.5rem;
+    background: transparent;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1.75rem 0;
+    position: relative;
+    transition: border-color 0.4s ease;
+  }
+
+  .hud-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px dashed var(--border-color);
+  }
+
+  .hud-title {
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+
+  .hud-status {
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.05em;
+  }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    animation: statusPulse 1.8s infinite ease-in-out;
+  }
+
+  @keyframes statusPulse {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
+  .radar-nodes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .radar-node-item {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 1.25rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    background: transparent;
+  }
+
+  .radar-node-item:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--border-color);
+    transform: translateY(-2px);
+  }
+
+  .node-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.68rem;
+    margin-bottom: 4px;
+  }
+
+  .node-badge {
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  .node-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .radar-node-item:hover .node-indicator {
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  .node-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.3;
+    transition: color 0.3s ease;
+  }
+
+  .radar-node-item:hover .node-name {
+    color: var(--text-primary);
+  }
+
+  .node-desc {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+    font-weight: 300;
+  }
+
+  .node-metric {
+    font-size: 0.65rem;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    margin-top: 6px;
+  }
+
+  .hud-scroll-bar {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-color);
+    display: flex;
+    justify-content: center;
+  }
+
+  .scroll-cta-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.74rem;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    transition: gap 0.3s ease, opacity 0.3s ease;
+  }
+
+  .scroll-cta-link:hover {
+    gap: 14px;
+    opacity: 0.85;
+  }
+
+  .scroll-arrow {
+    animation: bounceDown 1.6s infinite ease-in-out;
+  }
+
+  @keyframes bounceDown {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+
+  @media (max-width: 900px) {
+    .radar-nodes-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+  }
+</style>

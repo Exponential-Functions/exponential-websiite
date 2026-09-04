@@ -3,24 +3,30 @@ import Layout from '../layouts/Layout.astro';
 import BrandSwitcher from '../components/BrandSwitcher.astro';
 import NeuralBackground from '../components/NeuralBackground.astro';
 import MetricCard from '../components/MetricCard.astro';
+import IndustrySolutions from '../components/IndustrySolutions.astro';
+import NvidiaDgxVisualizer from '../components/NvidiaDgxVisualizer.astro';
+import AgentWorkflowVisual from '../components/AgentWorkflowVisual.astro';
+import EcosystemCanvas from '../components/EcosystemCanvas.astro';
+import HeroRadarHud from '../components/HeroRadarHud.astro';
+import SideNavIndicator from '../components/SideNavIndicator.astro';
 ---
 
 <Layout>
 	<main class="page-container">
 		<NeuralBackground />
+		<SideNavIndicator />
 		
 		<!-- Top Navigation Bar -->
 		<header class="header">
 			<div class="header-inner container">
 				<a href="#" class="logo">
-					EXPONENTI<span class="logo-accent">Λ</span>L
+					<img src="/expo-logo.png" alt="Exponential Logo" class="header-logo-img" />
+					<span class="logo-text">EXPONENTI<span class="logo-accent">Λ</span>L</span>
 				</a>
 				
 				<BrandSwitcher />
 				
 				<nav class="nav-desktop">
-					<a href="#architecture" class="nav-link"><span class="nav-num">01.</span> Specs</a>
-					<a href="#observability" class="nav-link"><span class="nav-num">02.</span> Observability</a>
 					<a href="#connect" class="nav-link contact-btn">Briefing</a>
 				</nav>
 
@@ -34,34 +40,32 @@ import MetricCard from '../components/MetricCard.astro';
 		<!-- Mobile Full-screen Navigation Menu Overlay -->
 		<div id="mobile-menu" class="mobile-menu-overlay">
 			<nav class="mobile-nav">
-				<a href="#architecture" class="mobile-nav-link"><span class="nav-num">01.</span> Specs</a>
-				<a href="#observability" class="mobile-nav-link"><span class="nav-num">02.</span> Observability</a>
 				<a href="#connect" class="mobile-nav-link mobile-contact-btn">Briefing</a>
 			</nav>
 		</div>
 
 		<!-- Hero Section -->
-		<section class="hero-section container">
+		<section id="hero" class="hero-section container">
 			<div class="hero-content">
 				<!-- Core Mode Hero Content -->
 				<div class="brand-show-core">
-					<div class="hero-meta font-mono">COGNITIVE ARCHITECTURE & NEURAL PLATFORMS</div>
+					<div class="hero-meta font-mono">PROVEN IN-HOUSE TECH PARTNER // 100% PRODUCTION DELIVERY</div>
 					<h1 class="hero-title">
-						Building autonomous systems for the <span class="italic-serif">intelligent enterprise</span>.
+						Engineered for High-Stakes Enterprises. <span class="italic-serif">Proven Across Industries.</span>
 					</h1>
 					<p class="hero-subtitle">
-						We design and deploy neural infrastructure, custom agentic workflows, and private intelligence stacks. Exponential Fucntions bridges elite systems engineering with cognitive cloud operations.
+						From real-time automated infrastructure to domain-specific AI integrations, our battle-tested engineering team converts complex technical challenges into scalable, high-yield digital platforms.
 					</p>
 				</div>
 
 				<!-- Labs Mode Hero Content -->
 				<div class="brand-show-labs">
-					<div class="hero-meta font-mono" style="color: var(--accent);">EXPONENTIAL LABS // ADVANCED RESEARCH</div>
+					<div class="hero-meta font-mono" style="color: var(--accent);">EXPONENTIAL LABS // ADVANCED RESEARCH & BENCHMARKS</div>
 					<h1 class="hero-title">
-						Pushing the boundaries of <span class="italic-serif">local inference</span> and models.
+						Applied Research That <span class="italic-serif">Powers Production Systems</span>.
 					</h1>
 					<p class="hero-subtitle">
-						Conducting applied LLM research. We specialize in custom open-weights alignment, ultra-low latency local inference clusters, and sovereign private AI architectures.
+						Our LABS section conducts applied research on local LLM fine-tuning, NVIDIA DGX Spark clusters, Hermes agent harnesses, and MCP protocol workflows that feed directly into enterprise CORE solutions.
 					</p>
 				</div>
 
@@ -69,10 +73,10 @@ import MetricCard from '../components/MetricCard.astro';
 				<div class="brand-show-agency">
 					<div class="hero-meta font-mono" style="color: var(--accent);">EXPONENTIAL MARKETING // SYNTHETIC GROWTH</div>
 					<h1 class="hero-title">
-						Creative automation for <span class="italic-serif">hyper-scale expansion</span>.
+						Outreach & growth for <span class="italic-serif">hyper-scale expansion</span>.
 					</h1>
 					<p class="hero-subtitle">
-						Architecting synthetic growth engines, signal-driven analytics pipelines, and cognitive marketing systems designed to automate creative performance at global scale.
+						Delivering customer retention strategies and outreach growth engines through targeted marketing agency initiatives, integrated with Email & WhatsApp communication channels.
 					</p>
 				</div>
 
@@ -83,12 +87,85 @@ import MetricCard from '../components/MetricCard.astro';
 							<path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 						</svg>
 					</a>
-					<a href="#architecture" class="btn btn-secondary">
-						<span>Review Specifications</span>
+					<a href="#ecosystem" class="btn btn-secondary">
+						<span>Explore Ecosystem</span>
 					</a>
 				</div>
+
+				<!-- Interactive Hero Radar Matrix HUD -->
+				<HeroRadarHud />
 			</div>
 		</section>
+
+		<!-- Ecosystem Interlinking Visual Canvas Section (Interlinks all 3 modes together) -->
+		<section id="ecosystem" class="specs-section container">
+			<EcosystemCanvas />
+		</section>
+
+		<!-- CORE Section: Industry Solutions (Visible ONLY in CORE mode) -->
+		<div class="brand-show-core">
+			<section id="solutions" class="specs-section container">
+				<div class="section-header">
+					<div class="font-mono section-label">CORE // PROVEN ENTERPRISE SOLUTIONS</div>
+					<h2 class="section-title">Engineered for Scale. Proven in Production.</h2>
+					<p class="hero-subtitle" style="margin-top: 1rem; margin-bottom: 0;">
+						We combine deep software architecture with domain-specific AI capabilities to build mission-critical enterprise platforms that eliminate operational friction and accelerate growth.
+					</p>
+				</div>
+
+				<IndustrySolutions />
+			</section>
+		</div>
+
+		<!-- LABS Section: Research & Experimentation (Visible ONLY in LABS mode) -->
+		<div class="brand-show-labs">
+			<section id="research" class="specs-section container">
+				<div class="section-header">
+					<div class="font-mono section-label" style="color: #0df2a5;">LABS // ADVANCED RESEARCH</div>
+					<h2 class="section-title">Applied Research Feeding Directly Into CORE</h2>
+					<p class="hero-subtitle" style="margin-top: 1rem; margin-bottom: 0;">
+						Our LABS section focuses on breakthrough hardware fine-tuning and agentic workflows that power our enterprise implementations.
+					</p>
+				</div>
+
+				<!-- NVIDIA DGX Spark Visual Showcase (Green Theme & Magical Hover Gallery) -->
+				<NvidiaDgxVisualizer />
+
+				<!-- AI Agents & Intelligent Workflows (Hermes & MCP Protocol) -->
+				<AgentWorkflowVisual />
+			</section>
+		</div>
+
+		<!-- AGENCY Section: Growth Engines & Gateways (Visible ONLY in AGENCY mode) -->
+		<div class="brand-show-agency">
+			<section id="agency-growth" class="specs-section container">
+				<div class="section-header">
+					<div class="font-mono section-label" style="color: var(--accent);">AGENCY // SYNTHETIC GROWTH & OMNICHANNEL</div>
+					<h2 class="section-title">Outreach & Engagement Scaling Engines</h2>
+					<p class="hero-subtitle" style="margin-top: 1rem; margin-bottom: 0;">
+						Integrating high-throughput Email & WhatsApp gateways, behavioral retention scoring, and synthetic marketing campaign automation.
+					</p>
+				</div>
+
+				<div class="agency-features-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem;">
+					<div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+						<div class="font-mono" style="font-size: 0.72rem; color: var(--accent); margin-bottom: 0.5rem;">01 / GATEWAYS</div>
+						<h3 style="font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-primary);">Email & WhatsApp Dispatch</h3>
+						<p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; font-weight: 300;">Sub-50ms transactional message routing with verified recipient tracking and automated multi-channel fallback.</p>
+					</div>
+					<div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+						<div class="font-mono" style="font-size: 0.72rem; color: var(--accent); margin-bottom: 0.5rem;">02 / CAMPAIGNS</div>
+						<h3 style="font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-primary);">Synthetic Campaign Engines</h3>
+						<p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; font-weight: 300;">Real-time asset variant generation and predictive copy alignment optimizing conversion funnels autonomously.</p>
+					</div>
+					<div style="border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+						<div class="font-mono" style="font-size: 0.72rem; color: var(--accent); margin-bottom: 0.5rem;">03 / RETENTION</div>
+						<h3 style="font-size: 1.25rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text-primary);">Behavioral Retention Scoring</h3>
+						<p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; font-weight: 300;">Latent customer propensity analysis detecting churn signals and triggering hyper-personalized re-engagement loops.</p>
+					</div>
+				</div>
+			</section>
+		</div>
 
 		<!-- Architecture Grid Section -->
 		<section id="architecture" class="specs-section container">
@@ -352,13 +429,14 @@ import MetricCard from '../components/MetricCard.astro';
 						</p>
 						<div class="contact-coords font-mono">
 							<p>SF // 37.7749° N, 122.4194° W</p>
-							<p>TOKYO // 35.6762° N, 139.6503° E</p>
-							<p>PARIS // 48.8566° N, 2.3522° E</p>
+							<p>MUMBAI // 19.0760° N, 72.8777° E</p>
+							<p>PUNE // 18.5204° N, 73.8567° E</p>
 							<p>BLR // 12.9716° N, 77.5946° E</p>
+							<p>STOCKHOLM // 59.3293° N, 18.0686° E</p>
 						</div>
 					</div>
 					<div class="contact-form-wrapper">
-						<form class="contact-form" onsubmit="event.preventDefault(); alert('Cognitive handshake established. Our system will contact you shortly.');">
+						<form class="contact-form" id="handshake-form">
 							<div class="form-group">
 								<label class="font-mono" for="email">IDENTITY / EMAIL</label>
 								<input type="email" id="email" required placeholder="name@organization.com" />
@@ -366,9 +444,9 @@ import MetricCard from '../components/MetricCard.astro';
 							<div class="form-group">
 								<label class="font-mono" for="stack">OBJECTIVE / INTERFACE TYPE</label>
 								<select id="stack">
-									<option value="infra">Core Neural Infrastructure & Cognitive Cloud</option>
-									<option value="labs">Labs: Custom Models & Local Inference</option>
-									<option value="agency">Agency: Synthetic Engines & Growth Analytics</option>
+									<option value="Core Neural Infrastructure & Cognitive Cloud">Core Neural Infrastructure & Cognitive Cloud</option>
+									<option value="Labs: Custom Models & Local Inference">Labs: Custom Models & Local Inference</option>
+									<option value="Agency: Synthetic Engines & Growth Analytics">Agency: Synthetic Engines & Growth Analytics</option>
 								</select>
 							</div>
 							<div class="form-group">
@@ -391,11 +469,11 @@ import MetricCard from '../components/MetricCard.astro';
 		<footer class="footer">
 			<div class="footer-inner container">
 				<div class="footer-brand">
-					<h3 class="footer-cta-title">Stay close to <span class="italic-serif">Exponential Fucntions</span></h3>
+					<h3 class="footer-cta-title">Stay close to <span class="italic-serif">Exponential Functions</span></h3>
 					<p class="footer-brand-tagline">Updates on neural infrastructure, agentic workflows, and what's provisioning.</p>
 					
-					<form class="footer-subscribe-form" onsubmit="event.preventDefault(); alert('Handshake initiated.');">
-						<input type="email" placeholder="Enter your email" required class="subscribe-input" />
+					<form class="footer-subscribe-form" id="subscribe-form">
+						<input type="email" placeholder="Enter your email" required class="subscribe-input" id="subscribe-email" />
 						<button type="submit" class="subscribe-btn">Subscribe</button>
 					</form>
 				</div>
@@ -422,7 +500,7 @@ import MetricCard from '../components/MetricCard.astro';
 			</div>
 			
 			<div class="footer-bottom container">
-				<p class="copyright">Exponential Fucntions &copy; {new Date().getFullYear()}</p>
+				<p class="copyright">Exponential Functions &copy; {new Date().getFullYear()}</p>
 				
 				<div class="footer-socials">
 					<a href="#" aria-label="GitHub">GH</a>
@@ -496,6 +574,7 @@ import MetricCard from '../components/MetricCard.astro';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 1.5rem;
 		height: 72px;
 	}
 
@@ -508,7 +587,21 @@ import MetricCard from '../components/MetricCard.astro';
 		color: var(--text-primary);
 		display: flex;
 		align-items: center;
+		gap: 12px;
 		transition: color 0.8s ease;
+	}
+
+	.header-logo-img {
+		height: 32px;
+		width: auto;
+		display: block;
+		object-fit: contain;
+		filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.15));
+		transition: transform 0.3s ease;
+	}
+
+	.logo:hover .header-logo-img {
+		transform: scale(1.06);
 	}
 
 	.logo-accent {
@@ -1379,9 +1472,16 @@ import MetricCard from '../components/MetricCard.astro';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		color: var(--text-muted);
-		font-size: 0.8rem;
+		color: var(--text-secondary);
+		font-size: 0.75rem;
 		transition: border-color 0.8s ease;
+	}
+
+	.copyright {
+		color: var(--text-primary);
+		font-weight: 400;
+		letter-spacing: 0.02em;
+		opacity: 0.15;
 	}
 
 	.footer-socials {
@@ -1394,23 +1494,25 @@ import MetricCard from '../components/MetricCard.astro';
 		color: var(--text-secondary);
 		text-decoration: none;
 		font-family: 'JetBrains Mono', monospace;
-		font-size: 0.75rem;
-		font-weight: 500;
+		font-size: 0.8rem;
+		font-weight: 600;
 		transition: color 0.3s ease;
 	}
 
 	.footer-socials a:hover {
-		color: var(--text-primary);
+		color: var(--accent);
 	}
 
 	.footer-huge-bg-text {
-		font-size: 15.5vw;
+		font-size: 11.5vw;
 		font-family: 'Plus Jakarta Sans', sans-serif;
 		font-weight: 800;
-		color: var(--text-primary);
-		opacity: 0.025;
-		letter-spacing: -0.02em;
-		line-height: 0.75;
+		background: linear-gradient(180deg, var(--text-primary) 10%, rgba(255, 255, 255, 0.12) 65%, transparent 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		opacity: 0.35;
+		letter-spacing: -0.01em;
+		line-height: 0.8;
 		text-transform: uppercase;
 		pointer-events: none;
 		user-select: none;
@@ -1418,8 +1520,12 @@ import MetricCard from '../components/MetricCard.astro';
 		text-align: center;
 		white-space: nowrap;
 		margin-top: 2rem;
-		margin-bottom: -2rem;
-		transition: color 0.8s ease;
+		margin-bottom: 0;
+		transition: opacity 0.5s ease;
+	}
+
+	.footer:hover .footer-huge-bg-text {
+		opacity: 0.55;
 	}
 
 	.system-time {
@@ -1443,16 +1549,18 @@ import MetricCard from '../components/MetricCard.astro';
 		}
 	}
 
-	@media (max-width: 768px) {
+	@media (max-width: 900px) {
 		.container {
 			padding: 0 1.25rem;
 		}
 		.header-inner {
 			padding: 0 1rem;
+			justify-content: space-between;
 		}
 		.logo {
 			font-size: 0.82rem;
-			letter-spacing: 0.18em;
+			letter-spacing: 0.16em;
+			white-space: nowrap;
 		}
 		.nav-desktop {
 			display: none;
@@ -1461,7 +1569,7 @@ import MetricCard from '../components/MetricCard.astro';
 			display: flex;
 		}
 		.hero-section {
-			padding-top: 130px;
+			padding-top: 145px;
 			padding-bottom: 60px;
 		}
 		.hero-title {
@@ -1553,6 +1661,10 @@ import MetricCard from '../components/MetricCard.astro';
 			grid-template-columns: repeat(2, 1fr);
 			gap: 2.5rem;
 		}
+		.agency-features-grid {
+			grid-template-columns: 1fr !important;
+			gap: 1.5rem !important;
+		}
 		.footer-cta-title {
 			font-size: 1.8rem;
 		}
@@ -1563,13 +1675,27 @@ import MetricCard from '../components/MetricCard.astro';
 			padding: 2rem 0;
 		}
 		.footer-huge-bg-text {
-			font-size: 14.5vw;
-			margin-top: 2.5rem;
-			margin-bottom: -1rem;
+			font-size: 11vw;
+			margin-top: 1.5rem;
+			margin-bottom: 0;
+			white-space: normal;
+			line-height: 1;
 		}
 	}
 
 	@media (max-width: 480px) {
+		.logo {
+			font-size: 0.75rem;
+			letter-spacing: 0.12em;
+			gap: 8px;
+		}
+		.header-logo-img {
+			height: 26px;
+		}
+		.footer-links-grid {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		}
 		.hero-section {
 			padding-top: 110px;
 			padding-bottom: 40px;
@@ -1921,4 +2047,47 @@ import MetricCard from '../components/MetricCard.astro';
 			}
 		});
 	});
+
+	// Handshake Mailto Handlers
+	const targetEmails = ['kedarsathe49@gmail.com', 'akhileshnawle48@gmail.com'];
+
+	const handshakeForm = document.getElementById('handshake-form');
+	if (handshakeForm) {
+		handshakeForm.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const emailInput = document.getElementById('email') as HTMLInputElement;
+			const stackInput = document.getElementById('stack') as HTMLSelectElement;
+			const noteInput = document.getElementById('note') as HTMLTextAreaElement;
+
+			const senderEmail = emailInput?.value || '';
+			const objective = stackInput?.value || '';
+			const briefing = noteInput?.value || '';
+
+			const subject = encodeURIComponent(`[Handshake Request] ${senderEmail}`);
+			const body = encodeURIComponent(
+				`Cognitive Handshake Request\n\n` +
+				`Sender Identity / Email: ${senderEmail}\n` +
+				`Objective / Interface Type: ${objective}\n` +
+				`Briefing Parameters:\n${briefing}\n\n` +
+				`Sent via Exponential Functions Portal`
+			);
+
+			const mailtoUri = `mailto:${targetEmails.join(',')}?subject=${subject}&body=${body}`;
+			window.location.href = mailtoUri;
+		});
+	}
+
+	const subscribeForm = document.getElementById('subscribe-form');
+	if (subscribeForm) {
+		subscribeForm.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const subEmail = (document.getElementById('subscribe-email') as HTMLInputElement)?.value || '';
+
+			const subject = encodeURIComponent(`[Newsletter Subscription] ${subEmail}`);
+			const body = encodeURIComponent(`Please add ${subEmail} to the Exponential Functions updates and research list.`);
+
+			const mailtoUri = `mailto:${targetEmails.join(',')}?subject=${subject}&body=${body}`;
+			window.location.href = mailtoUri;
+		});
+	}
 </script>

@@ -1,0 +1,7 @@
+# Robots.txt for Exponential Functions
+User-agent: *
+Allow: /
+Disallow: /api/private/
+
+# Sitemap location
+Sitemap: https://exponential.function/sitemap.xml

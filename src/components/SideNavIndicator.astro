@@ -1,0 +1,224 @@
+---
+// SideNavIndicator.astro - Minimalist Vertical Sidebar Navigation & Scroll Tracker
+---
+
+<div class="side-nav-container font-mono" id="side-nav-wrapper">
+  <div class="side-nav-line">
+    <div class="side-nav-progress" id="side-nav-progress-bar"></div>
+  </div>
+  
+  <div class="side-nav-links">
+    <a href="#hero" class="side-nav-item active" data-section="hero">
+      <span class="nav-dot"></span>
+      <span class="nav-label">01 // HERO</span>
+    </a>
+    <a href="#ecosystem" class="side-nav-item" data-section="ecosystem">
+      <span class="nav-dot"></span>
+      <span class="nav-label">02 // ECOSYSTEM</span>
+    </a>
+    <a href="#solutions" class="side-nav-item" id="dynamic-brand-nav" data-section="brand-dynamic">
+      <span class="nav-dot"></span>
+      <span class="nav-label" id="dynamic-brand-label">03 // SOLUTIONS</span>
+    </a>
+    <a href="#connect" class="side-nav-item" data-section="connect">
+      <span class="nav-dot"></span>
+      <span class="nav-label">04 // BRIEFING</span>
+    </a>
+  </div>
+</div>
+
+<style>
+  .side-nav-container {
+    position: fixed;
+    right: 2.2rem;
+    top: 50%;
+    transform: translateY(-50%) translateX(25px);
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .side-nav-container.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) translateX(0);
+  }
+
+  .side-nav-line {
+    width: 2px;
+    height: 140px;
+    background: var(--border-color);
+    position: relative;
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .side-nav-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    transition: height 0.2s linear;
+  }
+
+  .side-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .side-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+
+  .nav-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border-color);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .side-nav-item:hover {
+    color: var(--text-primary);
+    transform: translateX(-4px);
+  }
+
+  .side-nav-item:hover .nav-dot {
+    background: var(--text-primary);
+  }
+
+  .side-nav-item.active {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .side-nav-item.active .nav-dot {
+    background: var(--accent);
+    transform: scale(1.6);
+    box-shadow: 0 0 12px var(--accent);
+  }
+
+  /* Hide on small tablet/mobile screens */
+  @media (max-width: 1024px) {
+    .side-nav-container {
+      display: none !important;
+    }
+  }
+</style>
+
+<script>
+  function initSideNav() {
+    const wrapper = document.getElementById('side-nav-wrapper');
+    const navItems = document.querySelectorAll('.side-nav-item');
+    const progressBar = document.getElementById('side-nav-progress-bar');
+    const dynamicNav = document.getElementById('dynamic-brand-nav') as HTMLAnchorElement;
+    const dynamicLabel = document.getElementById('dynamic-brand-label');
+    
+    // Dynamic brand section label syncing
+    function updateBrandNavLabel(brand: string) {
+      if (!dynamicNav || !dynamicLabel) return;
+      
+      if (brand === 'labs') {
+        dynamicNav.href = '#research';
+        dynamicLabel.textContent = '03 // LABS & AGENTS';
+        dynamicNav.dataset.targetId = 'research';
+      } else if (brand === 'agency') {
+        dynamicNav.href = '#agency-growth';
+        dynamicLabel.textContent = '03 // GROWTH GATEWAYS';
+        dynamicNav.dataset.targetId = 'agency-growth';
+      } else {
+        dynamicNav.href = '#solutions';
+        dynamicLabel.textContent = '03 // SOLUTIONS';
+        dynamicNav.dataset.targetId = 'solutions';
+      }
+    }
+
+    // Read current brand from html class
+    const currentClass = document.documentElement.className;
+    if (currentClass.includes('brand-labs')) updateBrandNavLabel('labs');
+    else if (currentClass.includes('brand-agency')) updateBrandNavLabel('agency');
+    else updateBrandNavLabel('core');
+
+    // Listen for brand changes
+    window.addEventListener('brand-change', (e: Event) => {
+      const customEv = e as CustomEvent;
+      if (customEv.detail && customEv.detail.brand) {
+        updateBrandNavLabel(customEv.detail.brand);
+      }
+    });
+
+    // Scroll Visibility & Progress Tracking
+    function handleScroll() {
+      const scrollY = window.scrollY;
+      
+      // Appear ONLY when user scrolls down past 120px
+      if (wrapper) {
+        if (scrollY > 120) {
+          wrapper.classList.add('visible');
+        } else {
+          wrapper.classList.remove('visible');
+        }
+      }
+
+      // Progress bar percentage
+      const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollTotal > 0 && progressBar) {
+        const progressPercent = Math.min(100, Math.max(0, (scrollY / scrollTotal) * 100));
+        progressBar.style.height = `${progressPercent}%`;
+      }
+
+      // Active section calculation using bounding rects
+      let currentSectionId = 'hero';
+      const sections = ['hero', 'ecosystem', dynamicNav?.dataset.targetId || 'solutions', 'connect'];
+      
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= window.innerHeight * 0.45 && rect.bottom >= window.innerHeight * 0.15) {
+            currentSectionId = id;
+          }
+        }
+      });
+
+      // Highlight corresponding link
+      navItems.forEach(item => {
+        const htmlItem = item as HTMLElement;
+        const targetSection = htmlItem.dataset.section;
+        
+        let isActive = false;
+        if (targetSection === 'hero' && currentSectionId === 'hero') isActive = true;
+        else if (targetSection === 'ecosystem' && currentSectionId === 'ecosystem') isActive = true;
+        else if (targetSection === 'brand-dynamic' && (currentSectionId === 'solutions' || currentSectionId === 'research' || currentSectionId === 'agency-growth')) isActive = true;
+        else if (targetSection === 'connect' && currentSectionId === 'connect') isActive = true;
+
+        if (isActive) {
+          navItems.forEach(i => i.classList.remove('active'));
+          htmlItem.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
+
+  // Initialize
+  initSideNav();
+</script>

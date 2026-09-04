@@ -1,0 +1,260 @@
+---
+// IndustrySolutions.astro - Minimalist Open Verticals (No Cards / No Box Containers)
+---
+
+<div class="industry-solutions-wrapper">
+  <div class="verticals-container">
+    <!-- Real Estate Vertical -->
+    <div class="vertical-item" data-vertical="real-estate">
+      <div class="item-header">
+        <span class="vertical-num font-mono">01</span>
+        <div class="title-group">
+          <h3 class="industry-title">Real Estate</h3>
+          <span class="vertical-tag font-mono">RESEARCH POWERED</span>
+        </div>
+      </div>
+
+      <p class="industry-desc">
+        Modernizing property valuation, spatial mapping, and virtual client engagement using cutting-edge research stack.
+      </p>
+
+      <ul class="capability-list">
+        <li>
+          <span class="dash font-mono">—</span>
+          <span>Voice AI for property concierges & automated buyer interactions</span>
+        </li>
+        <li>
+          <span class="dash font-mono">—</span>
+          <span>Computer Vision from Research for structural inspection & 3D spatial analytics</span>
+        </li>
+      </ul>
+
+      <div class="interlink-footer font-mono">
+        <span class="footer-label">RESEARCH INTEGRATION:</span>
+        <span class="footer-val">Voice AI + Computer Vision</span>
+      </div>
+    </div>
+
+    <!-- Resource Management Vertical -->
+    <div class="vertical-item" data-vertical="resource-management">
+      <div class="item-header">
+        <span class="vertical-num font-mono">02</span>
+        <div class="title-group">
+          <h3 class="industry-title">Resource Management</h3>
+          <span class="vertical-tag font-mono">ML OPTIMIZED</span>
+        </div>
+      </div>
+
+      <p class="industry-desc">
+        Complete enterprise operations orchestration connecting teams, projects, and active job sites with intelligent allocation models.
+      </p>
+
+      <ul class="capability-list">
+        <li>
+          <span class="dash font-mono">—</span>
+          <span>Employee Capacity Forecasting & Milestone Tracking</span>
+        </li>
+        <li>
+          <span class="dash font-mono">—</span>
+          <span>Site Management & real-time inventory telemetry</span>
+        </li>
+        <li>
+          <span class="dash font-mono">—</span>
+          <span>ML predictive scheduling algorithms developed in Research</span>
+        </li>
+      </ul>
+
+      <div class="interlink-footer font-mono">
+        <span class="footer-label">RESEARCH INTEGRATION:</span>
+        <span class="footer-val">ML Predictive Algorithms</span>
+      </div>
+    </div>
+
+    <!-- Hospitality & Tourism Vertical -->
+    <div class="vertical-item" data-vertical="hospitality-tourism">
+      <div class="item-header">
+        <span class="vertical-num font-mono">03</span>
+        <div class="title-group">
+          <h3 class="industry-title">Hospitality & Tourism</h3>
+          <span class="vertical-tag font-mono">DUAL-ENGINE POWERED</span>
+        </div>
+      </div>
+
+      <p class="industry-desc">
+        Elevating guest experiences and expanding market reach through combined behavioral research and marketing automation.
+      </p>
+
+      <ul class="capability-list">
+        <li>
+          <span class="dash font-mono">—</span>
+          <span>Data-backed customer retention strategies from Research</span>
+        </li>
+        <li>
+          <span class="dash font-mono">—</span>
+          <span>Targeted outreach & hyper-scale growth executed by Marketing Agency</span>
+        </li>
+      </ul>
+
+      <div class="interlink-footer font-mono">
+        <span class="footer-label">CONNECTED TO:</span>
+        <span class="footer-val">Research (Retention) + Agency (Growth)</span>
+      </div>
+    </div>
+
+    <!-- Pharmaceuticals & Hospitals Vertical -->
+    <div class="vertical-item" data-vertical="pharma-hospitals">
+      <div class="item-header">
+        <span class="vertical-num font-mono">04</span>
+        <div class="title-group">
+          <h3 class="industry-title">Pharmaceuticals & Hospitals</h3>
+          <span class="vertical-tag font-mono">AUTOMATED WORKFLOWS</span>
+        </div>
+      </div>
+
+      <p class="industry-desc">
+        Streamlining healthcare workflows, maintaining HIPAA-compliant patient history, and automating communication channels.
+      </p>
+
+      <ul class="capability-list">
+        <li>
+          <span class="dash font-mono">—</span>
+          <span>Automated patient records & seamless EHR integration</span>
+        </li>
+        <li>
+          <span class="dash font-mono">—</span>
+          <span>Continuous patient history profile management</span>
+        </li>
+        <li>
+          <span class="dash font-mono">—</span>
+          <span>Workflow automation via Email and WhatsApp gateways</span>
+        </li>
+      </ul>
+
+      <div class="interlink-footer font-mono">
+        <span class="footer-label">CONNECTED TO:</span>
+        <span class="footer-val">AI Research (Auto) + Agency (Email/WhatsApp)</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .industry-solutions-wrapper {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+  }
+
+  .verticals-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem 3.5rem;
+  }
+
+  .vertical-item {
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: border-color 0.4s ease;
+  }
+
+  .vertical-item:hover {
+    border-top-color: var(--accent);
+  }
+
+  .item-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .vertical-num {
+    font-size: 1.5rem;
+    color: var(--accent);
+    font-weight: 600;
+    line-height: 1;
+    opacity: 0.8;
+  }
+
+  .title-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .industry-title {
+    font-size: 2rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    line-height: 1.2;
+    transition: color 0.4s ease;
+  }
+
+  .vertical-item:hover .industry-title {
+    color: var(--text-primary);
+  }
+
+  .vertical-tag {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+  }
+
+  .industry-desc {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.75rem;
+    font-weight: 300;
+  }
+
+  .capability-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    margin-bottom: 2rem;
+  }
+
+  .capability-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.86rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .dash {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .interlink-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 0.72rem;
+    padding-top: 1rem;
+    border-top: 1px dashed var(--border-color);
+  }
+
+  .footer-label {
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-val {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .verticals-container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

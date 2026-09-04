@@ -4,12 +4,63 @@ import '../styles/global.css';
 interface Props {
 	title?: string;
 	description?: string;
+	image?: string;
+	canonicalUrl?: string;
 }
 
 const { 
-	title = "Exponential Fucntions | Neural Infrastructure & Intelligent Systems", 
-	description = "Exponential Fucntions is an AI-native company building advanced cognitive cloud systems, agentic workflows, and synthetic growth engines through Exponential Labs and Exponential Marketing Agency." 
+	title = "Exponential Functions | Next-Gen AI Infrastructure, Agentic Workflows & Neural Compute", 
+	description = "Exponential Functions is a global AI engineering authority. We build enterprise cognitive cloud systems, custom local inference models (NVIDIA DGX), agentic workflow protocols, and autonomous synthetic growth engines across San Francisco, Mumbai, Pune, Bengaluru, and Stockholm.",
+	image = "/expo-logo.png",
+	canonicalUrl = Astro.url.href
 } = Astro.props;
+
+const siteName = "Exponential Functions";
+const keywords = "Enterprise AI Infrastructure, Agentic Workflows, Sovereign AI Models, Custom LLM Quantization, NVIDIA DGX Compute, Hermes Protocol, Neural Systems Architecture, Synthetic Growth Engines, AI Agency India, AI Engineering San Francisco, AI Research Stockholm";
+
+const schemaOrgData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${canonicalUrl}#organization`,
+      "name": "Exponential Functions",
+      "alternateName": ["Exponential AI", "Exponential Labs", "Exponential Agency"],
+      "url": canonicalUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${canonicalUrl}/expo-logo.png`
+      },
+      "description": description,
+      "location": [
+        { "@type": "Place", "name": "San Francisco, USA", "address": { "@type": "PostalAddress", "addressLocality": "San Francisco", "addressCountry": "US" } },
+        { "@type": "Place", "name": "Mumbai, India", "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressCountry": "IN" } },
+        { "@type": "Place", "name": "Pune, India", "address": { "@type": "PostalAddress", "addressLocality": "Pune", "addressCountry": "IN" } },
+        { "@type": "Place", "name": "Bengaluru, India", "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN" } },
+        { "@type": "Place", "name": "Stockholm, Sweden", "address": { "@type": "PostalAddress", "addressLocality": "Stockholm", "addressCountry": "SE" } }
+      ],
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Enterprise Neural Infrastructure",
+        "Agentic Workflows",
+        "Custom Model Quantization",
+        "NVIDIA DGX Compute",
+        "Omnichannel Synthetic Growth"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${canonicalUrl}#website`,
+      "url": canonicalUrl,
+      "name": siteName,
+      "description": description,
+      "publisher": {
+        "@id": `${canonicalUrl}#organization`
+      },
+      "inLanguage": "en-US"
+    }
+  ]
+};
 ---
 
 <!doctype html>
@@ -18,20 +69,40 @@ const {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonicalUrl} />
 		<meta name="generator" content={Astro.generator} />
 		
-		<!-- SEO Meta Tags -->
+		<!-- Primary SEO Meta Tags -->
 		<title>{title}</title>
+		<meta name="title" content={title} />
 		<meta name="description" content={description} />
+		<meta name="keywords" content={keywords} />
+		<meta name="author" content="Exponential Functions" />
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:type" content="website" />
+		<meta property="og:image" content={image} />
+		<meta property="og:site_name" content={siteName} />
+		<meta property="og:locale" content="en_US" />
+
+		<!-- Twitter Card -->
 		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonicalUrl} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={image} />
 		
 		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@300;400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+		<!-- Schema.org JSON-LD Structured Data for Search Engines -->
+		<script type="application/ld+json" set:html={JSON.stringify(schemaOrgData)} />
 	</head>
 	<body>
 		<slot />

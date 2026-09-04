@@ -1,0 +1,219 @@
+---
+// AgentWorkflowVisual.astro - Visual representation of Hermes Agent Harness & MCP Workflow Engines
+---
+
+<div class="agent-workflow-card">
+  <div class="agent-header">
+    <div class="font-mono tag-cyan">// AI AGENTS & INTELLIGENT WORKFLOWS</div>
+    <h3 class="agent-title">Autonomous Action Graphs</h3>
+    <p class="agent-subtitle">
+      Powered by the <strong>Hermes Harness</strong> framework and <strong>Model Context Protocol (MCP)</strong>, connecting enterprise datastores, web APIs, and automation gateways into unified agentic loops.
+    </p>
+  </div>
+
+  <div class="agent-grid">
+    <!-- Hermes Harness Visual Card -->
+    <div class="agent-box harness-box">
+      <div class="box-header font-mono">
+        <span class="box-icon">⚡</span>
+        HERMES AGENT HARNESS
+      </div>
+      <div class="harness-flow">
+        <div class="flow-step font-mono">
+          <span class="step-num">01</span>
+          <span>CONTEXT INGESTION</span>
+        </div>
+        <div class="flow-connector">↓</div>
+        <div class="flow-step font-mono active-step">
+          <span class="step-num">02</span>
+          <span>HERMES REASONING LOOP</span>
+        </div>
+        <div class="flow-connector">↓</div>
+        <div class="flow-step font-mono">
+          <span class="step-num">03</span>
+          <span>TOOL & MCP EXECUTION</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MCP Network Hub Visual Card -->
+    <div class="agent-box mcp-box">
+      <div class="box-header font-mono">
+        <span class="box-icon">🔌</span>
+        MCP (MODEL CONTEXT PROTOCOL) HUB
+      </div>
+
+      <div class="mcp-nodes-grid">
+        <div class="mcp-node">
+          <span class="mcp-icon font-mono">DB</span>
+          <span class="mcp-name">PostgreSQL / Vector DB</span>
+        </div>
+        <div class="mcp-node">
+          <span class="mcp-icon font-mono">CRM</span>
+          <span class="mcp-name">Enterprise CRM / ERP</span>
+        </div>
+        <div class="mcp-node">
+          <span class="mcp-icon font-mono">MSG</span>
+          <span class="mcp-name">WhatsApp & Email API</span>
+        </div>
+        <div class="mcp-node">
+          <span class="mcp-icon font-mono">API</span>
+          <span class="mcp-name">Custom Service Mesh</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .agent-workflow-card {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    transition: border-color 0.8s ease, background-color 0.8s ease;
+  }
+
+  .agent-header {
+    margin-bottom: 2rem;
+  }
+
+  .tag-cyan {
+    font-size: 0.75rem;
+    color: #0df2a5;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.75rem;
+  }
+
+  .agent-title {
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .agent-subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    max-width: 720px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .agent-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .agent-box {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .box-header {
+    font-size: 0.75rem;
+    color: var(--text-primary);
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+  }
+
+  .box-icon {
+    font-size: 1rem;
+  }
+
+  .harness-flow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .flow-step {
+    width: 100%;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .flow-step.active-step {
+    border-color: #0df2a5;
+    color: var(--text-primary);
+    background: rgba(13, 242, 165, 0.08);
+    box-shadow: 0 0 12px rgba(13, 242, 165, 0.15);
+  }
+
+  .step-num {
+    color: #0df2a5;
+    font-weight: 700;
+  }
+
+  .flow-connector {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+
+  .mcp-nodes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .mcp-node {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: border-color 0.3s ease;
+  }
+
+  .mcp-node:hover {
+    border-color: var(--accent);
+  }
+
+  .mcp-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 3px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .mcp-name {
+    font-size: 0.75rem;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  @media (max-width: 768px) {
+    .agent-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

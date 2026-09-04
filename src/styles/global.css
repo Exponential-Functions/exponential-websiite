@@ -54,14 +54,14 @@ h1, h2, h3, h4, .font-display {
   --text-muted: #71717a;
   
   --accent: #d4d4d8;
-  --accent-glow: rgba(255, 255, 255, 0.03);
+  --accent-glow: rgba(255, 255, 255, 0.05);
   --accent-rgb: 212, 212, 216;
   
   --border-color: rgba(255, 255, 255, 0.12);
   --border-focus: rgba(255, 255, 255, 0.25);
   
-  --grid-color: rgba(255, 255, 255, 0.03);
-  --radial-gradient: radial-gradient(800px circle at 50% 200px, rgba(255, 255, 255, 0.03), transparent);
+  --grid-color: rgba(255, 255, 255, 0.085);
+  --radial-gradient: radial-gradient(800px circle at 50% 200px, rgba(255, 255, 255, 0.04), transparent);
 }
 
 /* Labs Brand (Obsidian Cyber-Lab, Monochromatic Dark Tech with Emerald/Cyan accents) */
@@ -75,14 +75,14 @@ html.brand-labs {
   --text-muted: #63707e;
   
   --accent: #0df2a5;
-  --accent-glow: rgba(13, 242, 165, 0.08);
+  --accent-glow: rgba(13, 242, 165, 0.12);
   --accent-rgb: 13, 242, 165;
   
-  --border-color: rgba(13, 242, 165, 0.18);
+  --border-color: rgba(13, 242, 165, 0.22);
   --border-focus: #0df2a5;
   
-  --grid-color: rgba(13, 242, 165, 0.06);
-  --radial-gradient: radial-gradient(800px circle at 50% 200px, rgba(13, 242, 165, 0.06), transparent);
+  --grid-color: rgba(13, 242, 165, 0.14);
+  --radial-gradient: radial-gradient(800px circle at 50% 200px, rgba(13, 242, 165, 0.08), transparent);
 }
 
 /* Marketing Agency Brand (Light Warm Sand, Luxury Studio Vibe, Warm Bronze highlights) */
@@ -96,14 +96,23 @@ html.brand-agency {
   --text-muted: #78716c;
   
   --accent: #876534;
-  --accent-glow: rgba(135, 101, 52, 0.08);
+  --accent-glow: rgba(135, 101, 52, 0.12);
   --accent-rgb: 135, 101, 52;
   
-  --border-color: rgba(135, 101, 52, 0.22);
+  --border-color: rgba(135, 101, 52, 0.25);
   --border-focus: #876534;
   
-  --grid-color: rgba(135, 101, 52, 0.09);
-  --radial-gradient: radial-gradient(800px circle at 50% 200px, rgba(135, 101, 52, 0.04), transparent);
+  --grid-color: rgba(135, 101, 52, 0.16);
+  --radial-gradient: radial-gradient(800px circle at 50% 200px, rgba(135, 101, 52, 0.06), transparent);
+}
+
+/* Dedicated NVIDIA DGX Spark Theme Tokens */
+:root {
+  --nvidia-green: #76b900;
+  --nvidia-green-bright: #00ff87;
+  --nvidia-bg: #051409;
+  --nvidia-border: rgba(118, 185, 0, 0.3);
+  --nvidia-glow: rgba(118, 185, 0, 0.2);
 }
 
 /* Shared structural classes */

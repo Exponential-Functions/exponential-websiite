@@ -1,0 +1,829 @@
+---
+// NvidiaDgxVisualizer.astro - NVIDIA DGX Research & Compute Showcase
+---
+
+<div class="nvidia-dgx-card" id="nvidia-dgx-engine">
+  <!-- NVIDIA Green Ambient Radial Glow -->
+  <div class="nvidia-ambient-glow"></div>
+  
+  <!-- Header Bar -->
+  <div class="nvidia-card-header">
+    <div class="header-left">
+      <div class="nvidia-brand-badge font-mono">
+        <span class="badge-dot"></span>
+        NVIDIA DGX // ENTERPRISE COMPUTE & RESEARCH INITIATIVES
+      </div>
+      <h3 class="dgx-main-title">Grace Blackwell GB10 Superchip Infrastructure</h3>
+    </div>
+    <div class="nvidia-status font-mono">STATION_ONLINE // BLACKWELL_GB10_FP4</div>
+  </div>
+
+  <!-- Organic Overlapping Hardware Visual Showcase (Non-Boxy) -->
+  <div class="sparks-hero-stage">
+    <div class="stage-backdrop-glow"></div>
+    <div class="scanline-overlay"></div>
+
+    <!-- Overlapping Image Composition -->
+    <div class="sparks-overlap-container">
+      <!-- Sparks Image 1: Main Compute Unit -->
+      <div class="spark-floating-layer layer-back">
+        <div class="magical-green-aura"></div>
+        <img src="/sparks-1.png" alt="NVIDIA DGX Compute Node" class="spark-img-hero" />
+        <div class="floating-hud-tag font-mono top-right-tag">
+          <span class="pulse-dot"></span> HARDWARE // LOCAL METAL
+        </div>
+      </div>
+
+      <!-- Sparks Image 2: Exploded GB10 Architecture -->
+      <div class="spark-floating-layer layer-front">
+        <div class="magical-green-aura"></div>
+        <img src="/sparks-2.png" alt="GB10 Superchip Architecture Exploded View" class="spark-img-hero" />
+        <div class="floating-hud-tag font-mono bottom-left-tag">
+          <span class="pulse-dot"></span> 128GB UNIFIED MEMORY // 1.8 TB/s
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Overview Banner -->
+    <div class="stage-info-overlay font-mono">
+      <div class="info-pill">NVLink-C2C 900 GB/s Interconnect</div>
+      <div class="info-pill">Grace 20-Core Arm v9 CPU</div>
+      <div class="info-pill">1 TFLOP FP4 Micro-Block Tensor Compute</div>
+    </div>
+  </div>
+
+  <!-- DGX Powered Engineering Capabilities Grid -->
+  <div class="dgx-capabilities-section">
+    <div class="section-sub-header font-mono">// RESEARCH INITIATIVES & MODEL ARCHITECTURES</div>
+
+    <div class="capabilities-grid">
+      <!-- Capability 1: Model Fine-Tuning -->
+      <div class="capability-card">
+        <div class="cap-header font-mono">
+          <span class="cap-num">01</span>
+          <span class="cap-tag">LLM ALIGNMENT</span>
+        </div>
+        <h4 class="cap-title">Domain-Specific Model Fine-Tuning</h4>
+        <p class="cap-desc">
+          Full-parameter SFT and DPO alignment on open-weight foundation models (Llama, Qwen, DeepSeek). Custom loss functions optimized for legal contracts, medical EHRs, and real estate data schemas.
+        </p>
+        <div class="cap-footer font-mono">
+          <span>LoRA ΔW Rank-16</span>
+          <span class="val-green">FP4 Quantization</span>
+        </div>
+      </div>
+
+      <!-- Capability 2: Voice & Audio AI -->
+      <div class="capability-card">
+        <div class="cap-header font-mono">
+          <span class="cap-num" style="color: #0df2a5;">02</span>
+          <span class="cap-tag" style="color: #0df2a5;">VOICE SYNTHESIS</span>
+        </div>
+        <h4 class="cap-title">Low-Latency Neural Voice & Audio AI</h4>
+        <p class="cap-desc">
+          Streaming text-to-speech (TTS), zero-shot voice cloning, and real-time speech recognition (STT) with sub-80ms total latency for automated customer voice agents and interactive telemetry.
+        </p>
+        <div class="cap-footer font-mono">
+          <span>Sub-80ms Latency</span>
+          <span class="val-green">Neural Codecs</span>
+        </div>
+      </div>
+
+      <!-- Capability 3: Computer Vision -->
+      <div class="capability-card">
+        <div class="cap-header font-mono">
+          <span class="cap-num">03</span>
+          <span class="cap-tag">SPATIAL VISION</span>
+        </div>
+        <h4 class="cap-title">Computer Vision & Point-Cloud Parsing</h4>
+        <p class="cap-desc">
+          High-throughput multi-camera telemetry processing, spatial 3D room reconstruction, automated site safety monitoring, and video analytics executed entirely on dedicated hardware.
+        </p>
+        <div class="cap-footer font-mono">
+          <span>Multi-Stream 4K</span>
+          <span class="val-green">TensorRT Pipelines</span>
+        </div>
+      </div>
+
+      <!-- Capability 4: Sovereign Air-Gapped AI -->
+      <div class="capability-card">
+        <div class="cap-header font-mono">
+          <span class="cap-num" style="color: #0df2a5;">04</span>
+          <span class="cap-tag" style="color: #0df2a5;">SOVEREIGN DEPLOYMENT</span>
+        </div>
+        <h4 class="cap-title">Air-Gapped Sovereign Inference</h4>
+        <p class="cap-desc">
+          Deploying privacy-preserving local intelligence without cloud API dependencies or data egress risks. 100% confidential computing for healthcare records and high-security enterprise workflows.
+        </p>
+        <div class="cap-footer font-mono">
+          <span>Zero Egress</span>
+          <span class="val-green">VPC Local Metal</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive FP4 Quantization & Tensor Matrix Inspector -->
+  <div class="tensor-inspector-container">
+    <div class="inspector-top font-mono">
+      <span class="ins-title">// INTERACTIVE TENSOR PRECISION & LORA INSPECTOR</span>
+      <span class="ins-hint">CLICK PRECISION MODE TO SIMULATE MATRIX TRANSFORMATIONS</span>
+    </div>
+
+    <!-- Precision Selector Tabs -->
+    <div class="precision-tabs font-mono">
+      <button class="prec-tab active" data-mode="fp4">
+        <span class="mode-tag">FP4 MX-SCALE</span>
+        <span class="mode-desc">Blackwell Micro-Block</span>
+      </button>
+      <button class="prec-tab" data-mode="fp8">
+        <span class="mode-tag">FP8 E4M3</span>
+        <span class="mode-desc">Low Latency Quant</span>
+      </button>
+      <button class="prec-tab" data-mode="lora">
+        <span class="mode-tag">LoRA ΔW (r=16)</span>
+        <span class="mode-desc">Rank Adapter Matrix</span>
+      </button>
+      <button class="prec-tab" data-mode="fp32">
+        <span class="mode-tag">FP32 UNCOMPRESSED</span>
+        <span class="mode-desc">Standard Precision</span>
+      </button>
+    </div>
+
+    <!-- Live Interactive Matrix & Benchmark Readout -->
+    <div class="tensor-display-grid">
+      <!-- Left: Dynamic Visual Weight Matrix -->
+      <div class="weight-matrix-box">
+        <div class="matrix-header font-mono">
+          <span id="matrix-mode-label">TENSOR WEIGHT MATRIX [FP4 MX-SCALE]</span>
+          <span class="density-label font-mono" id="matrix-density">COMPRESSION RATIO: 8.0x</span>
+        </div>
+
+        <!-- 6x6 Visual Weight Grid -->
+        <div class="visual-weight-grid" id="weight-grid">
+          <!-- Populated dynamically by JS -->
+        </div>
+
+        <div class="matrix-footer font-mono">
+          <span class="foot-item">BLOCK SIZE: <strong id="val-block">32 Tensors</strong></span>
+          <span class="foot-item">DRIFT ERROR: <strong id="val-error">&lt; 0.04%</strong></span>
+        </div>
+      </div>
+
+      <!-- Right: Real-Time Performance & VRAM Gauges -->
+      <div class="telemetry-readout-box">
+        <div class="readout-header font-mono">// BENCHMARK SIMULATION</div>
+
+        <div class="gauge-group">
+          <div class="gauge-label font-mono">
+            <span>INFERENCE THROUGHPUT</span>
+            <span class="val-green font-mono" id="val-throughput">284 tokens/sec</span>
+          </div>
+          <div class="progress-bar">
+            <div class="bar-fill" id="bar-throughput" style="width: 95%; background: linear-gradient(90deg, #76b900, #0df2a5);"></div>
+          </div>
+        </div>
+
+        <div class="gauge-group">
+          <div class="gauge-label font-mono">
+            <span>VRAM ALLOCATION</span>
+            <span class="val-green font-mono" id="val-vram">32 GB / 128 GB (25% CAPACITY)</span>
+          </div>
+          <div class="progress-bar">
+            <div class="bar-fill" id="bar-vram" style="width: 25%; background: #76b900;"></div>
+          </div>
+        </div>
+
+        <div class="gauge-group">
+          <div class="gauge-label font-mono">
+            <span>MEMORY BANDWIDTH EFFICIENCY</span>
+            <span class="val-green font-mono" id="val-bandwidth">1.8 TB/s (MAXIMUM)</span>
+          </div>
+          <div class="progress-bar">
+            <div class="bar-fill" id="bar-bandwidth" style="width: 98%; background: linear-gradient(90deg, #0df2a5, #00ff87);"></div>
+          </div>
+        </div>
+
+        <div class="tech-spec-pills font-mono">
+          <span class="spec-pill">NVLink-C2C 900 GB/s</span>
+          <span class="spec-pill">20 Arm v9 Cores</span>
+          <span class="spec-pill">Blackwell Tensor Core</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .nvidia-dgx-card {
+    position: relative;
+    background: var(--nvidia-bg);
+    border: 1px solid var(--nvidia-border);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 3.5rem;
+    overflow: hidden;
+    box-shadow: 0 16px 56px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.4s ease;
+  }
+
+  .nvidia-dgx-card:hover {
+    border-color: var(--nvidia-green);
+  }
+
+  .nvidia-ambient-glow {
+    position: absolute;
+    top: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--nvidia-glow) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .nvidia-card-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--nvidia-border);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .nvidia-brand-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--nvidia-green-bright);
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--nvidia-green);
+    box-shadow: 0 0 10px var(--nvidia-green-bright);
+    animation: pulse 1.5s infinite alternate;
+  }
+
+  .dgx-main-title {
+    font-size: 1.8rem;
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .nvidia-status {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.7);
+    background: rgba(118, 185, 0, 0.1);
+    border: 1px solid rgba(118, 185, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
+
+  /* Modern Elegant Hardware Visual Showcase */
+  .sparks-hero-stage {
+    position: relative;
+    z-index: 2;
+    background: radial-gradient(ellipse at center, rgba(12, 24, 16, 0.8) 0%, rgba(5, 10, 7, 0.95) 100%);
+    border: 1px solid rgba(118, 185, 0, 0.25);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem;
+    backdrop-filter: blur(16px);
+  }
+
+  .stage-backdrop-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 40%, rgba(118, 185, 0, 0.18) 0%, rgba(13, 242, 165, 0.06) 60%, transparent 80%);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .sparks-overlap-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    z-index: 3;
+    margin-bottom: 1.5rem;
+  }
+
+  .spark-floating-layer {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    background: rgba(6, 16, 9, 0.75);
+    border: 1px solid rgba(118, 185, 0, 0.25);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .layer-back {
+    border-color: rgba(118, 185, 0, 0.3);
+  }
+
+  .layer-front {
+    border-color: rgba(13, 242, 165, 0.5);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.6), 0 0 30px rgba(13, 242, 165, 0.15);
+  }
+
+  .magical-green-aura {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(118, 185, 0, 0.25) 0%, rgba(13, 242, 165, 0.1) 60%, transparent 80%);
+    opacity: 0.3;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .spark-img-hero {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: brightness(0.98) contrast(1.05);
+    transition: transform 0.5s ease, filter 0.4s ease;
+  }
+
+  .floating-hud-tag {
+    position: absolute;
+    background: rgba(4, 18, 10, 0.85);
+    border: 1px solid rgba(118, 185, 0, 0.4);
+    color: var(--nvidia-green-bright);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 4;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .top-right-tag { top: 14px; right: 14px; }
+  .bottom-left-tag { bottom: 14px; left: 14px; }
+
+  .spark-floating-layer:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: #0df2a5;
+    box-shadow: 0 30px 65px rgba(0, 0, 0, 0.7), 0 0 35px rgba(13, 242, 165, 0.3);
+    z-index: 5;
+  }
+
+  .spark-floating-layer:hover .magical-green-aura {
+    opacity: 0.85;
+  }
+
+  .spark-floating-layer:hover .spark-img-hero {
+    filter: brightness(1.08) contrast(1.1);
+  }
+
+  .stage-info-overlay {
+    position: relative;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .info-pill {
+    font-size: 0.7rem;
+    background: rgba(4, 18, 10, 0.75);
+    border: 1px solid rgba(118, 185, 0, 0.3);
+    color: var(--text-primary);
+    padding: 6px 16px;
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+  }
+
+  /* DGX Capabilities Section */
+  .dgx-capabilities-section {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-sub-header {
+    font-size: 0.7rem;
+    color: var(--nvidia-green);
+    letter-spacing: 0.1em;
+    margin-bottom: 1.25rem;
+  }
+
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .capability-card {
+    background: rgba(1, 10, 3, 0.75);
+    border: 1px solid rgba(118, 185, 0, 0.25);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .capability-card:hover {
+    transform: translateY(-4px);
+    border-color: #0df2a5;
+    box-shadow: 0 8px 30px rgba(118, 185, 0, 0.25);
+  }
+
+  .cap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.7rem;
+  }
+
+  .cap-num {
+    font-weight: 700;
+    color: var(--nvidia-green-bright);
+  }
+
+  .cap-tag {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .cap-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .cap-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .cap-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.68rem;
+    border-top: 1px dashed rgba(118, 185, 0, 0.2);
+    padding-top: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Interactive FP4 Tensor Inspector */
+  .tensor-inspector-container {
+    position: relative;
+    z-index: 2;
+    background: rgba(1, 10, 3, 0.8);
+    border: 1px solid rgba(118, 185, 0, 0.3);
+    border-radius: 8px;
+    padding: 1.75rem;
+  }
+
+  .inspector-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    font-size: 0.72rem;
+  }
+
+  .ins-title { color: var(--nvidia-green-bright); }
+  .ins-hint { color: rgba(255, 255, 255, 0.5); font-size: 0.65rem; }
+
+  .precision-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .prec-tab {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(118, 185, 0, 0.2);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    transition: all 0.3s ease;
+  }
+
+  .prec-tab:hover, .prec-tab.active {
+    border-color: #0df2a5;
+    background: rgba(118, 185, 0, 0.15);
+    box-shadow: 0 0 16px rgba(118, 185, 0, 0.25);
+  }
+
+  .prec-tab.active .mode-tag {
+    color: #0df2a5;
+    font-weight: 700;
+  }
+
+  .mode-tag {
+    font-size: 0.78rem;
+    color: #ffffff;
+  }
+
+  .mode-desc {
+    font-size: 0.62rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .tensor-display-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .weight-matrix-box {
+    background: #000;
+    border: 1px solid rgba(118, 185, 0, 0.25);
+    border-radius: 6px;
+    padding: 1.25rem;
+  }
+
+  .matrix-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.68rem;
+    color: var(--nvidia-green);
+    margin-bottom: 1rem;
+  }
+
+  .density-label {
+    color: #0df2a5;
+  }
+
+  .visual-weight-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 6px;
+    margin-bottom: 1.25rem;
+  }
+
+  .cell-weight {
+    height: 36px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: #000;
+    transition: all 0.4s ease;
+  }
+
+  .matrix-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.68rem;
+    border-top: 1px dashed rgba(118, 185, 0, 0.2);
+    padding-top: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .matrix-footer strong {
+    color: var(--nvidia-green-bright);
+  }
+
+  /* Telemetry Readout */
+  .telemetry-readout-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .readout-header {
+    font-size: 0.7rem;
+    color: var(--nvidia-green);
+    letter-spacing: 0.1em;
+  }
+
+  .gauge-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .gauge-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.68rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .val-green {
+    color: var(--nvidia-green-bright);
+    font-weight: 600;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s ease;
+  }
+
+  .tech-spec-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+
+  .spec-pill {
+    font-size: 0.62rem;
+    background: rgba(118, 185, 0, 0.12);
+    border: 1px solid rgba(118, 185, 0, 0.3);
+    color: var(--nvidia-green-bright);
+    padding: 4px 8px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 900px) {
+    .capabilities-grid, .tensor-display-grid, .precision-tabs {
+      grid-template-columns: 1fr;
+    }
+    .sparks-overlap-container {
+      flex-direction: column;
+      height: auto;
+      gap: 1rem;
+    }
+    .spark-floating-layer {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      left: auto;
+      right: auto;
+      top: auto;
+      bottom: auto;
+      transform: none !important;
+    }
+  }
+</style>
+
+<script>
+  function initTensorInspector() {
+    const tabs = document.querySelectorAll('.prec-tab');
+    const gridEl = document.getElementById('weight-grid');
+    const modeLabel = document.getElementById('matrix-mode-label');
+    const densityLabel = document.getElementById('matrix-density');
+    const valBlock = document.getElementById('val-block');
+    const valError = document.getElementById('val-error');
+    const valThroughput = document.getElementById('val-throughput');
+    const valVram = document.getElementById('val-vram');
+    const valBandwidth = document.getElementById('val-bandwidth');
+    const barThroughput = document.getElementById('bar-throughput');
+    const barVram = document.getElementById('bar-vram');
+
+    // Strict null guard check to fix IDE error
+    if (!gridEl) return;
+
+    // Presets config
+    const modes: Record<string, {
+      label: string;
+      density: string;
+      block: string;
+      error: string;
+      throughput: string;
+      throughputPct: string;
+      vram: string;
+      vramPct: string;
+      bandwidth: string;
+      cellColors: string[];
+      cellValues: string[];
+    }> = {
+      fp4: {
+        label: 'TENSOR WEIGHT MATRIX [FP4 MX-SCALE]',
+        density: 'COMPRESSION RATIO: 8.0x',
+        block: '32 Tensors',
+        error: '< 0.04%',
+        throughput: '284 tokens/sec',
+        throughputPct: '95%',
+        vram: '32 GB / 128 GB (25% CAPACITY)',
+        vramPct: '25%',
+        bandwidth: '1.8 TB/s (MAXIMUM)',
+        cellColors: ['#76b900', '#0df2a5', '#76b900', '#00ff87', '#76b900', '#0df2a5'],
+        cellValues: ['0101', '1100', '0011', '1010', '1111', '0001']
+      },
+      fp8: {
+        label: 'TENSOR WEIGHT MATRIX [FP8 E4M3]',
+        density: 'COMPRESSION RATIO: 4.0x',
+        block: '16 Tensors',
+        error: '< 0.01%',
+        throughput: '142 tokens/sec',
+        throughputPct: '60%',
+        vram: '64 GB / 128 GB (50% CAPACITY)',
+        vramPct: '50%',
+        bandwidth: '1.2 TB/s (HIGH)',
+        cellColors: ['#4e8200', '#0db37b', '#4e8200', '#0db37b', '#4e8200', '#0db37b'],
+        cellValues: ['11010011', '01001100', '10101111', '00110001', '11100011', '01110010']
+      },
+      lora: {
+        label: 'TENSOR WEIGHT MATRIX [LoRA ΔW RANK-16]',
+        density: 'COMPRESSION RATIO: 64.0x',
+        block: 'Rank-16 Matrix',
+        error: '0.00% (EXACT)',
+        throughput: '310 tokens/sec',
+        throughputPct: '98%',
+        vram: '18 GB / 128 GB (14% CAPACITY)',
+        vramPct: '14%',
+        bandwidth: '1.8 TB/s (ULTRA-FAST)',
+        cellColors: ['#0df2a5', '#00ff87', '#0df2a5', '#00ff87', '#0df2a5', '#00ff87'],
+        cellValues: ['ΔW1', 'ΔW2', 'ΔW3', 'ΔW4', 'ΔW5', 'ΔW6']
+      },
+      fp32: {
+        label: 'TENSOR WEIGHT MATRIX [FP32 UNCOMPRESSED]',
+        density: 'COMPRESSION RATIO: 1.0x',
+        block: 'Uncompressed',
+        error: 'BASELINE',
+        throughput: '34 tokens/sec',
+        throughputPct: '20%',
+        vram: '128 GB / 128 GB (100% CAPACITY)',
+        vramPct: '100%',
+        bandwidth: '450 GB/s (BUSY)',
+        cellColors: ['#444444', '#666666', '#444444', '#666666', '#444444', '#666666'],
+        cellValues: ['32b', '32b', '32b', '32b', '32b', '32b']
+      }
+    };
+
+    function renderMatrix(modeKey: string) {
+      const data = modes[modeKey];
+      if (!data) return;
+
+      if (modeLabel) modeLabel.textContent = data.label;
+      if (densityLabel) densityLabel.textContent = data.density;
+      if (valBlock) valBlock.textContent = data.block;
+      if (valError) valError.textContent = data.error;
+      if (valThroughput) valThroughput.textContent = data.throughput;
+      if (valVram) valVram.textContent = data.vram;
+      if (valBandwidth) valBandwidth.textContent = data.bandwidth;
+
+      if (barThroughput) barThroughput.style.width = data.throughputPct;
+      if (barVram) barVram.style.width = data.vramPct;
+
+      // Defensive null checks for TypeScript safety
+      const targetGrid = document.getElementById('weight-grid');
+      if (!targetGrid) return;
+
+      targetGrid.innerHTML = '';
+      for (let i = 0; i < 36; i++) {
+        const cell = document.createElement('div');
+        cell.className = 'cell-weight';
+        const colorIdx = i % data.cellColors.length;
+        const valIdx = i % data.cellValues.length;
+        cell.style.backgroundColor = data.cellColors[colorIdx];
+        cell.textContent = data.cellValues[valIdx];
+        targetGrid.appendChild(cell);
+      }
+    }
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const mode = tab.getAttribute('data-mode');
+        if (mode) renderMatrix(mode);
+      });
+    });
+
+    // Default init
+    renderMatrix('fp4');
+  }
+
+  // Initialize on load
+  initTensorInspector();
+</script>

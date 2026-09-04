@@ -24,6 +24,15 @@
   .brand-switcher-wrapper {
     position: relative;
     z-index: 100;
+    flex-shrink: 0;
+  }
+  
+  @media (min-width: 901px) {
+    .brand-switcher-wrapper {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
   
   .brand-switcher {
@@ -90,22 +99,23 @@
     transform: scale(1.2);
   }
   
-  /* Responsive */
-  @media (max-width: 768px) {
+  /* Responsive Floating Pill for Mobile & Tablet (Placed below top header bar) */
+  @media (max-width: 900px) {
     .brand-switcher-wrapper {
-      position: fixed;
-      bottom: 24px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 100;
+      position: fixed !important;
+      top: 80px !important;
+      bottom: auto !important;
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+      z-index: 99 !important;
       width: auto;
-      max-width: 90vw;
-      animation: floatIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      max-width: 92vw;
+      animation: floatDown 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    @keyframes floatIn {
+    @keyframes floatDown {
       from {
-        transform: translate(-50%, 20px);
+        transform: translate(-50%, -10px);
         opacity: 0;
       }
       to {
@@ -118,7 +128,7 @@
       background: color-mix(in srgb, var(--bg-secondary) 85%, transparent);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
       border: 1px solid var(--border-color);
     }
 
@@ -126,12 +136,12 @@
       display: none;
     }
     .switcher-btn {
-      padding: 10px 16px;
+      padding: 8px 14px;
     }
     .switcher-btn::after {
       content: attr(data-brand);
       text-transform: capitalize;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
     }
     .switcher-btn[data-brand="core"]::after {
       content: "Core";
@@ -140,11 +150,11 @@
   
   @media (max-width: 480px) {
     .brand-switcher-wrapper {
-      bottom: 16px;
+      top: 74px !important;
     }
     .switcher-btn {
-      padding: 8px 12px;
-      gap: 6px;
+      padding: 7px 11px;
+      gap: 5px;
     }
     .btn-dot {
       width: 5px;
@@ -154,31 +164,69 @@
       font-size: 0.75rem;
     }
     .brand-switcher {
-      padding: 4px;
+      padding: 3px;
     }
     .active-indicator {
-      top: 4px;
-      bottom: 4px;
-      left: 4px;
+      top: 3px;
+      bottom: 3px;
+      left: 3px;
     }
+  .brand-switcher-wrapper {
+    position: relative;
+    z-index: 100;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .brand-switcher-wrapper.scroll-hidden {
+    transform: translate(-50%, -120px) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
   }
 </style>
 
 <script>
   function initSwitcher() {
-    const switcher = document.querySelector('.brand-switcher');
+    const wrapper = document.querySelector('.brand-switcher-wrapper');
+    const switcher = document.querySelector('.brand-switcher') as HTMLElement;
     const buttons = document.querySelectorAll('.switcher-btn');
     const indicator = document.querySelector('.active-indicator') as HTMLElement;
     
     if (!switcher || !indicator) return;
     
     function updateIndicator(activeBtn: HTMLElement) {
+      if (!switcher || !indicator) return;
       const switcherRect = switcher.getBoundingClientRect();
       const btnRect = activeBtn.getBoundingClientRect();
       
       indicator.style.width = `${btnRect.width}px`;
       indicator.style.transform = `translateX(${btnRect.left - switcherRect.left - 4}px)`;
     }
+    
+    // Auto-hide brand switcher on scroll down, show on scroll up
+    let lastScrollY = window.scrollY;
+    const scrollThreshold = 8;
+
+    window.addEventListener('scroll', () => {
+      if (!wrapper) return;
+      const currentScrollY = window.scrollY;
+
+      // Always show near top of page
+      if (currentScrollY < 60) {
+        wrapper.classList.remove('scroll-hidden');
+        lastScrollY = currentScrollY;
+        return;
+      }
+
+      if (currentScrollY > lastScrollY + scrollThreshold) {
+        // Scrolling DOWN -> Hide
+        wrapper.classList.add('scroll-hidden');
+      } else if (currentScrollY < lastScrollY - scrollThreshold) {
+        // Scrolling UP -> Show
+        wrapper.classList.remove('scroll-hidden');
+      }
+
+      lastScrollY = currentScrollY;
+    }, { passive: true });
     
     // Set initial active button based on html class
     const currentClass = document.documentElement.className;
@@ -196,7 +244,7 @@
       
       btn.addEventListener('click', (e) => {
         const target = e.currentTarget as HTMLElement;
-        const brand = target.dataset.brand;
+        const brand = target.dataset.brand || 'core';
         
         buttons.forEach(b => b.classList.remove('active'));
         target.classList.add('active');

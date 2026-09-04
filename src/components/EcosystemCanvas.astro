@@ -1,0 +1,581 @@
+---
+// EcosystemCanvas.astro - Flawless Precision Anchor Connections (Zero Displacement)
+---
+
+<div class="ecosystem-flow-wrapper">
+  <!-- Header -->
+  <div class="ecosystem-header">
+    <span class="header-subtitle font-mono">// ECOSYSTEM TOPOLOGY</span>
+    <h3 class="ecosystem-title">Cross-Domain Neural Matrix</h3>
+    <p class="ecosystem-desc">
+      Research initiatives from LABS and growth engines from AGENCY interlink directly into CORE enterprise vertical platforms. Hover any node to draw neural connections and reveal deep domain specs.
+    </p>
+  </div>
+
+  <!-- Relative Matrix Container -->
+  <div class="topology-matrix-container" id="matrix-container">
+    <!-- SVG Connection Layer (Placed BEHIND text nodes with z-index: 1) -->
+    <svg class="dynamic-svg-layer" id="matrix-svg">
+      <defs>
+        <linearGradient id="draw-line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.9" />
+          <stop offset="50%" stop-color="#0df2a5" stop-opacity="1" />
+          <stop offset="100%" stop-color="var(--accent)" stop-opacity="0.9" />
+        </linearGradient>
+        <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="2" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+      <g id="svg-paths-container"></g>
+    </svg>
+
+    <!-- Open Spatial Columns -->
+    <div class="topology-matrix">
+      <!-- Column 1: CORE VERTICALS -->
+      <div class="matrix-col">
+        <div class="col-header font-mono">
+          <span class="col-idx">01</span>
+          <span class="col-name">CORE VERTICALS</span>
+        </div>
+        
+        <div class="matrix-node" data-id="c-re" data-links="l-voice,l-cv">
+          <div class="node-main-row">
+            <div class="node-content">
+              <div class="node-heading">Real Estate Software</div>
+              <div class="node-sub font-mono">VOICE AI + SPATIAL CV</div>
+            </div>
+            <span class="node-dot right-dot" id="dot-c-re"></span>
+          </div>
+          <div class="node-detail-info">
+            <p>Autonomous buyer intake, voice-guided property tours, and 3D architectural site perception.</p>
+            <span class="detail-tag font-mono">DEPLOYMENT: ENTERPRISE LIVE</span>
+          </div>
+        </div>
+
+        <div class="matrix-node" data-id="c-rm" data-links="l-ml">
+          <div class="node-main-row">
+            <div class="node-content">
+              <div class="node-heading">Resource Management</div>
+              <div class="node-sub font-mono">ML ALGORITHMS & LOGISTICS</div>
+            </div>
+            <span class="node-dot right-dot" id="dot-c-rm"></span>
+          </div>
+          <div class="node-detail-info">
+            <p>Workforce allocation, equipment tracking, and predictive site scheduling models.</p>
+          </div>
+        </div>
+
+        <div class="matrix-node" data-id="c-ht" data-links="l-ret,a-mktg">
+          <div class="node-main-row">
+            <div class="node-content">
+              <div class="node-heading">Hospitality & Tourism</div>
+              <div class="node-sub font-mono">RETENTION + MARKETING ENGINE</div>
+            </div>
+            <span class="node-dot right-dot" id="dot-c-ht"></span>
+          </div>
+          <div class="node-detail-info">
+            <p>Dynamic guest profiling, behavioral churn prevention, and synthetic booking campaigns.</p>
+            <span class="detail-tag font-mono">GUEST LTV: 3.4X INCREASE</span>
+          </div>
+        </div>
+
+        <div class="matrix-node" data-id="c-ph" data-links="l-auto,a-msg">
+          <div class="node-main-row">
+            <div class="node-content">
+              <div class="node-heading">Pharmaceuticals & Hospitals</div>
+              <div class="node-sub font-mono">RECORDS + EMAIL & WHATSAPP</div>
+            </div>
+            <span class="node-dot right-dot" id="dot-c-ph"></span>
+          </div>
+          <div class="node-detail-info">
+            <p>Automated electronic record parsing, multi-channel dispatch, and MCP protocol integration.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 2: LABS RESEARCH -->
+      <div class="matrix-col">
+        <div class="col-header font-mono">
+          <span class="col-idx">02</span>
+          <span class="col-name">LABS RESEARCH</span>
+        </div>
+
+        <div class="matrix-node" data-id="l-voice" data-links="c-re">
+          <div class="node-main-row">
+            <span class="node-dot left-dot" id="dot-l-voice"></span>
+            <div class="node-content">
+              <div class="node-heading">Voice AI & Audio Codecs</div>
+              <div class="node-sub font-mono">RESEARCH INITIATIVE</div>
+            </div>
+          </div>
+          <div class="node-detail-info">
+            <p>Sub-80ms streaming TTS/STT, neural acoustic matching, and multi-speaker turn-taking.</p>
+            <span class="detail-tag font-mono">MODEL: PROPRIETARY ACOUSTIC CORES</span>
+          </div>
+        </div>
+
+        <div class="matrix-node" data-id="l-cv" data-links="c-re">
+          <div class="node-main-row">
+            <span class="node-dot left-dot" id="dot-l-cv"></span>
+            <div class="node-content">
+              <div class="node-heading">Computer Vision & 3D</div>
+              <div class="node-sub font-mono">SPATIAL REASONING</div>
+            </div>
+          </div>
+          <div class="node-detail-info">
+            <p>Real-time visual telemetry, depth estimation, and 3D environment spatial reconstruction.</p>
+            <span class="detail-tag font-mono">PRECISION: 99.4% RECOGNITION</span>
+          </div>
+        </div>
+
+        <div class="matrix-node" data-id="l-ml" data-links="c-rm">
+          <div class="node-main-row">
+            <span class="node-dot left-dot" id="dot-l-ml"></span>
+            <div class="node-content">
+              <div class="node-heading">Predictive ML Models</div>
+              <div class="node-sub font-mono">OPTIMIZATION HARNESS</div>
+            </div>
+          </div>
+          <div class="node-detail-info">
+            <p>Heuristic decision trees and constrained optimization engines for resource dispatch.</p>
+            <span class="detail-tag font-mono">COMPUTE: NVIDIA DGX ACCELERATED</span>
+          </div>
+        </div>
+
+        <div class="matrix-node" data-id="l-ret" data-links="c-ht">
+          <div class="node-main-row">
+            <span class="node-dot left-dot" id="dot-l-ret"></span>
+            <div class="node-content">
+              <div class="node-heading">Retention Analytics</div>
+              <div class="node-sub font-mono">BEHAVIORAL AI</div>
+            </div>
+          </div>
+          <div class="node-detail-info">
+            <p>Latent customer propensity scoring and algorithmic retention vector generation.</p>
+            <span class="detail-tag font-mono">ACCURACY: 94.8% PREDICTIVE</span>
+          </div>
+        </div>
+
+        <div class="matrix-node" data-id="l-auto" data-links="c-ph">
+          <div class="node-main-row">
+            <span class="node-dot left-dot" id="dot-l-auto"></span>
+            <div class="node-content">
+              <div class="node-heading">Hermes & MCP Harness</div>
+              <div class="node-sub font-mono">WORKFLOW AUTOMATION</div>
+            </div>
+          </div>
+          <div class="node-detail-info">
+            <p>Autonomous agent orchestrators operating with verified Model Context Protocol tools.</p>
+            <span class="detail-tag font-mono">AGENT CAPACITY: 500+ CONCURRENT</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3: AGENCY GROWTH -->
+      <div class="matrix-col">
+        <div class="col-header font-mono">
+          <span class="col-idx">03</span>
+          <span class="col-name">AGENCY GROWTH</span>
+        </div>
+
+        <div class="matrix-node" data-id="a-mktg" data-links="c-ht">
+          <div class="node-main-row">
+            <span class="node-dot left-dot" id="dot-a-mktg"></span>
+            <div class="node-content">
+              <div class="node-heading">Growth & Marketing Agency</div>
+              <div class="node-sub font-mono">OUTREACH & CAMPAIGNS</div>
+            </div>
+          </div>
+          <div class="node-detail-info">
+            <p>Autonomous multi-channel ad variant testing and synthetic conversion scaling.</p>
+            <span class="detail-tag font-mono">SCALE: 8.4X CAMPAIGN VELOCITY</span>
+          </div>
+        </div>
+
+        <div class="matrix-node" data-id="a-msg" data-links="c-ph">
+          <div class="node-main-row">
+            <span class="node-dot left-dot" id="dot-a-msg"></span>
+            <div class="node-content">
+              <div class="node-heading">Email & WhatsApp Gateways</div>
+              <div class="node-sub font-mono">OMNICHANNEL PLATFORM</div>
+            </div>
+          </div>
+          <div class="node-detail-info">
+            <p>High-throughput transactional messaging, appointment dispatch, and EHR sync.</p>
+            <span class="detail-tag font-mono">DELIVERY RATE: 99.9% GUARANTEED</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Telemetry Stream Status Line -->
+  <div class="stream-line font-mono" id="stream-line">
+    <span class="stream-pulse"></span>
+    <span class="stream-text" id="stream-text">HOVER ANY DOMAIN NODE TO DRAW CONNECTIONS & REVEAL DEEP SPECS</span>
+  </div>
+</div>
+
+<style>
+  .ecosystem-flow-wrapper {
+    padding: 4rem 0;
+    margin: 2rem 0;
+    position: relative;
+  }
+
+  .ecosystem-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.16em;
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+
+  .ecosystem-title {
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .ecosystem-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    max-width: 680px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* Matrix Container */
+  .topology-matrix-container {
+    position: relative;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed var(--border-color);
+  }
+
+  .dynamic-svg-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1; /* BEHIND text nodes */
+  }
+
+  .topology-matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3.5rem;
+    position: relative;
+    z-index: 5; /* ABOVE SVG lines */
+  }
+
+  .matrix-col {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .col-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+  }
+
+  .col-idx {
+    color: var(--accent);
+  }
+
+  .col-name {
+    color: var(--text-primary);
+  }
+
+  /* Node styling */
+  .matrix-node {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.75rem 0.85rem;
+    border-radius: 8px;
+    position: relative;
+    transition: opacity 0.4s ease, background-color 0.3s ease;
+    background: transparent;
+  }
+
+  .node-main-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .node-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border-color);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+    position: relative;
+  }
+
+  .matrix-node:hover, .matrix-node.node-active {
+    background: rgba(255, 255, 255, 0.025);
+  }
+
+  .matrix-node:hover .node-dot, .matrix-node.node-active .node-dot {
+    background: var(--accent);
+    box-shadow: 0 0 14px var(--accent);
+    transform: scale(1.6);
+    opacity: 1;
+  }
+
+  .matrix-node.node-dimmed {
+    opacity: 0.22;
+  }
+
+  .node-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex-grow: 1;
+  }
+
+  .node-heading {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: color 0.3s ease;
+  }
+
+  .node-sub {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+  }
+
+  .matrix-node:hover .node-sub, .matrix-node.node-active .node-sub {
+    color: var(--accent);
+  }
+
+  /* Expandable Detail Info on Hover */
+  .node-detail-info {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, margin-top 0.3s ease;
+    margin-top: 0;
+  }
+
+  .matrix-node:hover .node-detail-info, .matrix-node.node-active .node-detail-info {
+    max-height: 120px;
+    opacity: 1;
+    margin-top: 10px;
+  }
+
+  .node-detail-info p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+    margin-bottom: 6px;
+    font-weight: 300;
+  }
+
+  .detail-tag {
+    font-size: 0.62rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  /* Telemetry Stream Status Line */
+  .stream-line {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  .stream-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    animation: streamPulse 2s infinite ease-in-out;
+  }
+
+  .stream-text {
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  @keyframes streamPulse {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.4); }
+  }
+
+  /* SVG Animated Path */
+  .drawn-path {
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+    animation: drawPath 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes drawPath {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .topology-matrix {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .dynamic-svg-layer {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  function initDynamicEcosystemMatrix() {
+    const container = document.getElementById('matrix-container');
+    const svgGroup = document.getElementById('svg-paths-container');
+    const nodes = document.querySelectorAll('.matrix-node');
+    const streamText = document.getElementById('stream-text');
+
+    if (!container || !svgGroup) return;
+
+    function getExactDotCenter(nodeEl: Element): { x: number; y: number } {
+      const dot = nodeEl.querySelector('.node-dot');
+      if (!dot) {
+        const r = nodeEl.getBoundingClientRect();
+        const c = container!.getBoundingClientRect();
+        return { x: r.left + r.width / 2 - c.left, y: r.top + r.height / 2 - c.top };
+      }
+      const rect = dot.getBoundingClientRect();
+      const containerRect = container!.getBoundingClientRect();
+      return {
+        x: rect.left + rect.width / 2 - containerRect.left,
+        y: rect.top + rect.height / 2 - containerRect.top
+      };
+    }
+
+    function renderLines(sourceNode: Element, targetNodes: Element[]) {
+      if (!svgGroup) return;
+      svgGroup.innerHTML = '';
+      const sourcePt = getExactDotCenter(sourceNode);
+
+      targetNodes.forEach(targetNode => {
+        const targetPt = getExactDotCenter(targetNode);
+
+        // Calculate smooth bezier control points
+        const dx = Math.abs(targetPt.x - sourcePt.x) * 0.5;
+        const pathData = `M ${sourcePt.x} ${sourcePt.y} C ${sourcePt.x + dx} ${sourcePt.y}, ${targetPt.x - dx} ${targetPt.y}, ${targetPt.x} ${targetPt.y}`;
+
+        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d', pathData);
+        path.setAttribute('stroke', 'url(#draw-line-grad)');
+        path.setAttribute('stroke-width', '2.5');
+        path.setAttribute('fill', 'none');
+        path.setAttribute('filter', 'url(#glow-filter)');
+        path.setAttribute('class', 'drawn-path');
+
+        svgGroup.appendChild(path);
+      });
+    }
+
+    function clearLines() {
+      if (svgGroup) {
+        svgGroup.innerHTML = '';
+      }
+    }
+
+    let activeAnimFrame: number | null = null;
+
+    nodes.forEach(node => {
+      node.addEventListener('mouseenter', () => {
+        const id = node.getAttribute('data-id');
+        const linksStr = node.getAttribute('data-links') || '';
+        const linkIds = linksStr.split(',').filter(Boolean);
+
+        const targetElements: Element[] = [];
+        linkIds.forEach(lId => {
+          const el = document.querySelector(`[data-id="${lId}"]`);
+          if (el) targetElements.push(el);
+        });
+
+        const activeSet = new Set([id, ...linkIds]);
+
+        // Highlight/dim nodes
+        nodes.forEach(n => {
+          const nId = n.getAttribute('data-id');
+          if (nId && activeSet.has(nId)) {
+            n.classList.add('node-active');
+            n.classList.remove('node-dimmed');
+          } else {
+            n.classList.remove('node-active');
+            n.classList.add('node-dimmed');
+          }
+        });
+
+        // Continuous alignment during detail text expansion animation
+        if (activeAnimFrame) cancelAnimationFrame(activeAnimFrame);
+
+        let startTime = performance.now();
+        function updateLoop(now: number) {
+          renderLines(node, targetElements);
+          if (now - startTime < 450) {
+            activeAnimFrame = requestAnimationFrame(updateLoop);
+          }
+        }
+        activeAnimFrame = requestAnimationFrame(updateLoop);
+
+        if (streamText) {
+          streamText.textContent = `ACTIVE NEURAL VECTOR: ${id?.toUpperCase()} ➔ INTERLINKED WITH [${linkIds.join(', ').toUpperCase()}]`;
+        }
+      });
+
+      node.addEventListener('mouseleave', () => {
+        if (activeAnimFrame) cancelAnimationFrame(activeAnimFrame);
+        nodes.forEach(n => {
+          n.classList.remove('node-active');
+          n.classList.remove('node-dimmed');
+        });
+        clearLines();
+        if (streamText) {
+          streamText.textContent = 'HOVER ANY DOMAIN NODE TO DRAW CONNECTIONS & REVEAL DEEP SPECS';
+        }
+      });
+    });
+
+    window.addEventListener('resize', clearLines);
+  }
+
+  initDynamicEcosystemMatrix();
+</script>
