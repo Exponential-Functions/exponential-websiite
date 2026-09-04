@@ -4,4 +4,4 @@ Allow: /
 Disallow: /api/private/
 
 # Sitemap location
-Sitemap: https://exponential.function/sitemap.xml
+Sitemap: https://exponential-functions.com/sitemap.xml
