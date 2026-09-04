@@ -1040,18 +1040,31 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 
 	.blueprint-group {
 		transform-origin: 100px 100px;
-		animation: blueprintSpin 90s linear infinite;
+		animation: blueprintSpin 24s linear infinite;
 	}
 
 	#ins-path-1 {
-		stroke-dasharray: 600;
-		stroke-dashoffset: 600;
-		animation: drawTopologyPath 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+		stroke-dasharray: 12, 6;
+		animation: drawTopologyPath 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards, pulsePathFlow 1.5s linear infinite;
 	}
 
 	@keyframes drawTopologyPath {
+		from {
+			opacity: 0;
+			stroke-dashoffset: 100;
+		}
 		to {
+			opacity: 1;
 			stroke-dashoffset: 0;
+		}
+	}
+
+	@keyframes pulsePathFlow {
+		from {
+			stroke-dashoffset: 0;
+		}
+		to {
+			stroke-dashoffset: -36;
 		}
 	}
 

@@ -440,14 +440,27 @@
 
   /* SVG Animated Path */
   .drawn-path {
-    stroke-dasharray: 800;
-    stroke-dashoffset: 800;
-    animation: drawPath 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    stroke-dasharray: 10, 6;
+    animation: drawPath 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards, pulsePathFlow 1.2s linear infinite;
   }
 
   @keyframes drawPath {
+    from {
+      opacity: 0;
+      stroke-dashoffset: 100;
+    }
     to {
+      opacity: 1;
       stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes pulsePathFlow {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: -32;
     }
   }
 

@@ -186,8 +186,10 @@
     transition: border-color 0.3s ease;
   }
 
-  .mcp-node:hover {
-    border-color: var(--accent);
+  .mcp-node:hover, .mcp-node.active-mcp {
+    border-color: #0df2a5;
+    box-shadow: 0 0 12px rgba(13, 242, 165, 0.2);
+    background: rgba(13, 242, 165, 0.05);
   }
 
   .mcp-icon {
@@ -217,3 +219,34 @@
     }
   }
 </style>
+
+<script>
+  function initAgentWorkflowAnimation() {
+    const steps = document.querySelectorAll('.harness-flow .flow-step');
+    const mcpNodes = document.querySelectorAll('.mcp-node');
+    if (!steps.length) return;
+
+    let currentStep = 1; // Start at step 2 (index 1)
+
+    setInterval(() => {
+      steps.forEach((step, idx) => {
+        if (idx === currentStep) {
+          step.classList.add('active-step');
+        } else {
+          step.classList.remove('active-step');
+        }
+      });
+
+      // Pulse a random MCP node in sync
+      if (mcpNodes.length) {
+        mcpNodes.forEach(n => n.classList.remove('active-mcp'));
+        const randomNode = mcpNodes[Math.floor(Math.random() * mcpNodes.length)];
+        randomNode.classList.add('active-mcp');
+      }
+
+      currentStep = (currentStep + 1) % steps.length;
+    }, 2200);
+  }
+
+  initAgentWorkflowAnimation();
+</script>

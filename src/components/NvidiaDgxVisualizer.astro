@@ -822,6 +822,24 @@
 
     // Default init
     renderMatrix('fp4');
+
+    // Live continuous bit pulse simulation
+    setInterval(() => {
+      if (!gridEl) return;
+      const cells = gridEl.querySelectorAll('.cell-weight');
+      if (cells.length > 0) {
+        const randIdx = Math.floor(Math.random() * cells.length);
+        const cell = cells[randIdx] as HTMLElement;
+        if (cell) {
+          cell.style.opacity = '0.4';
+          cell.style.transform = 'scale(0.92)';
+          setTimeout(() => {
+            cell.style.opacity = '1';
+            cell.style.transform = 'scale(1)';
+          }, 250);
+        }
+      }
+    }, 700);
   }
 
   // Initialize on load

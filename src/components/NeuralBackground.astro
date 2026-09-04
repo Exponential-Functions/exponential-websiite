@@ -91,9 +91,37 @@
       return { main: '#38bdf8', rgb: '56, 189, 248' }; // Core default
     }
 
+    // Create 45 ambient neural particles that float continuously
+    const numParticles = 45;
+    interface Particle {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
+      alpha: number;
+      pulseSpeed: number;
+    }
+
+    const particles: Particle[] = [];
+    for (let i = 0; i < numParticles; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 2 + 1,
+        alpha: Math.random() * 0.5 + 0.2,
+        pulseSpeed: Math.random() * 0.02 + 0.005
+      });
+    }
+
+    let time = 0;
+
     function animate() {
       if (!ctx) return;
       ctx.clearRect(0, 0, width, height);
+      time += 0.015;
 
       // Smooth mouse spring interpolation
       mouseX += (targetMouseX - mouseX) * 0.08;
@@ -101,16 +129,56 @@
 
       const theme = getAccentColor();
 
-      // Soft Modern Spotlight Gradient following mouse smoothly
-      const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 320);
-      gradient.addColorStop(0, `rgba(${theme.rgb}, 0.14)`);
-      gradient.addColorStop(0.4, `rgba(${theme.rgb}, 0.04)`);
+      // 1. Soft Modern Spotlight Gradient following mouse smoothly
+      const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 380);
+      gradient.addColorStop(0, `rgba(${theme.rgb}, 0.16)`);
+      gradient.addColorStop(0.5, `rgba(${theme.rgb}, 0.04)`);
       gradient.addColorStop(1, 'transparent');
 
       ctx.fillStyle = gradient;
       ctx.beginPath();
-      ctx.arc(mouseX, mouseY, 320, 0, Math.PI * 2);
+      ctx.arc(mouseX, mouseY, 380, 0, Math.PI * 2);
       ctx.fill();
+
+      // 2. Draw & Update ambient floating neural particles
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Wrap boundaries
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+
+        // Dynamic pulse alpha
+        const currentAlpha = p.alpha + Math.sin(time * 2 + i) * 0.15;
+        const clampedAlpha = Math.max(0.05, Math.min(0.8, currentAlpha));
+
+        ctx.fillStyle = `rgba(${theme.rgb}, ${clampedAlpha})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Connect nearby particles with subtle neural lines
+        for (let j = i + 1; j < particles.length; j++) {
+          const p2 = particles[j];
+          const dx = p.x - p2.x;
+          const dy = p.y - p2.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 130) {
+            const lineAlpha = (1 - dist / 130) * 0.15 * clampedAlpha;
+            ctx.strokeStyle = `rgba(${theme.rgb}, ${lineAlpha})`;
+            ctx.lineWidth = 0.75;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(p2.x, p2.y);
+            ctx.stroke();
+          }
+        }
+      }
 
       requestAnimationFrame(animate);
     }
