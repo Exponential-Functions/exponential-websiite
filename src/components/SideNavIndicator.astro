@@ -28,6 +28,12 @@
 </div>
 
 <style>
+  /* Ecosystem (Cross-Domain Neural Matrix) only exists in CORE mode */
+  html.brand-labs .side-nav-item[data-section="ecosystem"],
+  html.brand-agency .side-nav-item[data-section="ecosystem"] {
+    display: none;
+  }
+
   .side-nav-container {
     position: fixed;
     right: 2.2rem;

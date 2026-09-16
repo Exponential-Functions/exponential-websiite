@@ -50,10 +50,10 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 				<!-- Core Mode Hero Content -->
 				<div class="brand-show-core">
 					<h1 class="hero-title">
-						Engineered for High-Stakes Enterprises. <span class="italic-serif">Proven Across Industries.</span>
+						Engineered for High-Stakes Enterprises. <span class="italic-serif"></span>
 					</h1>
 					<p class="hero-subtitle">
-						From real-time automated infrastructure to domain-specific AI integrations, our battle-tested engineering team converts complex technical challenges into scalable, high-yield digital platforms.
+						From real-time automated infrastructure to domain-specific AI integrations, our team can convert complex technical challenges into scalable, high-yield digital platforms.
 					</p>
 				</div>
 
@@ -64,7 +64,7 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 						Applied Research That <span class="italic-serif">Powers Production Systems</span>.
 					</h1>
 					<p class="hero-subtitle">
-						Our LABS section conducts applied research on local LLM fine-tuning, NVIDIA DGX Spark clusters, Hermes agent harnesses, and MCP protocol workflows that feed directly into enterprise CORE solutions.
+						Our LABS section conducts applied research on local LLM fine-tuning, right now using NVIDIA DGX Spark clusters and MCP protocol workflows that feed directly into enterprise CORE solutions.
 					</p>
 				</div>
 
@@ -86,9 +86,21 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 							<path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 						</svg>
 					</a>
-					<a href="#ecosystem" class="btn btn-secondary">
-						<span>Explore Ecosystem</span>
-					</a>
+					<div class="brand-show-core">
+						<a href="#ecosystem" class="btn btn-secondary">
+							<span>Explore Ecosystem</span>
+						</a>
+					</div>
+					<div class="brand-show-labs">
+						<a href="#research" class="btn btn-secondary">
+							<span>Explore Research</span>
+						</a>
+					</div>
+					<div class="brand-show-agency">
+						<a href="#agency-growth" class="btn btn-secondary">
+							<span>Explore Growth Engines</span>
+						</a>
+					</div>
 				</div>
 
 				<!-- Interactive Hero Radar Matrix HUD -->
@@ -96,10 +108,12 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 			</div>
 		</section>
 
-		<!-- Ecosystem Interlinking Visual Canvas Section (Interlinks all 3 modes together) -->
-		<section id="ecosystem" class="specs-section container">
-			<EcosystemCanvas />
-		</section>
+		<!-- Ecosystem Interlinking Visual Canvas Section (Visible ONLY in CORE / Exponential Functions mode) -->
+		<div class="brand-show-core">
+			<section id="ecosystem" class="specs-section container">
+				<EcosystemCanvas />
+			</section>
+		</div>
 
 		<!-- CORE Section: Industry Solutions (Visible ONLY in CORE mode) -->
 		<div class="brand-show-core">
@@ -123,7 +137,7 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 					<div class="font-mono section-label" style="color: #0df2a5;">LABS // ADVANCED RESEARCH</div>
 					<h2 class="section-title">Applied Research Feeding Directly Into CORE</h2>
 					<p class="hero-subtitle" style="margin-top: 1rem; margin-bottom: 0;">
-						Our LABS section focuses on breakthrough hardware fine-tuning and agentic workflows that power our enterprise implementations.
+						Our LABS section focuses on fine-tuning local LLMs on specific use-cases and agentic workflows that power our enterprise implementations.
 					</p>
 				</div>
 
@@ -166,207 +180,86 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 			</section>
 		</div>
 
-		<!-- Architecture Grid Section -->
-		<section id="architecture" class="specs-section container">
-			<div class="section-header">
-				<div class="font-mono section-label">TECHNICAL DATA</div>
-				<h2 class="section-title">System Characteristics</h2>
-			</div>
+		<!-- LABS System Characteristics: Local LLM Stack (Visible ONLY in LABS mode) -->
+		<div class="brand-show-labs">
+			<section id="labs-characteristics" class="specs-section container">
+				<div class="section-header">
+					<div class="font-mono section-label" style="color: #0df2a5;">TECHNICAL DATA</div>
+					<h2 class="section-title">System Characteristics</h2>
+					<p class="hero-subtitle" style="margin-top: 1rem; margin-bottom: 0;">
+						The open-weight model families we fine-tune, quantize and serve entirely on local infrastructure.
+					</p>
+				</div>
 
-			<!-- Core Cards Grid -->
-			<div class="brand-show-core">
+				<div class="specs-grid specs-grid-4">
+					<MetricCard
+						label="LABS_MODEL_01"
+						value="Qwen"
+						title="Instruction & Tool-Use Alignment"
+						description="Our primary general-purpose family for agentic tool calling and domain instruction tuning on client corpora."
+						status="FINE-TUNED"
+					/>
+					<MetricCard
+						label="LABS_MODEL_02"
+						value="DeepSeek"
+						title="Reasoning & Code Synthesis"
+						description="Used for long-horizon reasoning chains, code generation and structured planning inside agentic workflows."
+						status="DEPLOYED"
+					/>
+					<MetricCard
+						label="LABS_MODEL_03"
+						value="GLM"
+						title="Multilingual Enterprise Dialogue"
+						description="Bilingual and multilingual assistants for support, retrieval and document understanding workloads."
+						status="TUNING"
+					/>
+					<MetricCard
+						label="LABS_MODEL_04"
+						value="Kimi"
+						title="Long-Context Document Analysis"
+						description="Extended context windows for whole-repository, contract and knowledge-base comprehension tasks."
+						status="EVALUATING"
+					/>
+				</div>
+			</section>
+		</div>
+
+		<!-- AGENCY System Characteristics: Growth Parameters (Visible ONLY in AGENCY mode) -->
+		<div class="brand-show-agency">
+			<section id="agency-characteristics" class="specs-section container">
+				<div class="section-header">
+					<div class="font-mono section-label" style="color: var(--accent);">TECHNICAL DATA</div>
+					<h2 class="section-title">System Characteristics</h2>
+					<p class="hero-subtitle" style="margin-top: 1rem; margin-bottom: 0;">
+						The parameters our growth engines operate on across every campaign and channel.
+					</p>
+				</div>
+
 				<div class="specs-grid">
-					<MetricCard 
-						label="CORE_METRIC_01"
-						value="99.98%"
-						title="Private Stack Observability"
-						description="Continuous signal analytics tracking model drift and latency anomalies across custom container environments."
-						status="OPTIMAL"
+					<MetricCard
+						label="AGENCY_PARAM_01"
+						value="Engagement"
+						title="Audience Interaction Loops"
+						description="Behavioural signals across Email and WhatsApp journeys driving re-engagement and retention sequencing."
+						status="TRACKED"
 					/>
-					<MetricCard 
-						label="CORE_METRIC_02"
-						value="14.2ms"
-						title="Agentic Workflow Dispatch"
-						description="Low-latency routing framework syncing cognitive cloud systems with client datastores."
-						status="STABLE"
+					<MetricCard
+						label="AGENCY_PARAM_02"
+						value="Strategy"
+						title="Positioning & Funnel Design"
+						description="Offer framing, audience segmentation and channel mix defined before a single creative goes live."
+						status="DEFINED"
 					/>
-					<MetricCard 
-						label="CORE_METRIC_03"
-						value="4.2 PetaFLOPs"
-						title="Neural Infrastructure Capacity"
-						description="Dedicated compute nodes supporting secure client local model hosting and inference pipelines."
-						status="MAXIMUM"
-					/>
-				</div>
-			</div>
-
-			<!-- Labs Cards Grid -->
-			<div class="brand-show-labs">
-				<div class="specs-grid">
-					<MetricCard 
-						label="LABS_METRIC_01"
-						value="1.8ms"
-						title="Local Inference Token Latency"
-						description="Highly optimized custom quantization kernels running on modern local metal architecture."
-						status="ACTIVE"
-					/>
-					<MetricCard 
-						label="LABS_METRIC_02"
-						value="405B"
-						title="Sovereign Parameter Tuning"
-						description="Full-parameter alignment and instruction tuning on custom enterprise cognitive models."
-						status="TRAINING"
-					/>
-					<MetricCard 
-						label="LABS_METRIC_03"
-						value="100% Private"
-						title="Air-gapped Intranets"
-						description="Zero data egress private intelligence networks running offline inference nodes."
-						status="SECURE"
+					<MetricCard
+						label="AGENCY_PARAM_03"
+						value="Meta Ads"
+						title="Paid Social Operations"
+						description="Facebook and Instagram campaign structures, creative variants and audience testing managed end to end."
+						status="RUNNING"
 					/>
 				</div>
-			</div>
-
-			<!-- Agency Cards Grid -->
-			<div class="brand-show-agency">
-				<div class="specs-grid">
-					<MetricCard 
-						label="AGENCY_METRIC_01"
-						value="8.4x"
-						title="Synthetic Conversion Velocity"
-						description="Dynamic agent-driven asset generation testing variations across cohort channels in real time."
-						status="LIVE"
-					/>
-					<MetricCard 
-						label="AGENCY_METRIC_02"
-						value="2.4M/sec"
-						title="Signal Analytics Flow"
-						description="Real-time ingestion of social, news, and market data feeding autonomous operations."
-						status="SYNCHRONIZED"
-					/>
-					<MetricCard 
-						label="AGENCY_METRIC_03"
-						value="0ms Lag"
-						title="Intelligent Automation"
-						description="Instantaneous content translation and personalization scaling campaign vectors globally."
-						status="AUTONOMOUS"
-					/>
-				</div>
-			</div>
-		</section>
-
-		<!-- System Topologies & Blueprint Section -->
-		<section id="topologies" class="topology-section container">
-			<div class="section-header">
-				<div class="font-mono section-label">SYSTEMS BLUEPRINT</div>
-				<h2 class="section-title">Cognitive Topologies</h2>
-			</div>
-
-			<div class="topology-layout">
-				<!-- Left Sidebar: Domain Selector -->
-				<div class="topology-selector">
-					<button class="topology-tab active" data-topology="cloud">
-						<span class="font-mono tab-num">01</span>
-						<span class="tab-title">Decentralized Synaptic Cloud</span>
-						<span class="font-mono tab-sub">COGNITIVE_CLOUD_TOPOLOGIES</span>
-					</button>
-					<button class="topology-tab" data-topology="agents">
-						<span class="font-mono tab-num">02</span>
-						<span class="tab-title">Agentic Orchestration Graphs</span>
-						<span class="font-mono tab-sub">AGENTIC_STATE_MACHINES</span>
-					</button>
-					<button class="topology-tab" data-topology="llms">
-						<span class="font-mono tab-num">03</span>
-						<span class="tab-title">Sovereign Tensor Arrays</span>
-						<span class="font-mono tab-sub">LOCAL_INFERENCE_CORES</span>
-					</button>
-					<button class="topology-tab" data-topology="infra">
-						<span class="font-mono tab-num">04</span>
-						<span class="tab-title">Neural Metal Provisioning</span>
-						<span class="font-mono tab-sub">HYPERVISOR_PROVISIONING_METALS</span>
-					</button>
-					<button class="topology-tab" data-topology="observability">
-						<span class="font-mono tab-num">05</span>
-						<span class="tab-title">Entropy & Drift Observability</span>
-						<span class="font-mono tab-sub">LATTICE_PULSE_AUDITING</span>
-					</button>
-					<button class="topology-tab" data-topology="analytics">
-						<span class="font-mono tab-num">06</span>
-						<span class="tab-title">Signal Synthesis Engines</span>
-						<span class="font-mono tab-sub">LATENT_VECTOR_EXTRACTION</span>
-					</button>
-				</div>
-
-				<!-- Right Panel: Inspector Console -->
-				<div class="topology-inspector">
-					<div class="inspector-inner">
-						<div class="inspector-header">
-							<span class="font-mono inspector-label">// TOPOLOGY_INSPECTOR</span>
-							<span class="font-mono inspector-status" id="inspector-sync-status">SYNCED</span>
-						</div>
-						
-						<div class="inspector-content">
-							<div class="inspector-details">
-								<h3 class="inspector-title" id="ins-title">Decentralized Synaptic Cloud</h3>
-								<p class="inspector-desc" id="ins-desc">
-									Sovereign compute fabrics bridging local node arrays with distributed edge nodes, eliminating egress overhead.
-								</p>
-								
-								<div class="inspector-metrics">
-									<div class="metric-item">
-										<span class="font-mono metric-label">LATENCY_LIMIT</span>
-										<span class="metric-val" id="ins-m1">&lt; 4.8ms</span>
-									</div>
-									<div class="metric-item">
-										<span class="font-mono metric-label">THROUGHPUT</span>
-										<span class="metric-val" id="ins-m2">140 GB/s</span>
-									</div>
-									<div class="metric-item">
-										<span class="font-mono metric-label">COMPLIANCE</span>
-										<span class="metric-val" id="ins-m3">ZERO_EGRESS</span>
-									</div>
-								</div>
-							</div>
-							
-							<div class="inspector-visualization">
-								<!-- Interactive Schema SVG -->
-								<svg class="blueprint-canvas" width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<g class="blueprint-group">
-										<!-- Orbit grids -->
-										<circle cx="100" cy="100" r="80" stroke="var(--border-color)" stroke-width="0.75" stroke-dasharray="2 4" />
-										<circle cx="100" cy="100" r="50" stroke="var(--border-color)" stroke-width="0.75" />
-										
-										<!-- Connection lines -->
-										<line x1="100" y1="20" x2="100" y2="180" stroke="var(--border-color)" stroke-width="0.75" />
-										<line x1="20" y1="100" x2="180" y2="100" stroke="var(--border-color)" stroke-width="0.75" />
-										
-										<!-- Dynamic active lines -->
-										<path id="ins-path-1" d="M100,50 L150,100 L100,150 L50,100 Z" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="100" stroke-dashoffset="0" />
-										
-										<!-- Dots representing nodes -->
-										<circle id="node-dot-1" cx="100" cy="50" r="4" fill="var(--accent)" />
-										<circle id="node-dot-2" cx="150" cy="100" r="4" fill="var(--accent)" />
-										<circle id="node-dot-3" cx="100" cy="150" r="4" fill="var(--accent)" />
-										<circle id="node-dot-4" cx="50" cy="100" r="4" fill="var(--accent)" />
-										<circle cx="100" cy="100" r="6" fill="var(--text-primary)" />
-									</g>
-								</svg>
-								
-								<!-- Monospace JSON Config block -->
-								<div class="config-block">
-									<pre class="font-mono"><code id="ins-code">&#123;
-  "topology": "synaptic-cloud",
-  "hubs": ["sf-node-01", "tokyo-edge-04"],
-  "protocols": ["quic-cognitive"],
-  "egress_routing": "zero-overhead"
-&#125;</code></pre>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+			</section>
+		</div>
 
 		<!-- Interactive Console Section -->
 		<section id="observability" class="console-section container">
@@ -421,18 +314,11 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 			<div class="contact-card">
 				<div class="contact-grid">
 					<div class="contact-info">
-						<div class="font-mono contact-meta">SYSTEM CONNECTION</div>
-						<h2 class="contact-title">Initiate a Technical Briefing</h2>
+						<div class="font-mono contact-meta">LET'S CONNECT?</div>
+						<h2 class="contact-title">Ready to Initiate a Conversation?</h2>
 						<p class="contact-desc">
-							Let's build secure neural infrastructure tailored to your parameters. Connect with our engineering or creative intelligence systems.
+							Let's build or scale your exisiting product. Connect with our team.
 						</p>
-						<div class="contact-coords font-mono">
-							<p>SF // 37.7749° N, 122.4194° W</p>
-							<p>MUMBAI // 19.0760° N, 72.8777° E</p>
-							<p>PUNE // 18.5204° N, 73.8567° E</p>
-							<p>BLR // 12.9716° N, 77.5946° E</p>
-							<p>STOCKHOLM // 59.3293° N, 18.0686° E</p>
-						</div>
 					</div>
 					<div class="contact-form-wrapper">
 						<form class="contact-form" id="handshake-form">
@@ -443,8 +329,8 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 							<div class="form-group">
 								<label class="font-mono" for="stack">OBJECTIVE / INTERFACE TYPE</label>
 								<select id="stack">
-									<option value="Core Neural Infrastructure & Cognitive Cloud">Core Neural Infrastructure & Cognitive Cloud</option>
-									<option value="Labs: Custom Models & Local Inference">Labs: Custom Models & Local Inference</option>
+									<option value="Core Neural Infrastructure & Cognitive Cloud">Core: MVP Build</option>
+									<option value="Labs: Custom Models & Local Inference">Labs: Custom Model Deployment & Local Inference</option>
 									<option value="Agency: Synthetic Engines & Growth Analytics">Agency: Synthetic Engines & Growth Analytics</option>
 								</select>
 							</div>
@@ -468,8 +354,8 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 		<footer class="footer">
 			<div class="footer-inner container">
 				<div class="footer-brand">
-					<h3 class="footer-cta-title">Stay close to <span class="italic-serif">Exponential Functions</span></h3>
-					<p class="footer-brand-tagline">Updates on neural infrastructure, agentic workflows, and what's provisioning.</p>
+					<h3 class="footer-cta-title"><span class="italic-serif">Exponential Functions</span></h3>
+					<p class="footer-brand-tagline">Updates on neural infrastructure, agentic workflows and what's provisioning.</p>
 					
 					<form class="footer-subscribe-form" id="subscribe-form">
 						<input type="email" placeholder="Enter your email" required class="subscribe-input" id="subscribe-email" />
@@ -479,23 +365,10 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 				
 				<div class="footer-links-grid">
 					<div class="footer-links-col">
-						<span class="font-mono footer-col-title">SYSTEM</span>
-						<a href="#architecture">Specifications</a>
-						<a href="#observability">Console Log</a>
-						<a href="#connect">Handshake</a>
+						<span class="font-mono footer-col-title">ABOUT US</span>
 					</div>
 					<div class="footer-links-col">
-						<span class="font-mono footer-col-title">GLOBAL HUBS</span>
-						<a href="#connect">San Francisco</a>
-						<a href="#connect">Mumbai AI Hub</a>
-						<a href="#connect">Pune AI Company</a>
-						<a href="#connect">Bengaluru AI Startups</a>
-						<a href="#connect">Stockholm Research</a>
-					</div>
-					<div class="footer-links-col">
-						<span class="font-mono footer-col-title">LEGAL & GOVERNANCE</span>
-						<a href="#">Terms of Protocol</a>
-						<a href="#">Privacy Schema</a>
+						<span class="font-mono footer-col-title">BLOGS</span>
 					</div>
 				</div>
 			</div>
@@ -504,10 +377,8 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 				<p class="copyright">Exponential Functions &copy; {new Date().getFullYear()}</p>
 				
 				<div class="footer-socials">
-					<a href="#" aria-label="GitHub">GH</a>
-					<a href="#" aria-label="Hugging Face">HF</a>
 					<a href="#" aria-label="Twitter / X">X</a>
-					<a href="#" aria-label="Discord">DC</a>
+					<a href="#" aria-label="Email">Mail</a>
 				</div>
 			</div>
 
@@ -855,249 +726,8 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 		gap: 2rem;
 	}
 
-	/* Topology Section Styles */
-	.topology-section {
-		padding: 100px 0;
-		border-top: 1px solid var(--border-color);
-		position: relative;
-		z-index: 5;
-		transition: border-color 0.8s ease;
-	}
-
-	.topology-layout {
-		display: grid;
-		grid-template-columns: 1.1fr 1.9fr;
-		gap: 2.5rem;
-		margin-top: 2rem;
-	}
-
-	.topology-selector {
-		display: flex;
-		flex-direction: column;
-		border: 1px solid var(--border-color);
-		background: var(--bg-secondary);
-		transition: border-color 0.8s ease, background-color 0.8s ease;
-	}
-
-	.topology-tab {
-		background: transparent;
-		border: none;
-		border-bottom: 1px solid var(--border-color);
-		padding: 1.5rem;
-		text-align: left;
-		cursor: pointer;
-		display: flex;
-		flex-direction: column;
-		gap: 6px;
-		position: relative;
-		transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-		outline: none;
-	}
-
-	.topology-tab:last-child {
-		border-bottom: none;
-	}
-
-	.topology-tab::before {
-		content: '';
-		position: absolute;
-		left: 0;
-		top: 0;
-		bottom: 0;
-		width: 3px;
-		background: transparent;
-		transition: background-color 0.4s ease;
-	}
-
-	.topology-tab:hover {
-		background: var(--bg-tertiary);
-	}
-
-	.topology-tab.active {
-		background: var(--bg-tertiary);
-	}
-
-	.topology-tab.active::before {
-		background: var(--accent);
-	}
-
-	.tab-num {
-		font-size: 0.7rem;
-		color: var(--accent);
-	}
-
-	.tab-title {
-		font-family: 'Plus Jakarta Sans', sans-serif;
-		font-size: 1.05rem;
-		font-weight: 500;
-		color: var(--text-primary);
-		transition: color 0.8s ease;
-	}
-
-	.tab-sub {
-		font-size: 0.65rem;
-		color: var(--text-muted);
-	}
-
-	.topology-inspector {
-		border: 1px solid var(--border-color);
-		background: var(--bg-secondary);
-		padding: 2.5rem;
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		transition: border-color 0.8s ease, background-color 0.8s ease;
-	}
-
-	.inspector-header {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		border-bottom: 1px solid var(--border-color);
-		padding-bottom: 1rem;
-		margin-bottom: 2rem;
-		transition: border-color 0.8s ease;
-	}
-
-	.inspector-label {
-		font-size: 0.75rem;
-		color: var(--text-muted);
-	}
-
-	.inspector-status {
-		font-size: 0.7rem;
-		color: var(--accent);
-		display: flex;
-		align-items: center;
-		gap: 6px;
-	}
-
-	.inspector-status::before {
-		content: '';
-		width: 5px;
-		height: 5px;
-		background: var(--accent);
-		border-radius: 50%;
-		box-shadow: 0 0 8px var(--accent);
-	}
-
-	.inspector-content {
-		display: grid;
-		grid-template-columns: 1.2fr 1fr;
-		gap: 2rem;
-		align-items: start;
-	}
-
-	.inspector-title {
-		font-size: 2.2rem;
-		color: var(--text-primary);
-		margin-bottom: 1rem;
-		transition: color 0.8s ease;
-	}
-
-	.inspector-desc {
-		font-size: 0.9rem;
-		color: var(--text-secondary);
-		line-height: 1.6;
-		margin-bottom: 2rem;
-		font-weight: 300;
-		transition: color 0.8s ease;
-	}
-
-	.inspector-metrics {
-		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
-	}
-
-	.metric-item {
-		display: flex;
-		flex-direction: column;
-		gap: 4px;
-	}
-
-	.metric-label {
-		font-size: 0.65rem;
-		color: var(--text-muted);
-	}
-
-	.metric-val {
-		font-size: 1.15rem;
-		color: var(--text-primary);
-		font-family: 'Instrument Serif', serif;
-		transition: color 0.8s ease;
-	}
-
-	.inspector-visualization {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1.5rem;
-	}
-
-	.blueprint-canvas {
-		transition: transform 0.5s ease;
-	}
-
-	.blueprint-group {
-		transform-origin: 100px 100px;
-		animation: blueprintSpin 24s linear infinite;
-	}
-
-	#ins-path-1 {
-		stroke-dasharray: 12, 6;
-		animation: drawTopologyPath 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards, pulsePathFlow 1.5s linear infinite;
-	}
-
-	@keyframes drawTopologyPath {
-		from {
-			opacity: 0;
-			stroke-dashoffset: 100;
-		}
-		to {
-			opacity: 1;
-			stroke-dashoffset: 0;
-		}
-	}
-
-	@keyframes pulsePathFlow {
-		from {
-			stroke-dashoffset: 0;
-		}
-		to {
-			stroke-dashoffset: -36;
-		}
-	}
-
-	.config-block {
-		background: #020203;
-		border: 1px solid #1f1f23;
-		padding: 1rem;
-		width: 100%;
-		border-radius: 4px;
-		overflow-x: auto;
-	}
-
-	.config-block code {
-		color: #4ade80;
-		font-size: 0.7rem;
-		display: block;
-		white-space: pre-wrap;
-	}
-
-	@keyframes blueprintSpin {
-		from { transform: rotate(0deg); }
-		to { transform: rotate(360deg); }
-	}
-
-	@media (max-width: 1024px) {
-		.topology-layout {
-			grid-template-columns: 1fr;
-		}
-		.inspector-content {
-			grid-template-columns: 1fr;
-			gap: 3rem;
-		}
+	.specs-grid-4 {
+		grid-template-columns: repeat(4, 1fr);
 	}
 
 	/* Console Section */
@@ -1598,6 +1228,9 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 			width: 100%;
 			margin-top: 2rem;
 		}
+		.hero-actions > div {
+			width: 100%;
+		}
 		.hero-actions .btn {
 			width: 100%;
 			justify-content: center;
@@ -1608,47 +1241,6 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 		}
 		.specs-grid {
 			grid-template-columns: 1fr;
-		}
-		.topology-selector {
-			flex-direction: row;
-			overflow-x: auto;
-			border-bottom: 1px solid var(--border-color);
-			scrollbar-width: none;
-		}
-		.topology-selector::-webkit-scrollbar {
-			display: none;
-		}
-		.topology-tab {
-			flex-shrink: 0;
-			border-bottom: none;
-			border-right: 1px solid var(--border-color);
-			width: 155px;
-			padding: 1.1rem;
-		}
-		.topology-tab:last-child {
-			border-right: none;
-		}
-		.topology-tab::before {
-			left: 0;
-			bottom: 0;
-			right: 0;
-			top: auto;
-			width: 0;
-			height: 2px;
-		}
-		.topology-tab.active::before {
-			width: 100%;
-			height: 2px;
-		}
-		.topology-inspector {
-			padding: 1.5rem;
-		}
-		.inspector-title {
-			font-size: 1.8rem;
-		}
-		.blueprint-canvas {
-			max-width: 100%;
-			height: auto;
 		}
 		.console-body {
 			font-size: 0.72rem;
@@ -1727,19 +1319,6 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 		}
 		.section-title {
 			font-size: 1.65rem;
-		}
-		.topology-inspector {
-			padding: 1.25rem;
-		}
-		.inspector-header {
-			margin-bottom: 1.25rem;
-		}
-		.inspector-title {
-			font-size: 1.5rem;
-		}
-		.inspector-desc {
-			font-size: 0.82rem;
-			margin-bottom: 1.5rem;
 		}
 		.split-col {
 			padding: 2.5rem 1.25rem;
@@ -1904,163 +1483,6 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 	}
 	setInterval(updateLiveTime, 1000);
 	updateLiveTime();
-
-	// Topology data dictionary
-	const topologies = {
-		cloud: {
-			title: "Decentralized Synaptic Cloud",
-			desc: "Sovereign compute fabrics bridging local node arrays with distributed edge nodes, eliminating egress overhead.",
-			m1: "< 4.8ms",
-			m2: "140 GB/s",
-			m3: "ZERO_EGRESS",
-			path: "M100,50 L150,100 L100,150 L50,100 Z",
-			dots: [
-				{ cx: 100, cy: 50 },
-				{ cx: 150, cy: 100 },
-				{ cx: 100, cy: 150 },
-				{ cx: 50, cy: 100 }
-			],
-			code: `{\n  "topology": "synaptic-cloud",\n  "hubs": ["sf-node-01", "tokyo-edge-04"],\n  "protocols": ["quic-cognitive"],\n  "egress_routing": "zero-overhead"\n}`
-		},
-		agents: {
-			title: "Agentic Orchestration Graphs",
-			desc: "Multi-agent resilient pipelines executed via graph-based directed acyclic routing, managing state across networks.",
-			m1: "2048 Nodes",
-			m2: "12,000 ops/s",
-			m3: "MUTABLE_STATE",
-			path: "M50,50 L100,100 L150,50 L100,150 Z",
-			dots: [
-				{ cx: 50, cy: 50 },
-				{ cx: 100, cy: 100 },
-				{ cx: 150, cy: 50 },
-				{ cx: 100, cy: 150 }
-			],
-			code: `{\n  "graph_type": "directed-acyclic-state-machine",\n  "max_concurrent_agents": 2048,\n  "routing_nodes": ["memory-buffer", "evaluator-loop", "action-dispatch"],\n  "fallback_strategy": "isolated-cognitive-restart"\n}`
-		},
-		llms: {
-			title: "Sovereign Tensor Arrays",
-			desc: "Deploying high-performance open-weights models within air-gapped secure infrastructures with zero third-party dependencies.",
-			m1: "405B Parameters",
-			m2: "FP8-E4M3",
-			m3: "AIR_GAPPED",
-			path: "M100,30 A70,70 0 1,0 100,170 A70,70 0 1,0 100,30 Z",
-			dots: [
-				{ cx: 100, cy: 30 },
-				{ cx: 170, cy: 100 },
-				{ cx: 100, cy: 170 },
-				{ cx: 30, cy: 100 }
-			],
-			code: `{\n  "model_architecture": "custom-open-weights-405B",\n  "quantization_precision": "FP8-E4M3",\n  "inference_engine": "vllm-optimized-local-metal",\n  "air_gapped": true\n}`
-		},
-		infra: {
-			title: "Neural Metal Provisioning",
-			desc: "Autonomous virtualization layers managing cluster node provisioning, temperature throttling, and scheduling.",
-			m1: "64 Clusters",
-			m2: "Bare-Metal",
-			m3: "AUTO_THROTTLE",
-			path: "M50,100 L100,50 L150,100 L100,150 L50,100 L150,100 M100,50 L100,150",
-			dots: [
-				{ cx: 50, cy: 100 },
-				{ cx: 100, cy: 50 },
-				{ cx: 150, cy: 100 },
-				{ cx: 100, cy: 150 }
-			],
-			code: `{\n  "metal_hypervisor": "bare-metal-sched-v2",\n  "cluster_nodes": 64,\n  "load_balancing": "synaptic-weight-distribution",\n  "thermal_mitigation": "active-core-throttling"\n}`
-		},
-		observability: {
-			title: "Entropy & Drift Observability",
-			desc: "Real-time signal diagnostics tracking latent representation anomalies, layer activations, and data drift vectors.",
-			m1: "1ms Pulse",
-			m2: "Cosine-Dist",
-			m3: "DRIFT_ALERT",
-			path: "M30,100 C50,20 150,20 170,100 C150,180 50,180 30,100 Z",
-			dots: [
-				{ cx: 30, cy: 100 },
-				{ cx: 100, cy: 60 },
-				{ cx: 170, cy: 100 },
-				{ cx: 100, cy: 140 }
-			],
-			code: `{\n  "telemetry_stream": "lattice-pulse-audit-v4",\n  "anomaly_metrics": ["cosine-distance", "entropy-drift-vector"],\n  "audit_resolution": "1ms-continuous",\n  "drift_alert_threshold": 0.05\n}`
-		},
-		analytics: {
-			title: "Signal Synthesis Engines",
-			desc: "Extracting actionable insights from high-velocity data streams by mapping complex events to structured neural vectors.",
-			m1: "2.4M items/s",
-			m2: "Multi-Modal",
-			m3: "SYNAPTIC_KV",
-			path: "M40,40 L160,160 M160,40 L40,160",
-			dots: [
-				{ cx: 40, cy: 40 },
-				{ cx: 160, cy: 40 },
-				{ cx: 160, cy: 160 },
-				{ cx: 40, cy: 160 }
-			],
-			code: `{\n  "ingestion_velocity": "2.4M-items-sec",\n  "latent_extraction": "multi-modal-vector-mapper",\n  "synthesized_output": "structured-semantic-signals",\n  "context_retrieval": "synaptic-kv-store"\n}`
-		}
-	};
-
-	const tabs = document.querySelectorAll('.topology-tab');
-	const insTitle = document.getElementById('ins-title');
-	const insDesc = document.getElementById('ins-desc');
-	const insM1 = document.getElementById('ins-m1');
-	const insM2 = document.getElementById('ins-m2');
-	const insM3 = document.getElementById('ins-m3');
-	const insPath = document.getElementById('ins-path-1');
-	const insCode = document.getElementById('ins-code');
-	const dots = [
-		document.getElementById('node-dot-1'),
-		document.getElementById('node-dot-2'),
-		document.getElementById('node-dot-3'),
-		document.getElementById('node-dot-4')
-	];
-
-	tabs.forEach(tab => {
-		tab.addEventListener('click', (e) => {
-			const target = e.currentTarget as HTMLElement;
-			const key = target.dataset.topology as keyof typeof topologies;
-			const data = topologies[key];
-			if (!data) return;
-
-			// Active classes
-			tabs.forEach(t => t.classList.remove('active'));
-			target.classList.add('active');
-
-			// Update Text & Codes
-			if (insTitle) insTitle.textContent = data.title;
-			if (insDesc) insDesc.textContent = data.desc;
-			if (insM1) insM1.textContent = data.m1;
-			if (insM2) insM2.textContent = data.m2;
-			if (insM3) insM3.textContent = data.m3;
-			if (insCode) insCode.textContent = data.code;
-
-			// Update SVG Path & Animate
-			if (insPath) {
-				insPath.setAttribute('d', data.path);
-				// Reset animation
-				insPath.style.animation = 'none';
-				insPath.offsetHeight;
-				insPath.style.animation = '';
-			}
-
-			// Update node dots
-			data.dots.forEach((dot, index) => {
-				const htmlDot = dots[index];
-				if (htmlDot) {
-					htmlDot.setAttribute('cx', dot.cx.toString());
-					htmlDot.setAttribute('cy', dot.cy.toString());
-				}
-			});
-
-			// Status bleeping animation
-			const syncStatus = document.getElementById('inspector-sync-status');
-			if (syncStatus) {
-				syncStatus.textContent = 'SYNCING';
-				setTimeout(() => {
-					syncStatus.textContent = 'SYNCED';
-				}, 600);
-			}
-		});
-	});
 
 	// Handshake Mailto Handlers
 	const targetEmails = ['kedarsathe49@gmail.com', 'akhileshnawle48@gmail.com'];
