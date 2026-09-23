@@ -4,6 +4,7 @@ import BrandSwitcher from '../components/BrandSwitcher.astro';
 import NeuralBackground from '../components/NeuralBackground.astro';
 import MetricCard from '../components/MetricCard.astro';
 import IndustrySolutions from '../components/IndustrySolutions.astro';
+import AboutDossier from '../components/AboutDossier.astro';
 import NvidiaDgxVisualizer from '../components/NvidiaDgxVisualizer.astro';
 import AgentWorkflowVisual from '../components/AgentWorkflowVisual.astro';
 import EcosystemCanvas from '../components/EcosystemCanvas.astro';
@@ -27,6 +28,7 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 				<BrandSwitcher />
 				
 				<nav class="nav-desktop">
+					<a href="#about" class="nav-link" data-about-trigger>About</a>
 					<a href="#connect" class="nav-link contact-btn">Briefing</a>
 				</nav>
 
@@ -40,6 +42,7 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 		<!-- Mobile Full-screen Navigation Menu Overlay -->
 		<div id="mobile-menu" class="mobile-menu-overlay">
 			<nav class="mobile-nav">
+				<a href="#about" class="mobile-nav-link" data-about-trigger>About</a>
 				<a href="#connect" class="mobile-nav-link mobile-contact-btn">Briefing</a>
 			</nav>
 		</div>
@@ -81,7 +84,7 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 
 				<div class="hero-actions">
 					<a href="#connect" class="btn btn-primary">
-						<span>Initiate Technical Brief</span>
+						<span>Initiate Conversation</span>
 						<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 						</svg>
@@ -194,28 +197,28 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 				<div class="specs-grid specs-grid-4">
 					<MetricCard
 						label="LABS_MODEL_01"
-						value="Qwen"
+						value="Qwen 3.8"
 						title="Instruction & Tool-Use Alignment"
 						description="Our primary general-purpose family for agentic tool calling and domain instruction tuning on client corpora."
 						status="FINE-TUNED"
 					/>
 					<MetricCard
 						label="LABS_MODEL_02"
-						value="DeepSeek"
+						value="DeepSeek V4 Flash"
 						title="Reasoning & Code Synthesis"
 						description="Used for long-horizon reasoning chains, code generation and structured planning inside agentic workflows."
 						status="DEPLOYED"
 					/>
 					<MetricCard
 						label="LABS_MODEL_03"
-						value="GLM"
+						value="GLM 5.2"
 						title="Multilingual Enterprise Dialogue"
 						description="Bilingual and multilingual assistants for support, retrieval and document understanding workloads."
 						status="TUNING"
 					/>
 					<MetricCard
 						label="LABS_MODEL_04"
-						value="Kimi"
+						value="Kimi K2"
 						title="Long-Context Document Analysis"
 						description="Extended context windows for whole-repository, contract and knowledge-base comprehension tasks."
 						status="EVALUATING"
@@ -228,7 +231,7 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 		<div class="brand-show-agency">
 			<section id="agency-characteristics" class="specs-section container">
 				<div class="section-header">
-					<div class="font-mono section-label" style="color: var(--accent);">TECHNICAL DATA</div>
+					<div class="font-mono section-label" style="color: var(--accent);">What We Do?</div>
 					<h2 class="section-title">System Characteristics</h2>
 					<p class="hero-subtitle" style="margin-top: 1rem; margin-bottom: 0;">
 						The parameters our growth engines operate on across every campaign and channel.
@@ -339,7 +342,7 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 								<textarea id="note" rows="3" placeholder="Outline model requirements, compliance limits, or creative goals..."></textarea>
 							</div>
 							<button type="submit" class="btn btn-primary form-submit">
-								<span>Request Handshake</span>
+								<span>Connect</span>
 								<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
 									<path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 								</svg>
@@ -355,17 +358,18 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 			<div class="footer-inner container">
 				<div class="footer-brand">
 					<h3 class="footer-cta-title"><span class="italic-serif">Exponential Functions</span></h3>
-					<p class="footer-brand-tagline">Updates on neural infrastructure, agentic workflows and what's provisioning.</p>
+					<p class="footer-brand-tagline"></p>
 					
-					<form class="footer-subscribe-form" id="subscribe-form">
-						<input type="email" placeholder="Enter your email" required class="subscribe-input" id="subscribe-email" />
-						<button type="submit" class="subscribe-btn">Subscribe</button>
-					</form>
 				</div>
 				
 				<div class="footer-links-grid">
 					<div class="footer-links-col">
-						<span class="font-mono footer-col-title">ABOUT US</span>
+						<a href="#about" class="font-mono footer-col-title footer-col-link" data-about-trigger>
+							<span>ABOUT US</span>
+							<svg width="10" height="10" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</a>
 					</div>
 					<div class="footer-links-col">
 						<span class="font-mono footer-col-title">BLOGS</span>
@@ -386,6 +390,9 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 				EXPONENTIΛL
 			</div>
 		</footer>
+
+		<!-- About Us dossier overlay (opened from the nav / footer) -->
+		<AboutDossier />
 	</main>
 </Layout>
 
@@ -1091,6 +1098,20 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 		font-size: 0.7rem;
 		margin-bottom: 1.5rem;
 		display: block;
+	}
+
+	.footer-col-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		text-decoration: none;
+		cursor: pointer;
+		transition: color 0.3s ease, gap 0.3s ease;
+	}
+
+	.footer-col-link:hover {
+		color: var(--accent);
+		gap: 12px;
 	}
 
 	.footer-links-col {

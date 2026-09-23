@@ -1,0 +1,944 @@
+---
+// AboutDossier.astro - Full-screen "About Us" dossier, opened from the footer / nav.
+// Styled after the Cross-Domain Matrix: mono column headers, quiet body copy, and
+// accent-highlighted terms that reveal the stack sitting behind them on hover.
+import TechIcons from './TechIcons.astro';
+
+// i = sprite symbol slug (see TechIcons.astro) | m = monogram fallback where we don't ship a logo
+const DOMAINS = [
+  {
+    idx: '01',
+    name: 'Physical AI',
+    tag: 'ROBOT TRAINING DATA OPERATIONS',
+    paras: [
+      [
+        'Our team members have worked on ',
+        {
+          kw: 'egocentric, exocentric and teleoperation data pipelines',
+          title: 'CAPTURE MODALITIES',
+          chips: [
+            { n: 'Egocentric', m: 'EG' },
+            { n: 'Exocentric', m: 'EX' },
+            { n: 'Teleoperation', m: 'TO' },
+            { n: 'Multi-view Sync', m: 'MV' }
+          ]
+        },
+        ' for robot training, carrying ',
+        {
+          kw: 'annotation, QA and dataset delivery',
+          title: 'PIPELINE STAGES',
+          chips: [
+            { n: 'Annotation', m: 'AN' },
+            { n: 'Multi-pass QA', m: 'QA' },
+            { n: 'Dataset Delivery', m: 'DD' }
+          ]
+        },
+        ' end to end. That work was ',
+        {
+          kw: 'delivered for frontier robotics and AI research groups',
+          title: 'CLIENT PROFILES',
+          chips: [
+            { n: 'Frontier AI Research Lab', m: 'AI' },
+            { n: 'Humanoid Robotics OEM', m: 'RB' },
+            { n: 'Accelerated Compute Vendor', m: 'GPU' },
+            { n: 'Deep-tech Investment Group', m: 'VC' }
+          ]
+        },
+        ', for a YC-backed startup.'
+      ],
+      [
+        'To carry it we built a ',
+        {
+          kw: 'platform for large video datasets',
+          title: 'STORAGE & DELIVERY',
+          chips: [
+            { n: 'Amazon S3', i: 'amazons3' },
+            { n: 'Google Cloud Storage', i: 'googlecloudstorage' },
+            { n: 'Multipart Upload', m: 'MU' },
+            { n: 'CDN Edge Delivery', m: 'CDN' },
+            { n: 'Metadata Indexing', m: 'MI' }
+          ]
+        },
+        ' — upload, storage and retrieval that stays quick when one capture session runs to terabytes. The pipelines covered ',
+        {
+          kw: 'seven operating environments',
+          title: 'INDUSTRIES COVERED',
+          chips: [
+            { n: 'Manufacturing & Assembly', m: 'MF' },
+            { n: 'Warehousing & Logistics', m: 'WL' },
+            { n: 'Healthcare & Surgical', m: 'HC' },
+            { n: 'Food Service & Kitchens', m: 'FS' },
+            { n: 'Retail & Inventory', m: 'RT' },
+            { n: 'Construction & Field', m: 'CN' },
+            { n: 'Domestic & Household', m: 'DH' }
+          ]
+        },
+        ', from assembly lines to household tasks.'
+      ]
+    ]
+  },
+  {
+    idx: '02',
+    name: 'Software Development',
+    tag: 'PLATFORMS, AGENTS & DATA',
+    paras: [
+      [
+        'An employee and payroll management system fronted by an ',
+        {
+          kw: 'AI chatbot over company knowledge',
+          title: 'RAG & VECTOR STORES',
+          chips: [
+            { n: 'Pinecone', m: 'PC' },
+            { n: 'pgvector', i: 'postgresql' },
+            { n: 'Qdrant', i: 'qdrant' }
+          ]
+        },
+        '. A lead lifecycle tool assembled from parts that had to hold under load: an ',
+        {
+          kw: 'event-driven notification service',
+          title: 'MESSAGE BACKBONE',
+          chips: [
+            { n: 'RabbitMQ', i: 'rabbitmq' },
+            { n: 'Apache Kafka', i: 'apachekafka' },
+            { n: 'GCP Pub/Sub', i: 'googlepubsub' },
+            { n: 'AWS SQS', i: 'amazonsqs' },
+            { n: 'AWS SNS', m: 'SNS' },
+            { n: 'EventBridge', m: 'EB' }
+          ]
+        },
+        ', ',
+        {
+          kw: 'quotation generation',
+          title: 'WORKSPACE INTEGRATIONS',
+          chips: [
+            { n: 'Slack API', i: 'slack' },
+            { n: 'MS Teams Graph API', i: 'microsoftteams' }
+          ]
+        },
+        ' pushed into the channels teams already work in, and ',
+        {
+          kw: 'invoice billing',
+          title: 'PAYMENTS',
+          chips: [{ n: 'Razorpay', i: 'razorpay' }]
+        },
+        ' closing the loop.'
+      ],
+      [
+        'A ',
+        {
+          kw: 'resume screening and test-taking platform',
+          title: 'LLM COMPOSITION',
+          chips: [
+            { n: 'Generator Agent', m: 'GA' },
+            { n: 'Supervisor Agent', m: 'SA' },
+            { n: 'RAG Question Bank', m: 'RAG' },
+            { n: 'Voice AI', m: 'VA' }
+          ]
+        },
+        ' where questions are generated, then checked by a second model before a candidate ever sees them. And ',
+        {
+          kw: 'enterprise data migration',
+          title: 'LAKEHOUSE STACK',
+          chips: [
+            { n: 'Databricks', i: 'databricks' },
+            { n: 'Delta Lake', m: 'DL' },
+            { n: 'PySpark', i: 'apachespark' }
+          ]
+        },
+        ' across multiple business units of an enterprise insurance group.'
+      ]
+    ]
+  },
+  {
+    idx: '03',
+    name: 'DevOps & Monitoring',
+    tag: 'CLOUD, DELIVERY & OBSERVABILITY',
+    paras: [
+      [
+        'We moved systems ',
+        {
+          kw: 'from on-prem to cloud',
+          title: 'MIGRATION STACK',
+          chips: [
+            { n: 'AWS', i: 'amazonaws' },
+            { n: 'Google Cloud', i: 'googlecloud' },
+            { n: 'Terraform', i: 'terraform' },
+            { n: 'Docker', i: 'docker' }
+          ]
+        },
+        ' and set up ',
+        {
+          kw: 'blue / green deployments',
+          title: 'DELIVERY PIPELINE',
+          chips: [
+            { n: 'Amazon EKS', i: 'amazoneks' },
+            { n: 'Kubernetes', i: 'kubernetes' },
+            { n: 'Helm', i: 'helm' },
+            { n: 'Argo Rollouts', i: 'argo' },
+            { n: 'CI/CD Pipelines', m: 'CI' }
+          ]
+        },
+        ' so microservices ship without a maintenance window. ',
+        {
+          kw: 'Integration and performance analysis',
+          title: 'OBSERVABILITY',
+          chips: [
+            { n: 'Grafana', i: 'grafana' },
+            { n: 'Prometheus', i: 'prometheus' }
+          ]
+        },
+        ' runs continuously, and ',
+        {
+          kw: 'fine-tuned LLMs are monitored',
+          title: 'MODEL TELEMETRY',
+          chips: [
+            { n: 'Latency', m: 'LT' },
+            { n: 'Cost', m: 'CO' },
+            { n: 'Accuracy', m: 'AC' },
+            { n: 'Drift Tracking', m: 'DT' }
+          ]
+        },
+        ' on the same footing as everything else.'
+      ],
+      [
+        'Day to day that means ',
+        {
+          kw: 'AWS',
+          title: 'AWS SERVICES',
+          chips: [
+            { n: 'EKS', i: 'amazoneks' },
+            { n: 'EC2', i: 'amazonec2' },
+            { n: 'S3', i: 'amazons3' },
+            { n: 'SQS / SNS', i: 'amazonsqs' },
+            { n: 'EventBridge', m: 'EB' },
+            { n: 'CloudWatch', i: 'amazoncloudwatch' },
+            { n: 'Lambda', i: 'awslambda' }
+          ]
+        },
+        ' and ',
+        {
+          kw: 'GCP',
+          title: 'GCP SERVICES',
+          chips: [
+            { n: 'GKE', i: 'googlecloud' },
+            { n: 'Pub/Sub', i: 'googlepubsub' },
+            { n: 'Cloud Run', m: 'CR' },
+            { n: 'Cloud Storage', i: 'googlecloudstorage' },
+            { n: 'BigQuery', i: 'googlebigquery' },
+            { n: 'Cloud Tasks', m: 'CT' }
+          ]
+        },
+        ', picked per workload rather than per preference.'
+      ]
+    ]
+  },
+  {
+    idx: '04',
+    name: 'Content & Growth Marketing',
+    tag: 'BRAND, CREATIVE & DISTRIBUTION',
+    paras: [
+      [
+        {
+          kw: 'Brand strategy and positioning',
+          title: 'STRATEGY INPUTS',
+          chips: [
+            { n: 'Audience Research', m: 'AR' },
+            { n: 'Competitor Benchmarking', m: 'CB' },
+            { n: 'Niche Identification', m: 'NI' },
+            { n: 'Brand Voice & Pillars', m: 'BV' }
+          ]
+        },
+        ' comes before any asset — voice, messaging pillars and content themes set per platform, then ',
+        {
+          kw: 'campaign planning',
+          title: 'CAMPAIGN FRAME',
+          chips: [
+            { n: 'Defined Goals', m: 'GL' },
+            { n: 'Funnel Stages', m: 'FN' },
+            { n: 'Posting Calendars', m: 'PC' }
+          ]
+        },
+        ' that fixes the goals and the calendar.'
+      ],
+      [
+        {
+          kw: 'AI-powered creative production',
+          title: 'GENERATIVE VIDEO',
+          chips: [
+            { n: 'Higgsfield', m: 'HF' },
+            { n: 'Veo', m: 'VE' },
+            { n: 'Runway', m: 'RW' }
+          ]
+        },
+        ' turns out short-form ads, reels and product showcases, with ',
+        {
+          kw: 'rapid variations',
+          title: 'A/B DIMENSIONS',
+          chips: [
+            { n: 'Hooks', m: 'HK' },
+            { n: 'Visuals', m: 'VS' },
+            { n: 'CTAs', m: 'CT' }
+          ]
+        },
+        ' for testing and ',
+        {
+          kw: 'post-production',
+          title: 'FINISHING',
+          chips: [
+            { n: 'DaVinci Resolve', i: 'davinciresolve' },
+            { n: 'Color Grading', m: 'CG' },
+            { n: 'Captions', m: 'CP' },
+            { n: 'Platform Formatting', m: 'PF' }
+          ]
+        },
+        ' finished in house — faster and cheaper than a shoot, with no studio or talent logistics.'
+      ],
+      [
+        {
+          kw: 'Social media management',
+          title: 'DISTRIBUTION',
+          chips: [
+            { n: 'Meta API', i: 'meta' },
+            { n: 'Content Calendar', m: 'CC' },
+            { n: 'Scheduling & Publishing', m: 'SP' },
+            { n: 'Community Engagement', m: 'CE' }
+          ]
+        },
+        ' then runs end to end, with ',
+        {
+          kw: 'personalised content',
+          title: 'SEGMENTATION',
+          chips: [
+            { n: 'Audience Segment', m: 'AS' },
+            { n: 'Platform', m: 'PL' },
+            { n: 'Region', m: 'RG' }
+          ]
+        },
+        ' and a ',
+        {
+          kw: 'cadence tuned per format',
+          title: 'FORMAT MIX',
+          chips: [
+            { n: 'Reels', m: 'RL' },
+            { n: 'Carousels', m: 'CR' },
+            { n: 'Stories', m: 'ST' },
+            { n: 'Static Posts', m: 'ST' }
+          ]
+        },
+        '.'
+      ]
+    ]
+  }
+];
+---
+
+<TechIcons />
+
+<div class="about-overlay" id="about-overlay" role="dialog" aria-modal="true" aria-labelledby="about-heading" aria-hidden="true">
+  <div class="about-backdrop" data-about-close></div>
+
+  <div class="about-panel">
+    <div class="about-panel-inner">
+      <!-- Sticky header -->
+      <div class="about-topbar">
+        <span class="font-mono about-eyebrow">// ABOUT US </span>
+        <button class="about-close" id="about-close" type="button" aria-label="Close about">
+          <span class="font-mono">ESC</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 3L11 11M11 3L3 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Lede -->
+      <div class="about-lede">
+        <h2 class="about-title" id="about-heading">Twelve people, <span class="italic-serif">four practices</span></h2>
+        <p class="about-desc">
+          Exponential Functions is a team of twelve, assembled out of robotics data operations, enterprise software,
+          cloud infrastructure and growth marketing. Below is what we built before this &mdash; hover any highlighted
+          term to see the stack sitting behind it.
+        </p>
+      </div>
+
+      <!-- Domain grid -->
+      <div class="about-domains">
+        {DOMAINS.map((domain) => (
+          <div class="about-domain">
+            <div class="domain-header font-mono">
+              <span class="domain-idx">{domain.idx}</span>
+              <span class="domain-name">{domain.name}</span>
+            </div>
+            <span class="domain-tag font-mono">{domain.tag}</span>
+
+            {domain.paras.map((para) => (
+              <p class="domain-body">
+                {para.map((seg) => (
+                  typeof seg === 'string' ? <Fragment>{seg}</Fragment> : (
+                    /* Tags are joined tight: any whitespace around the absolutely
+                       positioned card would render as a stray space in the sentence. */
+                    <span class="kw" tabindex="0"
+                      ><span class="kw-text">{seg.kw}</span
+                      ><span class="kw-pop" role="tooltip">
+                        <span class="pop-head font-mono"><span class="pop-pulse"></span>{seg.title}</span>
+                        <span class="pop-chips">
+                          {seg.chips.map((chip: any) => (
+                            <span class="chip">
+                              {chip.i
+                                ? <svg class="chip-logo" viewBox="0 0 24 24" aria-hidden="true"><use href={`#ti-${chip.i}`} /></svg>
+                                : <span class="chip-mono font-mono">{chip.m}</span>}
+                              <span class="chip-name">{chip.n}</span>
+                            </span>
+                          ))}
+                        </span>
+                      </span
+                    ></span>
+                  )
+                ))}
+              </p>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <!-- Telemetry strip, mirroring the matrix -->
+      <div class="about-stream font-mono">
+        <span class="stream-pulse"></span>
+        <span class="stream-text">HOVER ANY HIGHLIGHTED TERM TO EXPAND ITS STACK</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* ---------- Overlay shell ---------- */
+  .about-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.45s;
+  }
+
+  .about-overlay.is-open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .about-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.62);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .about-panel {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    background: var(--bg-primary);
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    transform: translateY(24px);
+    transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-focus) transparent;
+  }
+
+  .about-overlay.is-open .about-panel {
+    transform: translateY(0);
+  }
+
+  .about-panel::-webkit-scrollbar { width: 6px; }
+  .about-panel::-webkit-scrollbar-thumb { background: var(--border-color); }
+
+  .about-panel-inner {
+    padding: 0 3rem 4rem;
+    min-height: 100%;
+    /* The same faint blueprint grid the rest of the site sits on */
+    background-image:
+      linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* ---------- Sticky top bar ---------- */
+  .about-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.35rem 3rem;
+    margin: 0 -3rem 2.5rem;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--bg-primary);
+  }
+
+  .about-eyebrow {
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.16em;
+    font-weight: 600;
+  }
+
+  .about-close {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.45rem 0.8rem;
+    cursor: pointer;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    flex-shrink: 0;
+    transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+  }
+
+  .about-close:hover {
+    color: var(--text-primary);
+    border-color: var(--border-focus);
+    background: var(--bg-secondary);
+  }
+
+  /* ---------- Lede ---------- */
+  .about-lede {
+    max-width: 780px;
+    margin-bottom: 3.5rem;
+  }
+
+  .about-title {
+    font-size: 2.6rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .about-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ---------- Domain grid ---------- */
+  .about-domains {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3.5rem 4rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px dashed var(--border-color);
+  }
+
+  .about-domain {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .domain-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+  }
+
+  .domain-idx { color: var(--accent); }
+  .domain-name { color: var(--text-primary); }
+
+  .domain-tag {
+    display: block;
+    font-size: 0.66rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin: 0.85rem 0 1.1rem;
+  }
+
+  .domain-body {
+    font-size: 0.9rem;
+    line-height: 1.85;
+    color: var(--text-secondary);
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .domain-body:last-child { margin-bottom: 0; }
+
+  /* ---------- Highlighted keyword ---------- */
+  .kw {
+    position: relative;
+    color: var(--text-primary);
+    font-weight: 500;
+    cursor: help;
+    outline: none;
+  }
+
+  .kw-text {
+    /* text-decoration follows every line fragment, so long terms stay marked when they wrap */
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    padding: 1px 2px;
+    margin: 0 -2px;
+    transition: color 0.3s ease, background-color 0.3s ease, text-decoration-color 0.3s ease;
+  }
+
+  .kw:hover .kw-text,
+  .kw:focus-visible .kw-text,
+  .kw.kw-open .kw-text {
+    color: var(--accent);
+    background-color: var(--accent-glow);
+  }
+
+  /* ---------- Hover popover ---------- */
+  .kw-pop {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    z-index: 30;
+    display: block;
+    width: max-content;
+    max-width: min(360px, 78vw);
+    padding: 0.85rem 0.9rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-focus);
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.35), 0 0 22px var(--accent-glow);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translate(calc(-50% + var(--pop-nudge, 0px)), -6px);
+    transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s;
+  }
+
+  .kw.pop-flip .kw-pop {
+    top: auto;
+    bottom: calc(100% + 12px);
+  }
+
+  .kw:hover .kw-pop,
+  .kw:focus-visible .kw-pop,
+  .kw.kw-open .kw-pop {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(calc(-50% + var(--pop-nudge, 0px)), 0);
+  }
+
+  /* Pointer notch, kept over the term even when the card is nudged sideways */
+  .kw-pop::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: calc(50% - var(--pop-nudge, 0px) - 3px);
+    width: 6px;
+    height: 6px;
+    background: var(--bg-secondary);
+    border-left: 1px solid var(--border-focus);
+    border-top: 1px solid var(--border-focus);
+    transform: rotate(45deg);
+  }
+
+  .kw.pop-flip .kw-pop::before {
+    top: auto;
+    bottom: -4px;
+    transform: rotate(225deg);
+  }
+
+  .pop-head {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.6rem;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    font-weight: 600;
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.7rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .pop-pulse {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    flex-shrink: 0;
+    animation: streamPulse 2s infinite ease-in-out;
+  }
+
+  .pop-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 10px 5px 6px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+
+  .chip:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+
+  .chip-logo {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    fill: var(--text-primary);
+    opacity: 0.85;
+    transition: fill 0.25s ease, opacity 0.25s ease;
+  }
+
+  .chip:hover .chip-logo {
+    fill: var(--accent);
+    opacity: 1;
+  }
+
+  .chip-mono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 18px;
+    height: 14px;
+    padding: 0 3px;
+    font-size: 0.5rem;
+    line-height: 1;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .chip-name {
+    font-family: 'Geist Mono', 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.02em;
+    color: var(--text-primary);
+    white-space: nowrap;
+    font-weight: 400;
+  }
+
+  /* ---------- Telemetry strip ---------- */
+  .about-stream {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+  }
+
+  .stream-pulse {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+    animation: streamPulse 2s infinite ease-in-out;
+  }
+
+  .stream-text {
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  @keyframes streamPulse {
+    0%, 100% { opacity: 0.4; transform: scale(0.9); }
+    50% { opacity: 1; transform: scale(1.4); }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1024px) {
+    .about-domains {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .about-panel-inner { padding: 0 2rem 3rem; }
+    .about-topbar { padding: 1.35rem 2rem; margin: 0 -2rem 2.5rem; }
+    .about-title { font-size: 2.1rem; }
+  }
+
+  @media (max-width: 600px) {
+    .about-panel-inner { padding: 0 1.25rem 2.5rem; }
+    .about-topbar { padding: 1rem 1.25rem; margin: 0 -1.25rem 2rem; }
+    .about-title { font-size: 1.7rem; }
+    .about-desc { font-size: 0.88rem; }
+    .about-lede { margin-bottom: 2.5rem; }
+    .domain-body { font-size: 0.86rem; }
+    .kw-pop { max-width: min(300px, 86vw); }
+    .about-stream { font-size: 0.62rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-overlay,
+    .about-panel,
+    .kw-pop { transition-duration: 0.01ms; }
+    .pop-pulse,
+    .stream-pulse { animation: none; }
+  }
+</style>
+
+<script>
+  function initAboutDossier() {
+    const overlay = document.getElementById('about-overlay');
+    const panel = overlay?.querySelector('.about-panel') as HTMLElement | null;
+    const closeBtn = document.getElementById('about-close');
+    if (!overlay || !panel) return;
+
+    let lastFocused: HTMLElement | null = null;
+
+    function openAbout() {
+      lastFocused = document.activeElement as HTMLElement;
+      overlay!.classList.add('is-open');
+      overlay!.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      // Cards can only be measured once the panel is laid out.
+      requestAnimationFrame(clampAll);
+      closeBtn?.focus();
+    }
+
+    function closeAbout() {
+      overlay!.classList.remove('is-open');
+      overlay!.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      overlay!.querySelectorAll('.kw.kw-open').forEach(k => k.classList.remove('kw-open'));
+      lastFocused?.focus();
+    }
+
+    document.querySelectorAll('[data-about-trigger]').forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        openAbout();
+      });
+    });
+
+    closeBtn?.addEventListener('click', closeAbout);
+    overlay.querySelectorAll('[data-about-close]').forEach(el => el.addEventListener('click', closeAbout));
+
+    document.addEventListener('keydown', (e) => {
+      if (!overlay.classList.contains('is-open')) return;
+
+      if (e.key === 'Escape') {
+        closeAbout();
+        return;
+      }
+
+      // aria-modal promises focus stays inside, so wrap it at both ends.
+      if (e.key !== 'Tab') return;
+      const focusable = overlay.querySelectorAll<HTMLElement>('button, [tabindex="0"]');
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      } else if (!overlay.contains(document.activeElement)) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
+
+    // --- Popover placement: keep every card inside the scrolling panel ---
+    const keywords = Array.from(overlay.querySelectorAll<HTMLElement>('.kw'));
+
+    const MARGIN = 14;
+
+    // Horizontal clamp. Runs for every card up front, not just on hover: a card left
+    // hanging past the panel edge would still count as overflow and let the panel be
+    // scrolled sideways, even while it is invisible.
+    function clampPopover(kw: HTMLElement) {
+      const pop = kw.querySelector('.kw-pop') as HTMLElement | null;
+      if (!pop) return null;
+
+      // Measure from a clean slate so repeat passes don't compound the nudge.
+      kw.style.setProperty('--pop-nudge', '0px');
+      const bounds = panel!.getBoundingClientRect();
+      const popRect = pop.getBoundingClientRect();
+
+      let nudge = 0;
+      if (popRect.left < bounds.left + MARGIN) nudge = bounds.left + MARGIN - popRect.left;
+      else if (popRect.right > bounds.right - MARGIN) nudge = bounds.right - MARGIN - popRect.right;
+      if (nudge !== 0) kw.style.setProperty('--pop-nudge', `${Math.round(nudge)}px`);
+
+      return { bounds, height: popRect.height };
+    }
+
+    function placePopover(kw: HTMLElement) {
+      kw.classList.remove('pop-flip');
+      const m = clampPopover(kw);
+      if (!m) return;
+
+      // Flip above the term when there isn't room beneath it.
+      const top = kw.getBoundingClientRect().bottom;
+      if (m.bounds.bottom - top < m.height + MARGIN) kw.classList.add('pop-flip');
+    }
+
+    function clampAll() {
+      keywords.forEach(clampPopover);
+    }
+
+    keywords.forEach(kw => {
+      kw.addEventListener('mouseenter', () => placePopover(kw));
+      kw.addEventListener('focus', () => placePopover(kw));
+
+      // Touch devices have no hover state, so they get tap-to-toggle.
+      kw.addEventListener('click', (e) => {
+        if (!window.matchMedia('(hover: none)').matches) return;
+        e.stopPropagation();
+        const wasOpen = kw.classList.contains('kw-open');
+        keywords.forEach(k => k.classList.remove('kw-open'));
+        if (!wasOpen) {
+          kw.classList.add('kw-open');
+          placePopover(kw);
+        }
+      });
+    });
+
+    panel.addEventListener('click', () => {
+      keywords.forEach(k => k.classList.remove('kw-open'));
+    });
+
+    let resizeTimer: number;
+    window.addEventListener('resize', () => {
+      if (!overlay.classList.contains('is-open')) return;
+      clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(clampAll, 150);
+    });
+  }
+
+  initAboutDossier();
+</script>
