@@ -347,6 +347,7 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 									<path d="M2.5 9.5L9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 								</svg>
 							</button>
+							<p class="font-mono form-status" id="handshake-status" aria-live="polite"></p>
 						</form>
 					</div>
 				</div>
@@ -1001,6 +1002,21 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 		width: max-content;
 	}
 
+	.form-submit:disabled {
+		opacity: 0.6;
+		cursor: wait;
+	}
+
+	.form-status {
+		min-height: 1.2em;
+		font-size: 0.75rem;
+		color: var(--text-secondary);
+	}
+
+	.form-status.is-error {
+		color: #ff6b6b;
+	}
+
 	.footer {
 		border-top: 1px solid var(--border-color);
 		background: var(--bg-secondary);
@@ -1505,46 +1521,55 @@ import SideNavIndicator from '../components/SideNavIndicator.astro';
 	setInterval(updateLiveTime, 1000);
 	updateLiveTime();
 
-	// Handshake Mailto Handlers
-	const targetEmails = ['pagudekaran2827@gmail.com', 'akhileshnawle48@gmail.com', 'somnath.ghadge@exponential-functions.com'];
+	// Handshake form → Web3Forms (public access key; only delivers to the registered inbox)
+	const WEB3FORMS_ACCESS_KEY = '3e314f1d-f828-426c-b9fa-1efea464b172';
 
-	const handshakeForm = document.getElementById('handshake-form');
+	const handshakeForm = document.getElementById('handshake-form') as HTMLFormElement | null;
 	if (handshakeForm) {
-		handshakeForm.addEventListener('submit', (e) => {
+		const submitBtn = handshakeForm.querySelector('.form-submit') as HTMLButtonElement;
+		const submitLabel = submitBtn.querySelector('span') as HTMLSpanElement;
+		const statusEl = document.getElementById('handshake-status') as HTMLParagraphElement;
+
+		const setStatus = (text: string, isError = false) => {
+			statusEl.textContent = text;
+			statusEl.classList.toggle('is-error', isError);
+		};
+
+		handshakeForm.addEventListener('submit', async (e) => {
 			e.preventDefault();
-			const emailInput = document.getElementById('email') as HTMLInputElement;
-			const stackInput = document.getElementById('stack') as HTMLSelectElement;
-			const noteInput = document.getElementById('note') as HTMLTextAreaElement;
+			const senderEmail = (document.getElementById('email') as HTMLInputElement).value;
+			const objective = (document.getElementById('stack') as HTMLSelectElement).value;
+			const briefing = (document.getElementById('note') as HTMLTextAreaElement).value;
 
-			const senderEmail = emailInput?.value || '';
-			const objective = stackInput?.value || '';
-			const briefing = noteInput?.value || '';
+			submitBtn.disabled = true;
+			submitLabel.textContent = 'Sending…';
+			setStatus('');
 
-			const subject = encodeURIComponent(`[Handshake Request] ${senderEmail}`);
-			const body = encodeURIComponent(
-				`Cognitive Handshake Request\n\n` +
-				`Sender Identity / Email: ${senderEmail}\n` +
-				`Objective / Interface Type: ${objective}\n` +
-				`Briefing Parameters:\n${briefing}\n\n` +
-				`Sent via Exponential Functions Portal`
-			);
+			try {
+				const res = await fetch('https://api.web3forms.com/submit', {
+					method: 'POST',
+					headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+					body: JSON.stringify({
+						access_key: WEB3FORMS_ACCESS_KEY,
+						subject: `[Handshake Request] ${senderEmail}`,
+						from_name: 'Exponential Functions Portal',
+						email: senderEmail,
+						replyto: senderEmail,
+						objective,
+						message: briefing || '(no briefing provided)',
+					}),
+				});
+				const data = await res.json();
+				if (!res.ok || !data.success) throw new Error(data.message || 'Submission failed');
 
-			const mailtoUri = `mailto:${targetEmails.join(',')}?subject=${subject}&body=${body}`;
-			window.location.href = mailtoUri;
-		});
-	}
-
-	const subscribeForm = document.getElementById('subscribe-form');
-	if (subscribeForm) {
-		subscribeForm.addEventListener('submit', (e) => {
-			e.preventDefault();
-			const subEmail = (document.getElementById('subscribe-email') as HTMLInputElement)?.value || '';
-
-			const subject = encodeURIComponent(`[Newsletter Subscription] ${subEmail}`);
-			const body = encodeURIComponent(`Please add ${subEmail} to the Exponential Functions updates and research list.`);
-
-			const mailtoUri = `mailto:${targetEmails.join(',')}?subject=${subject}&body=${body}`;
-			window.location.href = mailtoUri;
+				handshakeForm.reset();
+				setStatus('Message sent. We’ll be in touch shortly.');
+			} catch {
+				setStatus('Something went wrong. Please try again in a moment.', true);
+			} finally {
+				submitBtn.disabled = false;
+				submitLabel.textContent = 'Connect';
+			}
 		});
 	}
 </script>
